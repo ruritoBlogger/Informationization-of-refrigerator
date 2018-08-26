@@ -17,5 +17,10 @@
 
 
 	$(".header_right").hover(
-		$(".header_right").css("background-color","green");
+	    function() {
+            $(this).css("background-color", "green");
+        },
+        function() {
+            $(this).css("background-color", "black");
+        }
 	);
