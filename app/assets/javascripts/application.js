@@ -14,13 +14,15 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+$(function() {
 
-
-	$(".header_right").hover(
-	    function() {
-            $(this).css("background-color", "green");
+    $("#header_link").hover(
+        function () {
+            $("header").css("background-color", "green");
         },
-        function() {
-            $(this).css("background-color", "black");
+        function () {
+            $("header").css("background-color", "black");
         }
-	);
+    );
+});
+
