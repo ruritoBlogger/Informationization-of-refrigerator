@@ -13,7 +13,11 @@
 		    <header>
           		<div id="header_right">
                 		<div class="header_link">
-                			<%= link_to("冷蔵庫の情報化とは","/home/top") %>
+                			<%= link_to("/home/top") do %>
+                          <div class="header_link">
+                              冷蔵庫の情報化とは
+                          </div>
+                      <% end %>
                     </div>
               </div>
               <div id="header_left">
