@@ -14,3 +14,8 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+
+	$(".header_right").hover(
+		$(".header_right").css("background-color","green");
+	);
