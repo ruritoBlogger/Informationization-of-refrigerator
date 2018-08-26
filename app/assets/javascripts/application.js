@@ -16,12 +16,12 @@
 //= require_tree .
 $(function() {
 
-    $("#header_link").hover(
+    $("#header_toplinklink").hover(
         function () {
-            $("header").css("background-color", "green");
+            $(this).css("background-color", "green");
         },
         function () {
-            $("header").css("background-color", "black");
+            $(this).css("background-color", " #2E2F30");
         }
     );
 });
