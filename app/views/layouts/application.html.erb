@@ -1,28 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Informationization</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+  	<head>
+    		<title>Informationization</title>
+    		<%= csrf_meta_tags %>
+    		<%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+    		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    		<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  	</head>
 
-  <body>
-      <header>
-          <div id="header_right">
-              <div class="link">
-                  <%= link_to("冷蔵庫の情報化" "/") %>
-              </div>
-              <div class="lit">
-                  <p>開発の進捗</p>
-              </div>
-
-
-
-          </div>
-      </header>
-    <%= yield %>
-  </body>
+  	<body>
+		<header>
+          		<div id="header_right">
+                		<div class="link">
+                			<%= link_to("冷蔵庫の情報化とは" "/") %>
+              	  		</div>
+				<div class="header_left">
+                		</div>
+                	</div>
+      		</header>
+    	<%= yield %>
+  	</body>
 </html>
