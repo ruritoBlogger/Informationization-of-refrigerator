@@ -29,5 +29,13 @@ $(function() {
             $(this).css("background-color", " #2E2F30");
         }
     );
+    $("#header_new").hover(
+        function () {
+            $(this).css("background-color", "green");
+        },
+        function () {
+            $(this).css("background-color", " #2E2F30");
+        }
+    );
 });
 
