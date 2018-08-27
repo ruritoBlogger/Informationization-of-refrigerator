@@ -11,7 +11,7 @@
 
   	<body>
 		    <header>
-          		<div id="header_right">
+          		<div id="header_left">
                 		<div class="header_link">
                 			<%= link_to("/home/top") do %>
                           <div id="header_toplink">
@@ -27,7 +27,14 @@
                       </div>
                     </div>
               </div>
-              <div id="header_left">
+              <div id="header_right">
+                    <div class="header_link">
+                        <%= link_to("/home/new") do %>
+                            <div id="header_new">
+                                新規登録
+                            </div>
+                        <% end %>
+                    </div>
               </div>
         </header>
     <%= yield %>

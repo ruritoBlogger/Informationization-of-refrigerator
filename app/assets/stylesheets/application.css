@@ -22,8 +22,9 @@ header{
     opacity: 0.7;
 }
 
-#header_right{
+#header_left{
 	padding:0px 40px;
+    float:left;
 }
 
 #header_toplink{
@@ -46,6 +47,20 @@ header{
 
 .header_bar li{
     padding-bottom:10px;
+}
+
+#header_right{
+    float:right;
+}
+
+#header_new{
+    font-size:15px;
+    color:white;
+    border:none;
+    display: inline-block;
+    line-height:80px;
+    background-color: #2E2F30;
+    padding:0px 30px;
 }
 
 
