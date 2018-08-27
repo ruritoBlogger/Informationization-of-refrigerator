@@ -29,6 +29,11 @@ $(function() {
             $(this).css("background-color", " #2E2F30");
         }
     );
+
+    $("#header_toplink").click(function(){
+        $(this).css("background-color","blue");
+    });
+
     $("#header_new").hover(
         function () {
             $(this).css("background-color", "green");
@@ -37,5 +42,8 @@ $(function() {
             $(this).css("background-color", " #2E2F30");
         }
     );
+    $("#header_new").click(function(){
+        $(this).css("background-color","blue");
+    });
 });
 
