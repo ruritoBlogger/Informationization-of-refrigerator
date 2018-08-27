@@ -14,6 +14,11 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+// add by me
+//= require jquery
+//= require jquery_ujs
+
+
 $(function() {
 
     $("#header_toplinklink").hover(
