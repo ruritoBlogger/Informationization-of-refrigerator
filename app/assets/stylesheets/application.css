@@ -33,10 +33,19 @@ header{
     display: inline-block;
     line-height:80px;
     background-color: #2E2F30;
+    padding:0px 30px;
 }
 
-.header_bar{
+.header_bar ul{
+    padding:10px 20px;
+    background-color:black;
+    width:150px;
+    font-size:15px;
+    list-style-type: none;
+}
 
+.header_bar li{
+    padding-bottom:10px;
 }
 
 
