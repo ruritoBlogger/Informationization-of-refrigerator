@@ -1,5 +1,11 @@
 <h3>ログインページ</h3>
-<%= form_tag("") %>
+<%= form_tag("/user/login") do %>
+  <p>ユーザー名</p>
+  <input name="name">
+  <p>パスワード</p>
+  <input name="password" type="password">
+  <input type="submit" value="ログイン">
+<% end %>
 
 
 

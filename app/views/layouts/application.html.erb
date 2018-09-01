@@ -42,6 +42,8 @@
       <!-- ログインに成功したかなどの告知 -->
       <% if flash[:notice] %>
         <%= flash[:notice] %>
+      <% elsif flash[:notice_fail] %>
+        <%= flash[:notice_fail] %>
       <% end %>
 
       <!-- current_user -->
