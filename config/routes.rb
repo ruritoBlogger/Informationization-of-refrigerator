@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get "home/login" => "home#login"
 
   post "user/create" => "user#create"
+  post "user/login" => "user#login"
 
 
 
