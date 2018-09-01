@@ -41,6 +41,7 @@
       </div>
     </div>
   <% else %>
+    <!-- ログインしている時 -->
     <div class="header_left">
 
     </div>
@@ -51,6 +52,13 @@
             ログアウト
           </div>
         <% end %>
+      </div>
+      <div class="header_link">
+        <%= link_to("/main/setting") do %>
+        <div class="setting">
+          設定
+        </div>
+          <% end %>
       </div>
     </div>
     ログイン厨

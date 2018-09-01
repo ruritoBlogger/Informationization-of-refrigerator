@@ -9,6 +9,7 @@ class MainController < ApplicationController
     @user_name = @user.user_name
   end
 
-
+  def setting
+  end
 
 end
