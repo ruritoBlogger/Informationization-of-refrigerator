@@ -1,1 +1,7 @@
 <h3>ログインページ</h3>
+<% @users.each do |user| %>
+  <p>名前</p>
+  <%= user.user_name %>
+  <p>パスワード</p>
+  <%= user.password %>
+<% end %>

@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
-  get 'user/new'
-  get "/home/top" => "home#top"
-  get "/home/new" => "home#new"
+
+  get "main/profile" => "main#profile"
+
+  get "home/top" => "home#top"
+  get "home/new" => "home#new"
   get "home/login" => "home#login"
+
+  post "user/create" => "user#create"
+
+
+
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

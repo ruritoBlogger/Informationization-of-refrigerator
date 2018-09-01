@@ -7,6 +7,7 @@ class HomeController < ApplicationController
   end
 
   def login
+    @users = User.all
   end
 
 end
