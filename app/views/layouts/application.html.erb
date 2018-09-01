@@ -44,6 +44,9 @@
         <%= flash[:notice] %>
       <% end %>
 
+      <!-- current_user -->
+      <%= session[:user_id] %>
+
     </header>
     <%= yield %>
   </body>
