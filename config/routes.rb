@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post "user/create" => "user#create"
   post "user/login" => "user#login"
   post "user/logout" => "user#logout"
+  post "user/update" => "user#update"
 
 
 
