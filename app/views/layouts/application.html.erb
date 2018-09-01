@@ -1,42 +1,40 @@
 <!DOCTYPE html>
 <html>
-  	<head>
-    		<title>Informationization</title>
-    		<%= csrf_meta_tags %>
-    		<%= csp_meta_tag %>
-
-    		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    		<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  	</head>
-
-  	<body>
-		    <header>
-          		<div id="header_left">
-                		<div class="header_link">
-                			<%= link_to("/home/top") do %>
-                          <div id="header_toplink">
-                              冷蔵庫の情報化とは
-                          </div>
-                      <% end %>
-                      <div class="header_bar">
-                          <ul>
-                            <li>冷蔵庫の情報化とは</li>
-                            <li>情報化を行うメリット</li>
-                            <li>主な機能</li>
-                          </ul>
-                      </div>
-                    </div>
-              </div>
-              <div id="header_right">
-                    <div class="header_link">
-                        <%= link_to("/home/new") do %>
-                            <div id="header_new">
-                                新規登録
-                            </div>
-                        <% end %>
-                    </div>
-              </div>
-        </header>
+  <head>
+    <title>Informationization</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <header>
+      <div class="header_left">
+        <div class="header_link">
+          <%= link_to("/home/top") do %>
+            <div class="header_toplink">
+              冷蔵庫の情報化とは
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="header_right">
+        <div class="header_link">
+          <%= link_to("/home/new") do %>
+            <div id="header_new">
+              新規登録
+            </div>
+          <% end %>
+        </div>
+        <div class="header_link">
+          <%= link_to("/home/login") do %>
+          <div class="header_login">
+            ログイン
+          </div>
+            <% end %>
+        </div>
+      </div>
+    </header>
     <%= yield %>
-  	</body>
+  </body>
 </html>

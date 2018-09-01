@@ -22,38 +22,16 @@ header{
     opacity: 0.7;
 }
 
-#header_left{
+.header_left{
 	padding:0px 40px;
     float:left;
 }
 
-#header_toplink{
-    font-size:15px;
-    color:white;
-    border:none;
-    display: inline-block;
-    line-height:80px;
-    background-color: #2E2F30;
-    padding:0px 30px;
-}
-
-.header_bar ul{
-    padding:10px 20px;
-    background-color:black;
-    width:150px;
-    font-size:15px;
-    list-style-type: none;
-}
-
-.header_bar li{
-    padding-bottom:10px;
-}
-
-#header_right{
+.header_right{
     float:right;
 }
 
-#header_new{
+.header_new{
     font-size:15px;
     color:white;
     border:none;

@@ -21,7 +21,7 @@
 
 $(function() {
 
-    $("#header_toplink").hover(
+    $(".header_link").hover(
         function () {
             $(this).css("background-color", "green");
         },
@@ -30,11 +30,11 @@ $(function() {
         }
     );
 
-    $("#header_toplink").click(function(){
+    $(".header_link").click(function(){
         $(this).css("background-color","blue");
     });
 
-    $("#header_new").hover(
+    $(".header_link").hover(
         function () {
             $(this).css("background-color", "green");
         },
@@ -42,7 +42,7 @@ $(function() {
             $(this).css("background-color", " #2E2F30");
         }
     );
-    $("#header_new").click(function(){
+    $(".header_link").click(function(){
         $(this).css("background-color","blue");
     });
 });
