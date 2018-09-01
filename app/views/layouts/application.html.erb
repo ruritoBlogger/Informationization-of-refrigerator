@@ -1,55 +1,60 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Informationization</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-  <body>
+<head>
+  <title>Informationization</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
 
-    <header>
-      <!-- headerの左側 -->
-      <div class="header_left">
-        <div class="header_link">
-          <%= link_to("/home/top") do %>
-            <div class="header_toplink">
-              冷蔵庫の情報化とは
-            </div>
-          <% end %>
-        </div>
+<header>
+  <% if !(session[:user_id]) %>
+    <!-- ログインしていない時-->
+    <!-- headerの左側 -->
+    <div class="header_left">
+      <div class="header_link">
+        <%= link_to("/home/top") do %>
+          <div class="header_toplink">
+            冷蔵庫の情報化とは
+          </div>
+        <% end %>
       </div>
+    </div>
 
-      <!-- headerの右側-->
-      <div class="header_right">
-        <div class="header_link">
-          <%= link_to("/home/new") do %>
-            <div id="header_new">
-              新規登録
-            </div>
-          <% end %>
-        </div>
-        <div class="header_link">
-          <%= link_to("/home/login") do %>
+    <!-- headerの右側-->
+    <div class="header_right">
+      <div class="header_link">
+        <%= link_to("/home/new") do %>
+          <div id="header_new">
+            新規登録
+          </div>
+        <% end %>
+      </div>
+      <div class="header_link">
+        <%= link_to("/home/login") do %>
           <div class="header_login">
             ログイン
           </div>
-            <% end %>
-        </div>
+        <% end %>
       </div>
+    </div>
+  <% else %>
+    ログイン厨
+  <% end %>
 
-      <!-- ログインに成功したかなどの告知 -->
-      <% if flash[:notice] %>
-        <%= flash[:notice] %>
-      <% elsif flash[:notice_fail] %>
-        <%= flash[:notice_fail] %>
-      <% end %>
+  <!-- ログインに成功したかなどの告知 -->
+  <% if flash[:notice] %>
+    <%= flash[:notice] %>
+  <% elsif flash[:notice_fail] %>
+    <%= flash[:notice_fail] %>
+  <% end %>
 
-      <!-- current_user -->
-      <%= session[:user_id] %>
+  <!-- current_user -->
+  <%= session[:user_id] %>
 
-    </header>
-    <%= yield %>
-  </body>
+</header>
+<%= yield %>
+</body>
 </html>
