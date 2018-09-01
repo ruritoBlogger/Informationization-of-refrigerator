@@ -5,3 +5,7 @@
 <%= @user.password %>
 <p>プロフィール画像</p>
 <img src="<%= "/user_images/default.jpg" %>"  style="width:25%;">
+<%= form_tag("/main/edit",{method: :get}) do %>
+  <p>プロフィールの編集</p>
+  <input type="submit" value="編集">
+<% end %>

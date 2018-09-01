@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get "main/profile" => "main#profile"
+  get "main/edit" => "main#edit"
 
   get "home/top" => "home#top"
   get "home/new" => "home#new"
