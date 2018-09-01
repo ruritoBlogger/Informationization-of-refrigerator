@@ -22,7 +22,13 @@ class UserController < ApplicationController
       flash[:notice_fail] = "ログインに失敗しました"
       redirect_to("/home/login")
     end
+  end
 
+  #ログアウト
+  def logout
+    session[:user_id] = nil
+    flash[:notice] = "ログアウトに成功しました"
+    redirect_to("/home/login")
   end
 
 end

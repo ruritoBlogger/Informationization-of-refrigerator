@@ -27,7 +27,7 @@
     <div class="header_right">
       <div class="header_link">
         <%= link_to("/home/new") do %>
-          <div id="header_new">
+          <div class="header_new">
             新規登録
           </div>
         <% end %>
@@ -41,6 +41,18 @@
       </div>
     </div>
   <% else %>
+    <div class="header_left">
+
+    </div>
+    <div class="header_right">
+      <div class="header_link">
+        <%= link_to("/user/logout",{method: :post}) do %>
+          <div class="header_logout">
+            ログアウト
+          </div>
+        <% end %>
+      </div>
+    </div>
     ログイン厨
   <% end %>
 
