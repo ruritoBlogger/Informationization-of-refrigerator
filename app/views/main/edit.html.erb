@@ -1,10 +1,14 @@
 <h3>プロフィール編集</h3>
-<%= form_tag("/user/update") do %>
+<%= form_tag("/user/update",{multipart: true}) do %>
   <p>前のユーザー名</p><%= @user.user_name %>
   <p>新規ユーザー名</p>
   <input name="name" value='<%= @user_name %>'>
   <p>前のパスワード</p><%= @user.password %>
   <p>新規パスワード</p>
   <input name="password" type="password">
+  <p>前のプロフィール画像</p>
+  <img src='<%= "/user_images/default.jpg" %>' style="width:25%">
+  <p>新しいプロフィール画像</p>
+  <input type="file" name="image_name">
   <input type="submit" value="更新">
 <% end %>
