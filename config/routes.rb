@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'user/new'
   get "/home/top" => "home#top"
   get "/home/new" => "home#new"
   get "home/login" => "home#login"
