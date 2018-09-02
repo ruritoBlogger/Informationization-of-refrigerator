@@ -1,8 +1,8 @@
 <h3>プロフィールページ</h3>
 <p>ユーザー名</p>
 <%= @user.user_name %>
-<p>パスワード</p>
-<%= @user.password %>
+<p>自己紹介文</p>
+<%= @user.introduction %>
 <p>プロフィール画像</p>
 <img src="<%= "/user_images/#{@user.image_name}" %>"  style="width:25%;">
 <%= form_tag("/main/edit",{method: :get}) do %>

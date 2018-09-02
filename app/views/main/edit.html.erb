@@ -3,9 +3,10 @@
   <p>前のユーザー名</p><%= @user.user_name %>
   <p>新規ユーザー名</p>
   <input name="name" value='<%= @user_name %>'>
-  <p>前のパスワード</p><%= @user.password %>
-  <p>新規パスワード</p>
-  <input name="password" type="password">
+  <p>前の自己紹介文</p>
+  <%= @user.introduction %>
+  <p>新規自己紹介文</p>
+  <textarea name="introduction"></textarea>
   <p>前のプロフィール画像</p>
   <img src='<%= "/user_images/#{@user.image_name}" %>' style="width:25%;">
   <p>新しいプロフィール画像</p>

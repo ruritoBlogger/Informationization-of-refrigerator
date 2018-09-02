@@ -36,7 +36,7 @@ class UserController < ApplicationController
   def update
     @user = User.find_by(id: session[:user_id])
     @user.user_name = params[:name]
-    @user.password = params[:password]
+    @user.introduction = params[:introduction]
 
     #プロフィール画像の更新があった場合
     if params[:image_name]
