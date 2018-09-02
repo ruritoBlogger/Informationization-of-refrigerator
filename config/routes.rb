@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   post "user/login" => "user#login"
   post "user/logout" => "user#logout"
   post "user/update" => "user#update"
+  post "user/destroy" => "user#destroy"
 
 
 

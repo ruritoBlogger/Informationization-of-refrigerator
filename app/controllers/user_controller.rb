@@ -32,13 +32,21 @@ class UserController < ApplicationController
     redirect_to("/home/login")
   end
 
-    def update
+  def update
     @user = User.find_by(id: session[:user_id])
     @user.user_name = params[:name]
     @user.password = params[:password]
     @user.save
     flash[:notice] = "プロフィールを更新しました"
     redirect_to("/main/profile")
+  end
+
+  def destroy
+    user = User.find_by(id: session[:user_id])
+    user.destroy
+    session[:user_id] = nil
+    flash[:notice] = "退会しました"
+    redirect_to("/home/login")
   end
 
 end
