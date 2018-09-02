@@ -4,7 +4,7 @@ class UserController < ApplicationController
   def create
     @user = User.new(user_name: params[:name],
                      password: params[:password],
-                     user_image: "default.jpg")
+                     image_name: "default.jpg")
     @user.save
     session[:user_id] = @user.id
     flash[:notice] = "新規登録に成功しました"
