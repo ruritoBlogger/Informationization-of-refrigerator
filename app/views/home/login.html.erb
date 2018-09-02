@@ -18,5 +18,5 @@
   <p>パスワード</p>
   <%= user.password %>
   <p>画像</p>
-  <img src="<%= "/user_images/default.jpg" %>" style="width:10%;">
+  <img src="<%= "/user_images/#{user.image_name}" %>" style="width:10%;">
 <% end %>
