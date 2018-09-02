@@ -32,15 +32,28 @@ class UserController < ApplicationController
     redirect_to("/home/login")
   end
 
+  #プロフィールの更新
   def update
     @user = User.find_by(id: session[:user_id])
     @user.user_name = params[:name]
     @user.password = params[:password]
+
+    #プロフィール画像の更新があった場合
+    if params[:image_name]
+      @user.image_name = "#{@user.id}.jpg"
+      image = params[:image_name]
+      File.binwrite("public/user_images/#{@user.image_name}",image.read)
+    else
+      #プロフィール画像の更新がないときはデフォルトの画像
+      @user.image_name = "default.jpg"
+    end
+
     @user.save
     flash[:notice] = "プロフィールを更新しました"
     redirect_to("/main/profile")
   end
 
+  #退会
   def destroy
     user = User.find_by(id: session[:user_id])
     user.destroy

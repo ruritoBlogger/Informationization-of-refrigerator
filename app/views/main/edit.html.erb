@@ -7,7 +7,7 @@
   <p>新規パスワード</p>
   <input name="password" type="password">
   <p>前のプロフィール画像</p>
-  <img src='<%= "/user_images/default.jpg" %>' style="width:25%">
+  <img src='<%= "/user_images/#{@user.image_name}" %>' style="width:25%;">
   <p>新しいプロフィール画像</p>
   <input type="file" name="image_name">
   <input type="submit" value="更新">
