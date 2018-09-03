@@ -44,6 +44,13 @@
     <!-- ログインしている時 -->
     <div class="header_left">
       <div class="header_link">
+        <%= link_to("/food/main") do %>
+        <div class="header_main">
+          メインページ
+        </div>
+          <% end %>
+      </div>
+      <div class="header_link">
         <%= link_to("/food/new") do %>
           <div class="header_foodNew">
             食品登録
@@ -52,10 +59,10 @@
       </div>
       <div class="header_link">
         <%= link_to("/food/index") do %>
-        <div class="header_index">
-          食品一覧
-        </div>
-          <% end %>
+          <div class="header_index">
+            食品一覧
+          </div>
+        <% end %>
       </div>
     </div>
     <div class="header_right">
