@@ -9,6 +9,13 @@ class FoodController < ApplicationController
     @foods = Food1.all
   end
 
+  def main
+    @oldfoods = Food1.where(limitMonth: 9,
+                        limittype: true)
+
+    @Fleshfoods = Food1.where(limittype: false)
+  end
+
   #食品の新規登録を行う
   def create
     @food = Food1.new(user_id: session[:user_id],
@@ -23,4 +30,5 @@ class FoodController < ApplicationController
     flash[:notice] = "食べ物の新規登録を行いました"
     redirect_to("/food/new")
   end
+
 end

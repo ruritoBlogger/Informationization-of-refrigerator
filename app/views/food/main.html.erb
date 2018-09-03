@@ -1,0 +1,12 @@
+<p>メインページ</p>
+<h3>ピックアップ情報</h3>
+<p>賞味期限が迫っているもの</p>
+<% @oldfoods.each do |food| %>
+  <%= food.name %>
+  <%= food.limitMonth %>月<%= food.limitDay %>日まで
+<% end %>
+<p>消費期限の食べ物</p>
+<% @Fleshfoods.each do |food| %>
+  <%= food.name %>
+  <%= food.limitMonth %>月<%= food.limitDay %>日まで
+<% end %>
