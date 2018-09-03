@@ -19,16 +19,27 @@ class FoodController < ApplicationController
   #食品の新規登録を行う
   def create
     @food = Food1.new(user_id: session[:user_id],
-                      limittype: params[:limittype],
                       limitYear: params[:limitYear],
                       limitMonth: params[:limitMonth],
                       limitDay: params[:limitDay],
-                      foodtype: params[:foodtype],
                       amount: params[:amount],
                       name: params[:name])
+
+    if params[:limittype1]
+      @food.limittype = true
+    else
+      @food.limittype = false
+    end
+
+    if params[:foodtype1]
+      @food.foodtype = true
+    else
+      @food.foodtype = false
+    end
+
     @food.save
     flash[:notice] = "食べ物の新規登録を行いました"
-    redirect_to("/food/new")
+    redirect_to("/food/index")
   end
 
 end
