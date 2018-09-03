@@ -53,6 +53,14 @@ class UserController < ApplicationController
     redirect_to("/main/profile")
   end
 
+  def updatepw
+    @user = User.find_by(id: session[:user_id])
+    @user.password = params[:password]
+    @user.save
+    flash[:notice] = "個人情報を更新しました"
+    redirect_to("/main/setting")
+  end
+
   #退会
   def destroy
     user = User.find_by(id: session[:user_id])

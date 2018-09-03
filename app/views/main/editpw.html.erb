@@ -1,0 +1,7 @@
+<p>前のパスワード</p>
+<%= @user.password %>
+<p>新しいパスワード</p>
+<%= form_tag("/user/updatepw",{method: :post}) do %>
+  <input type="password" name="password">
+  <input type="submit" value="更新">
+<% end %>

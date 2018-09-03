@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get "main/profile" => "main#profile"
   get "main/edit" => "main#edit"
   get "main/setting" => "main#setting"
+  get "main/editpw" => "main#editpw"
 
   get "home/top" => "home#top"
   get "home/new" => "home#new"
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
   post "user/login" => "user#login"
   post "user/logout" => "user#logout"
   post "user/update" => "user#update"
+  post "user/updatepw" => "user#updatepw"
   post "user/destroy" => "user#destroy"
 
 
