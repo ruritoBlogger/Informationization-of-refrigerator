@@ -1,0 +1,5 @@
+<p>登録した食品一覧ページ</p>
+<% @foods.each do |food| %>
+  <p>食べ物の賞味期限</p>
+  <%= food.limitYear %>年<%= food.limitMonth %>月<%= food.limitDay %>日まで
+<% end %>

@@ -12,8 +12,3 @@
   <input name="amount">
   <input type="submit" value="登録">
 <% end %>
-<p>現在作成している食べ物一覧</p>
-<% @foods.each do |food| %>
-  <p>食べ物の賞味期限</p>
-  <%= food.limitYear %>年<%= food.limitMonth %>月<%= food.limitDay %>日まで
-<% end %>

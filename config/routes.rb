@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get "food/new" => "food/new"
+  get "food/index" => "food/index"
 
   post "food/create" => "food#create"
 
