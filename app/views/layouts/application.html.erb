@@ -43,7 +43,13 @@
   <% else %>
     <!-- ログインしている時 -->
     <div class="header_left">
-
+      <div class="header_link">
+        <%= link_to("/food/new") do %>
+          <div class="header_foodNew">
+            食品登録
+          </div>
+          <% end %>
+      </div>
     </div>
     <div class="header_right">
       <div class="header_link">
