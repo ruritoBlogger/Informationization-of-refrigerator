@@ -8,6 +8,8 @@ class UserController < ApplicationController
                      level: 1,
                      exp: 0)
     @user.save
+    system("cd ~/mysketch/Informationization-of-refrigerator/public/")
+    system("mkdir food#{@user.id}_images")
     session[:user_id] = @user.id
     flash[:notice] = "新規登録に成功しました"
     redirect_to("/main/profile")
