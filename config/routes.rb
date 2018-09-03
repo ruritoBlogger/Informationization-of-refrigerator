@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   get "food/new" => "food/new"
 
+  post "food/create" => "food#create"
+
   get "main/profile" => "main#profile"
   get "main/edit" => "main#edit"
   get "main/setting" => "main#setting"

@@ -1,4 +1,17 @@
 <p>食べ物の新規登録</p>
+<%= form_tag("/food/create",{method: :post}) do %>
+  <p>食べ物の名前</p>
+  <input name="name">
+  <p>賞味期限か消費期限（賞味期限ならtrue,消費期限ならfalse）</p>
+  <input name="limittype">
+  <p>期限</p>
+  <input name="limitYear">年<input name="limitMonth">月<input name="limitDay">日まで
+  <p>食べ物の種類（加工食品ならtrue,生鮮食品ならfalse）</p>
+  <input name="foodtype">
+  <p>食べ物の量(%)</p>
+  <input name="amount">
+  <input type="submit" value="登録">
+<% end %>
 <p>現在作成している食べ物一覧</p>
 <% @foods.each do |food| %>
   <p>食べ物の賞味期限</p>
