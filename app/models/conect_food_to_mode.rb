@@ -1,0 +1,2 @@
+class ConectFoodToMode < ApplicationRecord
+end
