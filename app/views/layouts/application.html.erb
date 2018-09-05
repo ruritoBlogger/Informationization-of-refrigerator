@@ -99,7 +99,8 @@
   <% end %>
 
   <!-- current_user -->
-  <%= session[:user_id] %>
+  <% user = User.find_by(id: session[:user_id]) %>
+  <p>ユーザーのID：<%= user.id %>レベル<%= user.level %>現在の経験値<%= user.exp %></p>
 
 </header>
 <%= yield %>

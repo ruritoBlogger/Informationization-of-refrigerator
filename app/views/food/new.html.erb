@@ -4,6 +4,13 @@
   <p>食べ物の名前</p>
   <input name="name"><br>
 
+  <p>食べ物の種類</p>
+  <!-- 要修正。種類はラジオボタンではなく複数選択を可能にする -->
+  <!--<% @modes.each do |mode| %>
+    <%= radio_button_tag(:addmode, "#{mode.detail}") %>
+    <%= label_tag(:addmode, :"#{mode.detail}") %>
+  <% end %>--><br><br>
+
   <!-- 賞味期限か消費期限かの選択 -->
   <%= radio_button_tag(:limittype1, "賞味期限") %>
   <%= label_tag(:limittype1, "賞味期限") %>

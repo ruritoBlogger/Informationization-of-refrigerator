@@ -2,6 +2,7 @@ class FoodController < ApplicationController
 
   #食品の新規登録ページ
   def new
+    @modes = Mode.where(user_id: session[:user_id])
   end
 
   #現在登録されている食品一覧ページ
@@ -38,6 +39,15 @@ class FoodController < ApplicationController
                      name: params[:name],
                      yetamount: 100)
 
+    #受け取ったモードを保存する
+    #@modes = Mode.where(user_id: session[:user_id])
+    #@modes.each do |mode|
+    #  if params[:addmode]
+    #
+    #  end
+    #end
+
+    #食べ物の画像の保存
     if params[:image_name]
       @food.image_name = "#{@food.id}.jpg"
       image = params[:image_name]
@@ -85,11 +95,13 @@ class FoodController < ApplicationController
 
   #食べ物の量の更新
   def update
+    @user = User.find_by(id: session[:user_id])
     @food = Food.find_by(id: params[:id])
     @food.yetamount = @food.yetamount - params[:used].to_i
     if @food.yetamount == 0
       @food.destroy
       flash[:notice] = "食べ物を使いきりました！"
+      leveling()
       redirect_to("/food/index")
     else
       @food.save
