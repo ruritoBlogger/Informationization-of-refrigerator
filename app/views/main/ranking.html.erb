@@ -1,1 +1,8 @@
 <p>ランキングページ</p>
+<!-- レベルの高い順にソートする-->
+<% ranking = 1 %>
+<% @users.each do |user| %>
+  <%= ranking %>位：<%= user.user_name %>
+  <%= user.level %>Lv<br>
+  <% ranking += 1 %>
+<% end %>

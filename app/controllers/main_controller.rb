@@ -20,4 +20,9 @@ class MainController < ApplicationController
     @user = User.find_by(id: session[:user_id])
   end
 
+  #ランキングページ
+  def ranking
+    @users = User.all
+  end
+
 end
