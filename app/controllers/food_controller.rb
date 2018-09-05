@@ -74,11 +74,18 @@ class FoodController < ApplicationController
   def update
     @food = Food.find_by(id: params[:id])
     @food.yetamount = @food.yetamount - params[:used].to_i
-    @food.save
-    flash[:notice] = "更新しました"
-    redirect_to("/food/index")
+    if @food.yetamount == 0
+      @food.destroy
+      flash[:notice] = "食べ物を使いきりました！"
+      redirect_to("/food/index")
+    else
+      @food.save
+      flash[:notice] = "更新しました"
+      redirect_to("/food/index")
+    end
   end
 
+  #食べ物の情報を削除
   def destroy
     @food = Food.find_by(id: params[:id])
     @food.destroy
