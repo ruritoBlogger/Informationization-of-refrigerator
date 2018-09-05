@@ -1,24 +1,29 @@
 <p>登録した食品一覧ページ</p>
 <% @foods.each do |food| %>
-  <p>名前</p>
-  <%= food.name %>
 
-  <% if food.foodtype %>
-    <p>加工食品</p>
-  <% else %>
-    <p>生鮮食品</p>
+  <%= form_tag("/food/#{food.id}/show",{method: :get}) do %>
+    <p>名前</p>
+    <%= food.name %>
+
+    <% if food.foodtype %>
+      <p>加工食品</p>
+    <% else %>
+      <p>生鮮食品</p>
+    <% end %>
+
+    <% if food.limittype %>
+      <p>賞味期限</p>
+   <% else %>
+       <p>消費期限</p>
+    <% end %>
+
+    <%= food.limitYear %>年<%= food.limitMonth %>月<%= food.limitDay %>日まで
+
+    <p>残り量</p>
+    <%= food.amount %>％
+    <p>---------------------------------------------------------------------</p>
+    <input type="submit" value="詳細">
+
   <% end %>
-
-  <% if food.limittype %>
-    <p>賞味期限</p>
-  <% else %>
-     <p>消費期限</p>
-  <% end %>
-
-  <%= food.limitYear %>年<%= food.limitMonth %>月<%= food.limitDay %>日まで
-
-  <p>残り量</p>
-  <%= food.amount %>％
-  <p>---------------------------------------------------------------------</p>
 
 <% end %>
