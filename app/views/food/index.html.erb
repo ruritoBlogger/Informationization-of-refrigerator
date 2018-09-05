@@ -4,6 +4,7 @@
   <%= form_tag("/food/#{food.id}/show",{method: :get}) do %>
     <p>名前</p>
     <%= food.name %>
+    <img src='<%= "public/food#{food.user_id}_images/#{food.image_name}" %>' style="width:20%;">
 
     <% if food.foodtype %>
       <p>加工食品</p>

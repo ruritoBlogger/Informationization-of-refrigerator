@@ -1,5 +1,5 @@
 <p>食べ物の新規登録</p>
-<%= form_tag("/food/create",{method: :post}) do %>
+<%= form_tag("/food/create",{method: :post, multipart: true}) do %>
 
   <p>食べ物の名前</p>
   <input name="name"><br>
@@ -19,8 +19,11 @@
   <%= radio_button_tag(:foodtype2, "生鮮食品") %>
   <%= label_tag(:foodtype2, "生鮮食品") %>
 
-  <p>食べ物の量(%)</p>
+  <p>食べ物の量</p>
   <input name="amount"><br>
+
+  <p>食べ物の画像</p>
+  <input type="file" name="image_name">
 
   <!-- 登録ボタン -->
   <input type="submit" value="登録">

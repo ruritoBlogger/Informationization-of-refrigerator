@@ -35,7 +35,23 @@ class FoodController < ApplicationController
                      limitMonth: params[:limitMonth],
                      limitDay: params[:limitDay],
                      amount: params[:amount],
-                     name: params[:name])
+                     name: params[:name],
+                     yetamount: 100)
+
+    if params[:image_name]
+      @food.image_name = "#{@food.id}.jpg"
+      image = params[:image_name]
+      File.binwrite("public/food#{@food.user_id}_images/#{@food.image_name}",image.read)
+    else
+      #ネットからのurlで画像を用意する
+      #@food.image_name = "default.jpg"
+    end
+
+    #  @limitYear = params[:limitYear]
+    #  @limitMonth = params[:limitMonth]
+    #  @limitDay = params[:limitDay]
+    #  @amount = params[:amount]
+    #  @name = params[:name]
 
     if params[:limittype1]
       @food.limittype = true
