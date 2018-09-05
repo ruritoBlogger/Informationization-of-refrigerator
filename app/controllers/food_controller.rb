@@ -20,7 +20,7 @@ class FoodController < ApplicationController
 
   #食べ物の詳細ページ
   def show
-    @food = Fodd.find_by(id: params[:id])
+    @food = Food.find_by(id: params[:id])
   end
 
   #食品の新規登録を行う
