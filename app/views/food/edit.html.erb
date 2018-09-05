@@ -1,6 +1,6 @@
 <p>食品の更新ページ</p>
 <%= form_tag("/food/#{@food.id}/update",{method: :post}) do %>
-  <p>食べ物の総量:</p><%= @food.amount %>
+  <p>食べ物の総量:</p><%= @food.amount %><%= @food.amounttype %>
   <p>残り量</p><%= @food.yetamount %>％
   <p>どれだけ消費したか</p>
   <input name="used">％

@@ -21,6 +21,17 @@
 
   <p>食べ物の量</p>
   <input name="amount"><br>
+  <p>単位</p>
+  <!-- 単位の選択 -->
+  <%= radio_button_tag(:amounttype1, "g") %>
+  <%= label_tag(:amounttype1, "g") %>
+  <%= radio_button_tag(:amounttype2, "mL") %>
+  <%= label_tag(:amounttype2, "mL") %>
+  <%= radio_button_tag(:amounttype3, "人前") %>
+  <%= label_tag(:amounttype3, "人前") %>
+  <%= radio_button_tag(:amounttype4, "個・本など") %>
+  <%= label_tag(:amounttype4, "個・本など") %>
+
 
   <p>食べ物の画像</p>
   <input type="file" name="image_name">

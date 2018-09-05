@@ -53,16 +53,29 @@ class FoodController < ApplicationController
     #  @amount = params[:amount]
     #  @name = params[:name]
 
+    #賞味期限か消費期限かの判断
     if params[:limittype1]
       @food.limittype = true
     else
       @food.limittype = false
     end
 
+    #加工食品か生鮮食品かの判断
     if params[:foodtype1]
       @food.foodtype = true
     else
       @food.foodtype = false
+    end
+
+    #個数の単位の判断
+    if params[:amounttype1]
+      @food.amounttype = "g"
+    elsif params[:amounttype2]
+      @food.amounttype = "mL"
+    elsif params[:amounttype3]
+      @food.amounttype = "人前"
+    else
+      @food.amounttype = "個・本"
     end
 
     @food.save
