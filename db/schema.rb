@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_05_062613) do
+ActiveRecord::Schema.define(version: 2018_09_05_065236) do
 
   create_table "foods", force: :cascade do |t|
     t.integer "user_id"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2018_09_05_062613) do
     t.integer "amount"
     t.integer "amounttype"
     t.integer "yetamount"
+    t.string "image_name"
   end
 
   create_table "users", force: :cascade do |t|
