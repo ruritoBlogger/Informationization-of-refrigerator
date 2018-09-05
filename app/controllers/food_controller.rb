@@ -25,7 +25,7 @@ class FoodController < ApplicationController
 
   #食べ物の更新を行うページ
   def edit
-
+    @food = Food.find_by(id: params[:id])
   end
 
   #食品の新規登録を行う
@@ -51,6 +51,15 @@ class FoodController < ApplicationController
 
     @food.save
     flash[:notice] = "食べ物の新規登録を行いました"
+    redirect_to("/food/index")
+  end
+
+  #食べ物の量の更新
+  def update
+    @food = Food.find_by(id: params[:id])
+    @food.yetamount = @food.yetamount - params[:used].to_i
+    @food.save
+    flash[:notice] = "更新しました"
     redirect_to("/food/index")
   end
 
