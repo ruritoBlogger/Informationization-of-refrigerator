@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   post "food/create" => "food#create"
 
-  get "food/:id/show" => "food/show"
+  get "food/:id/show" => "food#show"
 
 
   get "main/profile" => "main#profile"

@@ -1,0 +1,2 @@
+class AddAmountToFood < ApplicationRecord
+end
