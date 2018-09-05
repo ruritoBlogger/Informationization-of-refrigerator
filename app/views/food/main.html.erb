@@ -1,15 +1,47 @@
 <p>メインページ</p>
 <h3>ピックアップ情報</h3>
 <p>賞味期限が迫っているもの</p>
-<% @oldfoods.each do |food| %>
-  <%= food.name %>
-  <%= food.limitMonth %>月<%= food.limitDay %>日まで
-<% end %>
+<table>
+  <tr>
+    <th>名前</th>
+    <th>期限</th>
+    <th>総量</th>
+    <th>残り量</th>
+    <th>詳細</th>
+  </tr>
+
+  <% @oldfoods.each do |food| %>
+    <tr>
+      <td><%= food.name %></td>
+      <td><%= food.limitMonth %>月<%= food.limitDay %>日</td>
+      <td><%= food.amount %><%= food.amounttype %></td>
+      <td><%= food.yetamount %></td>
+      <td><%= link_to("詳細", "/food/#{food.id}/show") %></td>
+    </tr>
+  <% end %>
+</table>
+
+
 <p>消費期限の食べ物</p>
-<% @Fleshfoods.each do |food| %>
-  <%= food.name %>
-  <%= food.limitMonth %>月<%= food.limitDay %>日まで
-<% end %>
+<table>
+  <tr>
+    <th>名前</th>
+    <th>期限</th>
+    <th>総量</th>
+    <th>残り量</th>
+    <th>詳細</th>
+  </tr>
+
+  <% @Fleshfoods.each do |food| %>
+    <tr>
+      <td><%= food.name %></td>
+      <td><%= food.limitMonth %>月<%= food.limitDay %>日</td>
+      <td><%= food.amount %><%= food.amounttype %></td>
+      <td><%= food.yetamount %></td>
+      <td><%= link_to("詳細", "/food/#{food.id}/show") %></td>
+    </tr>
+  <% end %>
+</table>
 
 <p>メモ</p>
 未実装
