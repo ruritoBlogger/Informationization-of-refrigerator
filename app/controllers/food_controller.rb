@@ -6,14 +6,16 @@ class FoodController < ApplicationController
 
   #現在登録されている食品一覧ページ
   def index
-    @foods = Food1.all
+    @foods = Food.where(user_id: session[:user_id])
   end
 
   def main
-    @oldfoods = Food1.where(limitMonth: 9,
-                        limittype: true)
+    @oldfoods = Food.where(user_id: session[:user_id],
+                           limitMonth: 9,
+                           limittype: true)
 
-    @Fleshfoods = Food1.where(limittype: false)
+    @Fleshfoods = Food.where(user_id: session[:user_id],
+                              limittype: false)
   end
 
   #食品の新規登録を行う
