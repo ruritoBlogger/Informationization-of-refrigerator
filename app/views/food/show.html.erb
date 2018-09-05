@@ -1,2 +1,5 @@
 <p>食べ物の詳細ページ</p>
 <%= @food.name %>
+<%= form_tag("/food/#{@food.id}/edit",{method: :get}) do %>
+  <input type="submit" value="更新">
+<% end %>

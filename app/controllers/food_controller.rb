@@ -23,6 +23,11 @@ class FoodController < ApplicationController
     @food = Food.find_by(id: params[:id])
   end
 
+  #食べ物の更新を行うページ
+  def edit
+
+  end
+
   #食品の新規登録を行う
   def create
     @food = Food.new(user_id: session[:user_id],
