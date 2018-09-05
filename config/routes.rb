@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get "main/edit" => "main#edit"
   get "main/setting" => "main#setting"
   get "main/editpw" => "main#editpw"
+  get "main/ranking" => "main#ranking"
 
   get "home/top" => "home#top"
   get "home/new" => "home#new"
