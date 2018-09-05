@@ -18,12 +18,12 @@ class FoodController < ApplicationController
 
   #食品の新規登録を行う
   def create
-    @food = Food1.new(user_id: session[:user_id],
-                      limitYear: params[:limitYear],
-                      limitMonth: params[:limitMonth],
-                      limitDay: params[:limitDay],
-                      amount: params[:amount],
-                      name: params[:name])
+    @food = Food.new(user_id: session[:user_id],
+                     limitYear: params[:limitYear],
+                     limitMonth: params[:limitMonth],
+                     limitDay: params[:limitDay],
+                     amount: params[:amount],
+                     name: params[:name])
 
     if params[:limittype1]
       @food.limittype = true

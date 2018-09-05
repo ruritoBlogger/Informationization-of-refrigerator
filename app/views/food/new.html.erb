@@ -1,20 +1,27 @@
 <p>食べ物の新規登録</p>
 <%= form_tag("/food/create",{method: :post}) do %>
+
   <p>食べ物の名前</p>
-  <input name="name">
-  <p>賞味期限か消費期限（賞味期限ならtrue,消費期限ならfalse）</p>
+  <input name="name"><br>
+
+  <!-- 賞味期限か消費期限かの選択 -->
   <%= radio_button_tag(:limittype1, "賞味期限") %>
   <%= label_tag(:limittype1, "賞味期限") %>
   <%= radio_button_tag(:limittype2, "消費期限") %>
   <%= label_tag(:limittype2, "消費期限") %>
+
   <p>期限</p>
-  <input name="limitYear">年<input name="limitMonth">月<input name="limitDay">日まで
-  <p>食べ物の種類（加工食品ならtrue,生鮮食品ならfalse）</p>
+  <input name="limitYear">年<input name="limitMonth">月<input name="limitDay">日まで<br>
+
+  <!-- 加工食品か生鮮食品かの選択 -->
   <%= radio_button_tag(:foodtype1, "加工食品") %>
   <%= label_tag(:foodtype1, "加工食品") %>
   <%= radio_button_tag(:foodtype2, "生鮮食品") %>
   <%= label_tag(:foodtype2, "生鮮食品") %>
+
   <p>食べ物の量(%)</p>
-  <input name="amount">
+  <input name="amount"><br>
+
+  <!-- 登録ボタン -->
   <input type="submit" value="登録">
 <% end %>
