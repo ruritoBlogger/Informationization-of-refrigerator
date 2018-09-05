@@ -3,6 +3,7 @@
   <tr>
     <th>順位</th>
     <th>ユーザー名</th>
+    <th>画像</th>
     <th>レベル</th>
     <th>経験値</th>
   </tr>
@@ -12,6 +13,7 @@
     <tr>
       <td><%= ranking %></td>
       <td><%= user.user_name %></td>
+      <td><img src='<%= "/user_images/#{user.image_name}" %>' style="width:15%;"></td>
       <td><%= user.level %></td>
       <td><%= user.exp %></td>
     </tr>
