@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get "food/index" => "food/index"
   get "food/main" => "food/main"
 
+  get "food/:id" => "food/show"
+
   post "food/create" => "food#create"
 
   get "main/profile" => "main#profile"
