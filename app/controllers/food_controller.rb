@@ -79,4 +79,11 @@ class FoodController < ApplicationController
     redirect_to("/food/index")
   end
 
+  def destroy
+    @food = Food.find_by(id: params[:id])
+    @food.destroy
+    flash[:notice] = "食べ物の情報を削除しました"
+    redirect_to("/food/index")
+  end
+
 end

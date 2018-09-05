@@ -6,3 +6,7 @@
   <input name="used">％
   <input type="submit" value="更新">
 <% end %>
+<%= form_tag("/food/#{@food.id}/destroy",{method: :post}) do %>
+  <p>食べ物の情報を削除</p>
+  <input type="submit" value="削除">
+<% end %>
