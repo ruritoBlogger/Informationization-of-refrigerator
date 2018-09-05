@@ -1,32 +1,47 @@
 <p>登録した食品一覧ページ</p>
-<% @foods.each do |food| %>
+<table>
+  <tr>
+    <th>名前</th>
+    <th>画像</th>
+    <th>加工食品か生鮮食品</th>
+    <th>賞味期限か消費期限</th>
+    <th>期限日</th>
+    <th>総量</th>
+    <th>残り量</th>
+    <th>詳細</th>
+  </tr>
 
-  <%= form_tag("/food/#{food.id}/show",{method: :get}) do %>
-    <p>名前</p>
-    <%= food.name %>
-    <img src='<%= "public/food#{food.user_id}_images/#{food.image_name}" %>' style="width:20%;">
+  <% @foods.each do |food| %>
+    <tr>
+      <%= form_tag("/food/#{food.id}/show", {method: :get}) do %>
+        <td><%= food.name %></td>
+        <td>
+          <% if food.image_name == "https://uds.gnst.jp/rest/img/1ew287ve0000/s_006z.jpg?t=1506082927" %>
+            <img src="https://uds.gnst.jp/rest/img/1ew287ve0000/s_006z.jpg?t=1506082927" style="width:15%;">
+          <% else %>
+            <img src='<%= "public/food#{food.user_id}_images/#{food.image_name}" %>' style="width:20%;">
+          <% end %></td>
 
-    <% if food.foodtype %>
-      <p>加工食品</p>
-    <% else %>
-      <p>生鮮食品</p>
-    <% end %>
+        <td>
+          <% if food.foodtype %>
+            <p>加工食品</p>
+          <% else %>
+            <p>生鮮食品</p>
+          <% end %></td>
 
-    <% if food.limittype %>
-      <p>賞味期限</p>
-   <% else %>
-       <p>消費期限</p>
-    <% end %>
+        <td>
+          <% if food.limittype %>
+            <p>賞味期限</p>
+          <% else %>
+            <p>消費期限</p>
+          <% end %></td>
 
-    <%= food.limitYear %>年<%= food.limitMonth %>月<%= food.limitDay %>日まで
-
-    <p>総量</p>
-    <%= food.amount %><%= food.amounttype %><br>
-    <p>残り量</p>
-    <%= food.yetamount %>％<br>
-    <input type="submit" value="詳細">
-    <p>---------------------------------------------------------------------</p>
+        <td><%= food.limitYear %>年<%= food.limitMonth %>月<%= food.limitDay %>日まで</td>
+        <td><%= food.amount %><%= food.amounttype %></td>
+        <td><%= food.yetamount %>％</td>
+        <td><input type="submit" value="詳細"></td>
+      <% end %>
+    </tr>
 
   <% end %>
-
-<% end %>
+</table>

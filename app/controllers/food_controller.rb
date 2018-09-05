@@ -54,7 +54,7 @@ class FoodController < ApplicationController
       File.binwrite("public/food#{@food.user_id}_images/#{@food.image_name}",image.read)
     else
       #ネットからのurlで画像を用意する
-      #@food.image_name = "default.jpg"
+      @food.image_name = "https://uds.gnst.jp/rest/img/1ew287ve0000/s_006z.jpg?t=1506082927"
     end
 
     #  @limitYear = params[:limitYear]
