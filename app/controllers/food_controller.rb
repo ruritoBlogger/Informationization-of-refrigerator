@@ -51,7 +51,7 @@ class FoodController < ApplicationController
     if params[:image_name]
       @food.image_name = "#{@food.id}.jpg"
       image = params[:image_name]
-      File.binwrite("public/food#{@food.user_id}_images/#{@food.image_name}",image.read)
+      File.binwrite("public/food#{session[:user_id]}_images/#{@food.image_name}",image.read)
     else
       #ネットからのurlで画像を用意する
       @food.image_name = "https://uds.gnst.jp/rest/img/1ew287ve0000/s_006z.jpg?t=1506082927"

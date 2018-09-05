@@ -62,4 +62,9 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # add by me
+# add jQuery
 gem "jquery-rails"
+#add Twitter
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'dotenv-rails'

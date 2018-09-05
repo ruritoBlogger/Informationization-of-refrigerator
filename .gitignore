@@ -33,3 +33,4 @@
 # add by rurito 
 .idea/
 public/
+config/initializers/omniauth.rb
