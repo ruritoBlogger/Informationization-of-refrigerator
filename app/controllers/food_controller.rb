@@ -119,7 +119,7 @@ class FoodController < ApplicationController
     @user = User.find_by(id: session[:user_id])
     @food = Food.find_by(id: params[:id])
     @food.yetamount = @food.yetamount - params[:used].to_i
-    if @food.yetamount == 0
+    if @food.yetamount <= 0
       @food.destroy
       flash[:notice] = "食べ物を使いきりました！"
       leveling()

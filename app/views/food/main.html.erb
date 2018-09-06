@@ -14,7 +14,12 @@
   <% @oldfoods.each do |food| %>
     <tr>
       <td><%= food.name %></td>
-      <td><img src='<%= "public/food#{food.user_id}_images/#{food.image_name}" %>' style="width:20%;"></td>
+      <td>
+        <% if food.image_name == "https://uds.gnst.jp/rest/img/1ew287ve0000/s_006z.jpg?t=1506082927" %>
+          <img src="https://uds.gnst.jp/rest/img/1ew287ve0000/s_006z.jpg?t=1506082927" style="width:15%;">
+        <% else %>
+          <img src='<%= "/food#{session[:user_id]}_images/#{food.image_name}" %>' style="width:15%;">
+        <% end %></td>
       <td><%= food.limitMonth %>月<%= food.limitDay %>日</td>
       <td><%= food.amount %><%= food.amounttype %></td>
       <td><%= food.yetamount %></td>
@@ -38,7 +43,12 @@
   <% @Fleshfoods.each do |food| %>
     <tr>
       <td><%= food.name %></td>
-      <td><img src='<%= "public/food#{food.user_id}_images/#{food.image_name}" %>' style="width:20%;"></td>
+      <td>
+        <% if food.image_name == "https://uds.gnst.jp/rest/img/1ew287ve0000/s_006z.jpg?t=1506082927" %>
+          <img src="https://uds.gnst.jp/rest/img/1ew287ve0000/s_006z.jpg?t=1506082927" style="width:15%;">
+        <% else %>
+          <img src='<%= "/food#{session[:user_id]}_images/#{food.image_name}" %>' style="width:15%;">
+        <% end %></td>
       <td><%= food.limitMonth %>月<%= food.limitDay %>日</td>
       <td><%= food.amount %><%= food.amounttype %></td>
       <td><%= food.yetamount %></td>
@@ -51,7 +61,7 @@
 <p>現在の種類一覧</p>
 <% n = 1 %>
 <% @modes.each do |mode| %>
-  <%= n  %>:<%= mode.detail %>
+  <%= n %>:<%= mode.detail %>
   <% n += 1 %>
 <% end %>
 <%= link_to("/food/makemode") do %>
@@ -65,7 +75,6 @@
 ・スマホアプリ化
 ・Webスクレイピングして料理の情報を関連付けて表示
 
-・食べ物の種類の編集ページ
 ・食べ物の情報の更新ページで残り量以外の情報を更新するページ
 ・jQueryの再実装（現在挙動不審なため要点検)
 ・CSSの編集
@@ -74,6 +83,5 @@
 ・パスワードを暗号化して保存
 
 実装中
-・食べ物の画像の登録
 ・食べ物の新規登録の時、食べ物の種類の登録
-
+・食べ物の種類の編集ページ
