@@ -1,0 +1,18 @@
+<p>種類の新規登録のページ</p>
+<%= form_tag("/food/createmode") do %>
+  <p>種類の名前</p>
+  <input name="name">
+  <p>その種類に属する食べ物</p>
+  <table>
+    <tr>
+      <th>名前</th>
+      <th>画像</th>
+    </tr>
+    <% @foods.each do |food| %>
+      <tr>
+        <td><%= food.name %></td>
+        <td><img src='<%= "/food#{session[:user_id]}_images/#{food.image_name}" %>' style="width:15%;"></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

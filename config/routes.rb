@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get "food/index" => "food/index"
   get "food/main" => "food/main"
   get "food/makemode" => "food#makemode"
+  get "food/editmode" => "food#editmode"
 
   post "food/create" => "food#create"
 

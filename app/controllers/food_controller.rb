@@ -37,6 +37,11 @@ class FoodController < ApplicationController
     @modes = Mode.where(user_id: session[:user_id])
   end
 
+  #食品の種類を新規に登録するページ
+  def editmode
+    @foods = Food.where(user_id: session[:user_id])
+  end
+
   #食品の新規登録を行う
   def create
     @food = Food.new(user_id: session[:user_id],
@@ -46,6 +51,14 @@ class FoodController < ApplicationController
                      amount: params[:amount],
                      name: params[:name],
                      yetamount: 100)
+    @food.save
+    @food = Food.find_by(user_id: session[:user_id],
+                        limitYear: params[:limitYear],
+                        limitMonth: params[:limitMonth],
+                        limitDay: params[:limitDay],
+                        amount: params[:amount],
+                        name: params[:name],
+                        yetamount: 100)
 
     #受け取ったモードを保存する
     #@modes = Mode.where(user_id: session[:user_id])
