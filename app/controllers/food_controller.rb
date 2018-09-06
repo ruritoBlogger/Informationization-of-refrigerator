@@ -10,6 +10,7 @@ class FoodController < ApplicationController
     @foods = Food.where(user_id: session[:user_id])
   end
 
+  #メインページ
   def main
     @oldfoods = Food.where(user_id: session[:user_id],
                            limitMonth: 9,
@@ -17,6 +18,8 @@ class FoodController < ApplicationController
 
     @Fleshfoods = Food.where(user_id: session[:user_id],
                               limittype: false)
+
+    @modes = Mode.where(user_id: session[:user_id])
   end
 
   #食べ物の詳細ページ
@@ -27,6 +30,11 @@ class FoodController < ApplicationController
   #食べ物の更新を行うページ
   def edit
     @food = Food.find_by(id: params[:id])
+  end
+
+  #食品の種類を編集するページ
+  def makemode
+    @modes = Mode.where(user_id: session[:user_id])
   end
 
   #食品の新規登録を行う

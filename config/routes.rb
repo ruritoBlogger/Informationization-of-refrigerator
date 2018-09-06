@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get "food/new" => "food/new"
   get "food/index" => "food/index"
   get "food/main" => "food/main"
+  get "food/makemode" => "food#makemode"
 
   post "food/create" => "food#create"
 
@@ -11,7 +12,6 @@ Rails.application.routes.draw do
 
   post "food/:id/update" => "food#update"
   post "food/:id/destroy" => "food#destroy"
-
 
   get "main/profile" => "main#profile"
   get "main/edit" => "main#edit"

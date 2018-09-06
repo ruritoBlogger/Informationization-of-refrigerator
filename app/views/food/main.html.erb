@@ -43,6 +43,17 @@
   <% end %>
 </table>
 
+<h3>食品の種類について</h3>
+<p>現在の種類一覧</p>
+<% n = 1 %>
+<% @modes.each do |mode| %>
+  <%= n  %>:<%= mode.detail %>
+  <% n += 1 %>
+<% end %>
+<%= link_to("/food/makemode") do %>
+  <input type="submit" value="編集">
+<% end %>
+
 <p>メモ</p>
 未実装
 ・Twitterとの連動
