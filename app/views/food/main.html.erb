@@ -4,6 +4,7 @@
 <table>
   <tr>
     <th>名前</th>
+    <th>画像</th>
     <th>期限</th>
     <th>総量</th>
     <th>残り量</th>
@@ -13,6 +14,7 @@
   <% @oldfoods.each do |food| %>
     <tr>
       <td><%= food.name %></td>
+      <td><img src='<%= "public/food#{food.user_id}_images/#{food.image_name}" %>' style="width:20%;"></td>
       <td><%= food.limitMonth %>月<%= food.limitDay %>日</td>
       <td><%= food.amount %><%= food.amounttype %></td>
       <td><%= food.yetamount %></td>
@@ -26,6 +28,7 @@
 <table>
   <tr>
     <th>名前</th>
+    <th>画像</th>
     <th>期限</th>
     <th>総量</th>
     <th>残り量</th>
@@ -35,6 +38,7 @@
   <% @Fleshfoods.each do |food| %>
     <tr>
       <td><%= food.name %></td>
+      <td><img src='<%= "public/food#{food.user_id}_images/#{food.image_name}" %>' style="width:20%;"></td>
       <td><%= food.limitMonth %>月<%= food.limitDay %>日</td>
       <td><%= food.amount %><%= food.amounttype %></td>
       <td><%= food.yetamount %></td>
