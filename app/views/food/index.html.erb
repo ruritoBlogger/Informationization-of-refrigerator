@@ -1,6 +1,6 @@
 <p>登録した食品一覧ページ</p>
 <table>
-  <tr>
+  <tr class="index">
     <th>名前</th>
     <th>画像</th>
     <th>加工食品か生鮮食品</th>
@@ -12,14 +12,14 @@
   </tr>
 
   <% @foods.each do |food| %>
-    <tr>
+    <tr class="index">
       <%= form_tag("/food/#{food.id}/show", {method: :get}) do %>
         <td><%= food.name %></td>
         <td>
           <% if food.image_name == "https://uds.gnst.jp/rest/img/1ew287ve0000/s_006z.jpg?t=1506082927" %>
-            <img src="https://uds.gnst.jp/rest/img/1ew287ve0000/s_006z.jpg?t=1506082927" style="width:15%;">
+            <img src="https://uds.gnst.jp/rest/img/1ew287ve0000/s_006z.jpg?t=1506082927">
           <% else %>
-            <img src='<%= "/food#{session[:user_id]}_images/#{food.image_name}" %>' style="width:15%;">
+            <img src='<%= "/food#{session[:user_id]}_images/#{food.image_name}" %>'>
           <% end %></td>
 
         <td>

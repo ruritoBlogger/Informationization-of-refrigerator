@@ -41,4 +41,24 @@ header{
     padding:0px 30px;
 }
 
+teble{
+
+}
+
+.index th{
+    width:12%;
+    height:100px;
+}
+
+.index td{
+    width:12%;
+    height:100px;
+}
+
+.index img{
+    width:70%;
+}
+
+
+
 
