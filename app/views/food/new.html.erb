@@ -12,32 +12,32 @@
   <% end %>--><br><br>
 
   <!-- 賞味期限か消費期限かの選択 -->
-  <%= radio_button_tag(:limittype1, "賞味期限") %>
-  <%= label_tag(:limittype1, "賞味期限") %>
-  <%= radio_button_tag(:limittype2, "消費期限") %>
-  <%= label_tag(:limittype2, "消費期限") %>
+  <%= radio_button_tag(:limit, true) %>
+  <%= label_tag(:limit, "賞味期限") %>
+  <%= radio_button_tag(:limit, false) %>
+  <%= label_tag(:limit, "消費期限") %>
 
   <p>期限</p>
   <input name="limitYear">年<input name="limitMonth">月<input name="limitDay">日まで<br>
 
   <!-- 加工食品か生鮮食品かの選択 -->
-  <%= radio_button_tag(:foodtype1, "加工食品") %>
-  <%= label_tag(:foodtype1, "加工食品") %>
-  <%= radio_button_tag(:foodtype2, "生鮮食品") %>
-  <%= label_tag(:foodtype2, "生鮮食品") %>
+  <%= radio_button_tag(:foodtype,true) %>
+  <%= label_tag(:foodtype,"加工食品") %>
+  <%= radio_button_tag(:foodtype,false) %>
+  <%= label_tag(:foodtype, "生鮮食品") %>
 
   <p>食べ物の量</p>
   <input name="amount"><br>
   <p>単位</p>
   <!-- 単位の選択 -->
-  <%= radio_button_tag(:amounttype1, "g") %>
-  <%= label_tag(:amounttype1, "g") %>
-  <%= radio_button_tag(:amounttype2, "mL") %>
-  <%= label_tag(:amounttype2, "mL") %>
-  <%= radio_button_tag(:amounttype3, "人前") %>
-  <%= label_tag(:amounttype3, "人前") %>
-  <%= radio_button_tag(:amounttype4, "個・本など") %>
-  <%= label_tag(:amounttype4, "個・本など") %>
+  <%= radio_button_tag(:amounttype,0) %>
+  <%= label_tag(:amounttype, "g") %>
+  <%= radio_button_tag(:amounttype,1) %>
+  <%= label_tag(:amounttype, "mL") %>
+  <%= radio_button_tag(:amounttype,2) %>
+  <%= label_tag(:amounttype, "人前") %>
+  <%= radio_button_tag(:amounttype,3) %>
+  <%= label_tag(:amounttype, "個・本など") %>
 
 
   <p>食べ物の画像</p>

@@ -13,7 +13,6 @@ class FoodController < ApplicationController
   #メインページ
   def main
     @oldfoods = Food.where(user_id: session[:user_id],
-                           limitMonth: 9,
                            limittype: true)
 
     @Fleshfoods = Food.where(user_id: session[:user_id],
@@ -85,25 +84,25 @@ class FoodController < ApplicationController
     #  @name = params[:name]
 
     #賞味期限か消費期限かの判断
-    if params[:limittype1]
+    if params[:limit]
       @food.limittype = true
     else
       @food.limittype = false
     end
 
     #加工食品か生鮮食品かの判断
-    if params[:foodtype1]
+    if params[:foodtype]
       @food.foodtype = true
     else
       @food.foodtype = false
     end
 
     #個数の単位の判断
-    if params[:amounttype1]
+    if params[:amounttype] == 0
       @food.amounttype = "g"
-    elsif params[:amounttype2]
+    elsif params[:amounttype] == 1
       @food.amounttype = "mL"
-    elsif params[:amounttype3]
+    elsif params[:amounttype] == 2
       @food.amounttype = "人前"
     else
       @food.amounttype = "個・本"
