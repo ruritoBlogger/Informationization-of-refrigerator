@@ -72,3 +72,5 @@ gem 'dotenv-rails'
 gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt'
 #add materialize
 gem 'materialize-sass'
+gem 'simple_form'
+gem 'materialize-form'

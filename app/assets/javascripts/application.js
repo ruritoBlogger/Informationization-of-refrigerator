@@ -17,9 +17,11 @@
 // add by me
 //= require jquery
 //= require jquery_ujs
-
+//= require materialize-sprockets
 
 $(function() {
+
+    $('select').material_select();
 
     $(".header_link").hover(
         function () {

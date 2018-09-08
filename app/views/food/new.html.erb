@@ -17,6 +17,16 @@
   <%= radio_button_tag(:limit, false) %>
   <%= label_tag(:limit, "消費期限") %>
 
+  <div class="input-field">
+    <select>
+      <option value="" disabled selected>選んでください</option>
+      <option value="1">選択肢1</option>
+      <option value="2">選択肢2</option>
+      <option value="3">選択肢3</option>
+    </select>
+    <label>ラベルの文字列</label>
+  </div>
+
   <p>期限</p>
   <input name="limitYear">年<input name="limitMonth">月<input name="limitDay">日まで<br>
 
