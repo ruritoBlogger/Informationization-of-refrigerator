@@ -1,9 +1,9 @@
 <h3>こちらは新規登録のページです</h3>
-
-<%= form_tag("/user/create") do %>
-  <p>ユーザー名</p>
-  <input name="name">
-  <p>パスワード</p>
-  <input name="password" type="password">
-  <input type="submit" value="新規登録">
+<% @user = User.new %>
+<%= form_for(@user, :url => {:action => :create, :controller => :user}) do |f| %>
+  <%= f.label :ユーザー名 %>
+  <%= f.text_field :user_name %>
+  <%= f.label :パスワード %>
+  <%= f.password_field :password %>
+  <%= f.submit %>
 <% end %>

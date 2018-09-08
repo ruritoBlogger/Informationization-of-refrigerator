@@ -2,17 +2,27 @@ class UserController < ApplicationController
 
   #新規登録
   def create
-    @user = User.new(user_name: params[:name],
-                     password: params[:password],
-                     image_name: "default.jpg",
-                     level: 1,
-                     exp: 0)
+    @user = User.create(create_params)
+    @user.image_name = "default.jpg"
+    @user.exp = 0
+    @user.level = 1
+    @user.introduction = "自己紹介を記入してください"
     @user.save
     system("mkdir ./public/food#{@user.id}_images")
     session[:user_id] = @user.id
     flash[:notice] = "新規登録に成功しました"
-    redirect_to("/main/profile")
+    redirect_to("/food/main")
   end
+
+  private
+
+  def create_params
+    params.require(:user).permit(
+                            :user_name, :password
+    )
+  end
+
+  public
 
   #ログイン
   def login
