@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_07_042931) do
+ActiveRecord::Schema.define(version: 2018_09_07_155124) do
 
   create_table "conect_food_to_modes", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -45,13 +45,13 @@ ActiveRecord::Schema.define(version: 2018_09_07_042931) do
 
   create_table "users", force: :cascade do |t|
     t.string "user_name"
-    t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image_name"
     t.text "introduction"
     t.integer "level"
     t.integer "exp"
+    t.string "password_digest"
   end
 
 end

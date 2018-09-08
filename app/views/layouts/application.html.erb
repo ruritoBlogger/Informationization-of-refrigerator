@@ -6,6 +6,10 @@
   <%= csp_meta_tag %>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <!--Compiled and minified CSS -->
+  <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css" >
+  <!-- Compiled and minified JavaScript -->
+  <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"> </script>
 </head>
 <body>
 
@@ -45,17 +49,17 @@
     <div class="header_left">
       <div class="header_link">
         <%= link_to("/food/main") do %>
-        <div class="header_main">
-          メインページ
-        </div>
-          <% end %>
+          <div class="header_main">
+            メインページ
+          </div>
+        <% end %>
       </div>
       <div class="header_link">
         <%= link_to("/food/new") do %>
           <div class="header_foodNew">
             食品登録
           </div>
-          <% end %>
+        <% end %>
       </div>
       <div class="header_link">
         <%= link_to("/food/index") do %>
@@ -67,7 +71,7 @@
     </div>
     <div class="header_right">
       <div class="header_link">
-        <%= link_to("/user/logout",{method: :post}) do %>
+        <%= link_to("/user/logout", {method: :post}) do %>
           <div class="header_logout">
             ログアウト
           </div>
@@ -75,10 +79,10 @@
       </div>
       <div class="header_link">
         <%= link_to("/main/setting") do %>
-        <div class="setting">
-          設定
-        </div>
-          <% end %>
+          <div class="setting">
+            設定
+          </div>
+        <% end %>
       </div>
       <div class="header_link">
         <%= link_to("/main/profile") do %>
