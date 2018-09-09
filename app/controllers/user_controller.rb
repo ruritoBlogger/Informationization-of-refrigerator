@@ -2,7 +2,7 @@ class UserController < ApplicationController
 
   #新規登録
   def create
-    @user = User.create(create_params)
+    @user = User.new(create_params)
     @user.image_name = "default.jpg"
     @user.exp = 0
     @user.level = 1
@@ -18,7 +18,19 @@ class UserController < ApplicationController
 
   def create_params
     params.require(:user).permit(
-                            :user_name, :password
+        :user_name, :password
+    )
+  end
+
+  def login_name_params
+    params.require(:user).permit(
+        :user_name
+    )
+  end
+
+  def login_password_params
+    params.require(:user).permit(
+        :password
     )
   end
 
@@ -26,8 +38,8 @@ class UserController < ApplicationController
 
   #ログイン
   def login
-    @user = User.find_by(user_name: params[:name])
-    if @user && @user.authenticate(params[:password])
+    user = User.find_by(login_name_params)
+    if user && user.authenticate(login_password_params)
       session[:user_id] = @user.id
       flash[:notice] = "ログインに成功しました"
       redirect_to("/main/profile")

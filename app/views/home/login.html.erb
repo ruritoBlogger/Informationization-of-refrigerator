@@ -1,10 +1,10 @@
 <h3>ログインページ</h3>
-<%= form_tag("/user/login") do %>
-  <p>ユーザー名</p>
-  <input name="name">
-  <p>パスワード</p>
-  <input name="password" type="password">
-  <input type="submit" value="ログイン">
+  <%= form_for(@user,:url => {:action => :login, :controller => :user}) do |f| %>
+  <%= f.label :ユーザー名 %>
+  <%= f.text_field :user_name %>
+  <%= f.label :パスワード %>
+  <%= f.password_field :password %>
+  <%= f.submit  value = "ログイン" %>
 <% end %>
 
 

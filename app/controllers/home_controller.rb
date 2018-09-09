@@ -8,6 +8,9 @@ class HomeController < ApplicationController
   end
 
   def login
+    @user = User.new
+
+    #デバッグ
     @users = User.all
   end
 
