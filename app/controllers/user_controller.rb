@@ -7,11 +7,14 @@ class UserController < ApplicationController
     @user.exp = 0
     @user.level = 1
     @user.introduction = "自己紹介を記入してください"
-    @user.save
-    system("mkdir ./public/food#{@user.id}_images")
-    session[:user_id] = @user.id
-    flash[:notice] = "新規登録に成功しました"
-    redirect_to("/food/main")
+    if @user.save
+      system("mkdir ./public/food#{@user.id}_images")
+      session[:user_id] = @user.id
+      flash[:notice] = "新規登録に成功しました"
+      redirect_to("/food/main")
+    else
+      flash[:notice_fail] = "新規登録に失敗しました"
+      redirect_to("/home/new")
   end
 
   private
