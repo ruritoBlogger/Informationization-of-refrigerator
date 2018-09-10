@@ -1,1 +1,4 @@
 @import "materialize";
+header{
+  @extend .black-text, .text-lighten-4;
+}

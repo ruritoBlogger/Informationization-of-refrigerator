@@ -15,6 +15,7 @@ class UserController < ApplicationController
     else
       flash[:notice_fail] = "新規登録に失敗しました"
       redirect_to("/home/new")
+    end
   end
 
   private
@@ -42,6 +43,9 @@ class UserController < ApplicationController
   #ログイン
   def login
     user = User.find_by(login_name_params)
+    logger.debug("ここからデバッグ")
+    logger.debug("params: #{params}")
+    logger.debug("login_password_params: #{login_password_params}")
     if user && user.authenticate(login_password_params)
       session[:user_id] = @user.id
       flash[:notice] = "ログインに成功しました"
@@ -69,7 +73,7 @@ class UserController < ApplicationController
     if params[:image_name]
       @user.image_name = "#{@user.id}.jpg"
       image = params[:image_name]
-      File.binwrite("public/user_images/#{@user.image_name}",image.read)
+      File.binwrite("public/user_images/#{@user.image_name}", image.read)
     else
       #プロフィール画像の更新がないときはデフォルトの画像
       @user.image_name = "default.jpg"
