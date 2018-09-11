@@ -1,7 +1,14 @@
 class ApplicationController < ActionController::Base
 
+
+
+  def set_current_user
+    @current_user = User.find_by(id: session[:user_id])
+  end
+
   #レベルの更新
   # 食べ物を使いきった時経験値を100上げてレベルアップの確認を行う
+
   def leveling()
     @user = User.find_by(id: session[:user_id])
     @user.exp += 100
