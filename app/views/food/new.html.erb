@@ -1,58 +1,46 @@
 <p>食べ物の新規登録</p>
-<%= form_tag("/food/create",{multipart: true}) do %>
+<% @food = Food.new %>
+<%= form_for(@food, :url => {:action => :create, :controller => :food}) do |f| %>
 
-  <p>食べ物の名前</p>
-  <input name="name"><br>
-
+  <%= f.label :食べ物の名前 %>
+  <%= f.text_field :name %>
   <p>食べ物の種類</p>
   <!-- 要修正。種類はラジオボタンではなく複数選択を可能にする -->
-  <!--<% @modes.each do |mode| %>
-    <%= radio_button_tag(:addmode, "#{mode.detail}") %>
-    <%= label_tag(:addmode, :"#{mode.detail}") %>
-  <% end %>--><br><br>
-
+  <% @modes.each do |mode| %>
+  <% end %>
   <!-- 賞味期限か消費期限かの選択 -->
-  <%= radio_button_tag(:limit, true) %>
-  <%= label_tag(:limit, "賞味期限") %>
-  <%= radio_button_tag(:limit, false) %>
-  <%= label_tag(:limit, "消費期限") %>
+  <%= f.label :賞味期限 %>
+  <%= f.radio_button :limittype, "true" %>
+  <%= f.label :消費期限 %>
+  <%= f.radio_button :limittype, "false" %>
 
-  <div class="input-field">
-    <select>
-      <option value="" disabled selected>選んでください</option>
-      <option value="1">選択肢1</option>
-      <option value="2">選択肢2</option>
-      <option value="3">選択肢3</option>
-    </select>
-    <label>ラベルの文字列</label>
-  </div>
-
-  <p>期限</p>
-  <input name="limitYear">年<input name="limitMonth">月<input name="limitDay">日まで<br>
-
+  <%= f.text_field :limitYear %>年<%= f.text_field :limitMonth%>月<%= f.text_field :limitDay%>日まで
   <!-- 加工食品か生鮮食品かの選択 -->
-  <%= radio_button_tag(:foodtype,true) %>
-  <%= label_tag(:foodtype,"加工食品") %>
-  <%= radio_button_tag(:foodtype,false) %>
-  <%= label_tag(:foodtype, "生鮮食品") %>
 
-  <p>食べ物の量</p>
-  <input name="amount"><br>
+  <%= f.label :加工食品 %>
+  <%= f.radio_button :foodtype, "true" %>
+  <%= f.label :生鮮食品 %>
+  <%= f.radio_button :foodtype, "false" %>
+
+
+
+  <%= f.label :食べ物の量 %>
+  <%= f.text_field :amount %>
   <p>単位</p>
   <!-- 単位の選択 -->
-  <%= radio_button_tag(:amounttype,0) %>
-  <%= label_tag(:amounttype, "g") %>
-  <%= radio_button_tag(:amounttype,1) %>
-  <%= label_tag(:amounttype, "mL") %>
-  <%= radio_button_tag(:amounttype,2) %>
-  <%= label_tag(:amounttype, "人前") %>
-  <%= radio_button_tag(:amounttype,3) %>
-  <%= label_tag(:amounttype, "個・本など") %>
+  <%= f.label :g %>
+  <%= f.radio_button :amounttype, "0" %>
+  <%= f.label :mL %>
+  <%= f.radio_button :amounttype, "1" %>
+  <%= f.label :人前 %>
+  <%= f.radio_button :amounttype, "2" %>
+  <%= f.label :個・本など %>
+  <%= f.radio_button :amounttype, "3" %>
 
 
-  <p>食べ物の画像</p>
-  <input type="file" name="image_name">
+  <%= f.label :食べ物の画像 %>
+  <%= f.file_field :image_name %>
 
   <!-- 登録ボタン -->
-  <input type="submit" value="登録">
+  <%= f.submit %>controllerの設定は行っていない。viewは一通り完了
 <% end %>

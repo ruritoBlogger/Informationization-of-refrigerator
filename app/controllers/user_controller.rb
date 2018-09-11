@@ -26,19 +26,6 @@ class UserController < ApplicationController
     )
   end
 
-  def login_name_params
-    params.require(:user).permit(
-        :user_name
-    )
-  end
-
-  def login_password_params
-    params.require(:user).permit(
-        :password,
-        :user_name
-    )
-  end
-
   public
 
   #ログイン
@@ -47,8 +34,6 @@ class UserController < ApplicationController
     logger.debug("ここからデバッグ")
     logger.debug("ユーザーの情報:#{user.user_name}:#{user.password_digest}")
     logger.debug("params: #{params}")
-    logger.debug("login_password_params: #{login_password_params}")
-    logger.debug("パスワードを暗号化:#{user.authenticate(login_password_params)}")
     if user && user.authenticate(params[:user][:password])
       session[:user_id] = user.id
       flash[:notice] = "ログインに成功しました"
