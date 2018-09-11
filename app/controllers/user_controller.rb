@@ -43,12 +43,13 @@ class UserController < ApplicationController
 
   #ログイン
   def login
-    user = User.find_by(login_name_params)
+    user = User.find_by(user_name: params[:user][:user_name])
     logger.debug("ここからデバッグ")
     logger.debug("ユーザーの情報:#{user.user_name}:#{user.password_digest}")
     logger.debug("params: #{params}")
     logger.debug("login_password_params: #{login_password_params}")
-    if user && user.authenticate(login_password_params)
+    logger.debug("パスワードを暗号化:#{user.authenticate(login_password_params)}")
+    if user && user.authenticate(params[:user][:password])
       session[:user_id] = user.id
       flash[:notice] = "ログインに成功しました"
       redirect_to("/main/profile")
