@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<header>
+<header class="black_text">
   <% if !(session[:user_id]) %>
     <!-- ログインしていない時-->
     <!-- headerの左側 -->
@@ -21,7 +21,7 @@
       <div class="header_link">
         <%= link_to("/home/top") do %>
           <div class="header_toplink">
-            
+
           </div>
         <% end %>
       </div>

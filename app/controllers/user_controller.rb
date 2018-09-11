@@ -34,7 +34,8 @@ class UserController < ApplicationController
 
   def login_password_params
     params.require(:user).permit(
-        :password
+        :password,
+        :user_name
     )
   end
 
@@ -44,10 +45,11 @@ class UserController < ApplicationController
   def login
     user = User.find_by(login_name_params)
     logger.debug("ここからデバッグ")
+    logger.debug("ユーザーの情報:#{user.user_name}:#{user.password_digest}")
     logger.debug("params: #{params}")
     logger.debug("login_password_params: #{login_password_params}")
     if user && user.authenticate(login_password_params)
-      session[:user_id] = @user.id
+      session[:user_id] = user.id
       flash[:notice] = "ログインに成功しました"
       redirect_to("/main/profile")
     else
