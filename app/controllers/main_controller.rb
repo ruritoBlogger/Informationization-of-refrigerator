@@ -22,7 +22,7 @@ class MainController < ApplicationController
 
   #ランキングページ
   def ranking
-    @users = User.all
+    @users = User.order('level DESC')
   end
 
 end
