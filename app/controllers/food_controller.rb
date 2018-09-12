@@ -1,5 +1,8 @@
 class FoodController < ApplicationController
 
+  #アクセス制限
+  before_action :checkLogin
+
   #食品の新規登録ページ
   def new
     @modes = Mode.where(user_id: session[:user_id])

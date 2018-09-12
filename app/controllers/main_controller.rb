@@ -1,5 +1,8 @@
 class MainController < ApplicationController
 
+  #アクセス制限
+  before_action :checkLogin
+
   #ユーザーのプロフィールページ
   def profile
     @user = User.find_by(id: session[:user_id])

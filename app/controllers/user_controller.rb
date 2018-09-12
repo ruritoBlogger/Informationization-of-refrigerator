@@ -1,5 +1,8 @@
 class UserController < ApplicationController
 
+  #アクセス制限
+  before_action :checkLogin, only: [:logout ,:update, :updatepw, :destroy]
+
   #新規登録
   def create
     @user = User.new(create_params)
