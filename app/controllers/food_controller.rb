@@ -13,10 +13,10 @@ class FoodController < ApplicationController
   #メインページ
   def main
     @oldfoods = Food.where(user_id: session[:user_id],
-                           limittype: true)
+                           limittype: true).order(:limitYear, :limitMonth, :limitDay)
 
     @Fleshfoods = Food.where(user_id: session[:user_id],
-                             limittype: false)
+                             limittype: false).order(:limitYear, :limitMonth, :limitDay)
 
     @modes = Mode.where(user_id: session[:user_id])
   end
