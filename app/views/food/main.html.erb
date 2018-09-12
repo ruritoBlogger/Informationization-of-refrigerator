@@ -23,7 +23,9 @@
       <td><%= food.limitMonth %>月<%= food.limitDay %>日</td>
       <td><%= food.amount %><%= food.amounttype %></td>
       <td><%= food.yetamount %></td>
-      <td><%= link_to("詳細", "/food/#{food.id}/show") %></td>
+      <td><%= link_to("/food/#{food.id}/show") do %>
+          詳細
+        <% end %></td>
     </tr>
   <% end %>
 </table>
