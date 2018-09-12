@@ -23,29 +23,5 @@ $(function() {
 
     $('select').material_select();
 
-    $(".header_link").hover(
-        function () {
-            $(this).css("background-color", "green");
-        },
-        function () {
-            $(this).css("background-color", " #2E2F30");
-        }
-    );
-
-    $(".header_link").click(function(){
-        $(this).css("background-color","blue");
-    });
-
-    $(".header_link").hover(
-        function () {
-            $(this).css("background-color", "green");
-        },
-        function () {
-            $(this).css("background-color", " #2E2F30");
-        }
-    );
-    $(".header_link").click(function(){
-        $(this).css("background-color","blue");
-    });
 });
 
