@@ -10,9 +10,12 @@ Rails.application.routes.draw do
 
   get "food/:id/show" => "food#show"
   get "food/:id/edit" => "food#edit"
+  get "food/:id/editinfo" => "food#editinfo"
+  patch "food/:id/editinfo" => "food#editinfo"
 
   post "food/:id/update" => "food#update"
   post "food/:id/destroy" => "food#destroy"
+  post "food/:id/updateinfo" => "food#updateinfo"
 
   get "main/profile" => "main#profile"
   get "main/edit" => "main#edit"

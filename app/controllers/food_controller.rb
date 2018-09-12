@@ -57,6 +57,12 @@ class FoodController < ApplicationController
     )
   end
 
+  #選択された食品の情報を更新するページ
+  def editinfo
+    @food = Food.new
+    @modes = Mode.where(user_id: session[:user_id])
+  end
+
   #食品の新規登録を行う
   def create
     @food = Food.new(create_params)
@@ -134,6 +140,18 @@ class FoodController < ApplicationController
       @food.save
       flash[:notice] = "更新しました"
       redirect_to("/food/index")
+    end
+  end
+
+  #登録された食べ物の情報の変更（残り量以外）
+  def updateinfo
+    food = Food.find_by(create_params)
+    if food.save
+      flash[:notice] = "更新しました"
+      redirect_to("/food/index")
+    else
+      flash[:notice_fail] = "更新に失敗しました"
+      redirect_to("/food/#{food.id}/editinfo")
     end
   end
 
