@@ -1,5 +1,25 @@
 <p>食べ物の詳細ページ</p>
 <%= @food.name %>
-<%= form_tag("/food/#{@food.id}/edit",{method: :get}) do %>
+<% if @food.image_name == "https://uds.gnst.jp/rest/img/1ew287ve0000/s_006z.jpg?t=1506082927" %>
+  <img src="https://uds.gnst.jp/rest/img/1ew287ve0000/s_006z.jpg?t=1506082927" style="width: 12%">
+<% else %>
+  <img src='<%= "/food#{session[:user_id]}_images/#{@food.image_name}" %>' style="width: 12%">
+<% end %>
+<p>期限:<%= @food.limitYear %>年<%= @food.limitMonth %>月<%= @food.limitDay %>日まで</p>
+<p>
+  <% if @food.limittype %>
+    賞味期限
+  <% else %>
+    消費期限
+  <% end %></p>
+<p>
+  <% if @food.foodtype %>
+    加工食品
+  <% else %>
+    生鮮食品
+  <% end %></p>
+<p>総量：<%= @food.amount %><%= @food.amounttype %></p>
+<p>残り量：<%= @food.yetamount %>％</p>
+<%= form_tag("/food/#{@food.id}/edit", {method: :get}) do %>
   <input type="submit" value="更新">
 <% end %>
