@@ -19,7 +19,9 @@ class ApplicationController < ActionController::Base
 
   #ログイン中のユーザーに編集権限が存在するかどうかの判断
   def checkUser
-    if params[:id] != session[:user_id]
+    food = Food.find_by(id: params[:id])
+    user = User.find_by(id: food.user_id)
+    if user.id != session[:user_id]
       flash[:notice_fail] = "編集権限が存在しません"
       #ログインしているかどうかの判断
       if session[:user_id]

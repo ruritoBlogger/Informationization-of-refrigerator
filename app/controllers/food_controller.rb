@@ -2,6 +2,7 @@ class FoodController < ApplicationController
 
   #アクセス制限
   before_action :checkLogin
+  before_action :checkUser, only: [:show, :edit, :editinfo, :update, :destroy, :updateinfo]
 
   #食品の新規登録ページ
   def new
