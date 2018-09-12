@@ -2,8 +2,32 @@ class ApplicationController < ActionController::Base
 
   before_action :set_current_user
 
+  #ログインユーザー
   def set_current_user
     @current_user = User.find_by(id: session[:user_id])
+  end
+
+  #アクセスの制限
+
+  #ログインしているかどうかの判断
+  def checkLogin
+    if session[:user_id] == nil
+      flash[:notice_fail] = "ログインを行ってください"
+      redirect_to("/home/login")
+    end
+  end
+
+  #ログイン中のユーザーに編集権限が存在するかどうかの判断
+  def checkUser
+    if params[:id] != session[:user_id]
+      flash[:notice_fail] = "編集権限が存在しません"
+      #ログインしているかどうかの判断
+      if session[:user_id]
+        redirect_to("/food/main")
+      else
+        redirect_to("/home/login")
+      end
+    end
   end
 
   #レベルの更新
