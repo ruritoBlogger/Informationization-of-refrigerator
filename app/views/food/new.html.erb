@@ -9,18 +9,18 @@
   <% @modes.each do |mode| %>
   <% end %>
   <!-- 賞味期限か消費期限かの選択 -->
-  <%= f.label :賞味期限 %>
-  <%= f.radio_button :limittype, "true" %>
-  <%= f.label :消費期限 %>
-  <%= f.radio_button :limittype, "false" %>
+  <%= f.radio_button  :limittype, "賞味期限" %>
+  <%= f.label :limittype, "賞味期限" , value: "賞味期限" %>
+  <%= f.radio_button :limittype, "消費期限" %>
+  <%= f.label :limittype, "消費期限", value: "消費期限"  %>
 
   <%= f.text_field :limitYear %>年<%= f.text_field :limitMonth%>月<%= f.text_field :limitDay%>日まで
   <!-- 加工食品か生鮮食品かの選択 -->
 
-  <%= f.label :加工食品 %>
-  <%= f.radio_button :foodtype, "true" %>
-  <%= f.label :生鮮食品 %>
-  <%= f.radio_button :foodtype, "false" %>
+  <%= f.radio_button :foodtype, "加工食品" %>
+  <%= f.label :foodtype, "加工食品", value: "加工食品" %>
+  <%= f.radio_button :foodtype, "生鮮食品" %>
+  <%= f.label :foodtype, "生鮮食品", value: "生鮮食品" %>
 
 
 
@@ -28,14 +28,14 @@
   <%= f.text_field :amount %>
   <p>単位</p>
   <!-- 単位の選択 -->
-  <%= f.label :g %>
-  <%= f.radio_button :amounttype, "0" %>
-  <%= f.label :mL %>
-  <%= f.radio_button :amounttype, "1" %>
-  <%= f.label :人前 %>
-  <%= f.radio_button :amounttype, "2" %>
-  <%= f.label :個・本など %>
-  <%= f.radio_button :amounttype, "3" %>
+  <%= f.radio_button :amounttype, "g" %>
+  <%= f.label :amounttype, "g", value: "g" %>
+  <%= f.radio_button :amounttype, "mL" %>
+  <%= f.label :amounttype, "mL", value: "mL" %>
+  <%= f.radio_button :amounttype, "人前" %>
+  <%= f.label :amounttype, "人前", value: "人前" %>
+  <%= f.radio_button :amounttype, "個・本など" %>
+  <%= f.label :amounttype, "個・本など", value: "個・本など" %>
 
 
   <%= f.label :食べ物の画像 %>

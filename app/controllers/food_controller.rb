@@ -7,6 +7,7 @@ class FoodController < ApplicationController
   #食品の新規登録ページ
   def new
     @modes = Mode.where(user_id: session[:user_id])
+    @food = Food.new
   end
 
   #現在登録されている食品一覧ページ
@@ -70,6 +71,12 @@ class FoodController < ApplicationController
   #食品の新規登録を行う
   def create
     @food = Food.new(create_params)
+    @food.yetamount = 100
+    @food.user_id = session[:user_id]
+    logger.debug("ここからデバッグ")
+    logger.debug("@food.name:#{@food.image_name}")
+    logger.debug("@food.limittype:#{@food.save!}")
+
     if !(@food.save)
       flash[:notice_fail] = "登録に失敗しました"
       redirect_to("/food/new")
@@ -84,9 +91,9 @@ class FoodController < ApplicationController
       #end
 
       #食べ物の画像の保存
-      if params[:image_name]
+      if params[:food][:image_name]
         food.image_name = "#{food.id}.jpg"
-        image = params[:image_name]
+        image = params[:food][:image_name]
         File.binwrite("public/food#{session[:user_id]}_images/#{food.image_name}", image.read)
       else
         #ネットからのurlで画像を用意する
@@ -100,29 +107,6 @@ class FoodController < ApplicationController
       #  @name = params[:name]
 
       #賞味期限か消費期限かの判断
-      if params[:limit]
-        food.limittype = true
-      else
-        food.limittype = false
-      end
-
-      #加工食品か生鮮食品かの判断
-      if params[:foodtype]
-        food.foodtype = true
-      else
-        food.foodtype = false
-      end
-
-      #個数の単位の判断
-      if params[:amounttype] == 0
-        food.amounttype = "g"
-      elsif params[:amounttype] == 1
-        food.amounttype = "mL"
-      elsif params[:amounttype] == 2
-        food.amounttype = "人前"
-      else
-        food.amounttype = "個・本"
-      end
 
       food.save
       flash[:notice] = "食べ物の新規登録を行いました"
