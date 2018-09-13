@@ -8,8 +8,6 @@ class Food < ApplicationRecord
   validates :yetamount, {presence: true}
   validates :image_name, {presence: true}
   validates :amounttype, {presence: true}
-  validates :limitYear, {presence: true}
-  validates :limitMonth, {presence: true}
-  validates :limitDay, {presence: true}
+  validates :limitday, {presence: true}
 
 end
