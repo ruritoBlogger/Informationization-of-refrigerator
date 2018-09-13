@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_07_155124) do
+ActiveRecord::Schema.define(version: 2018_09_13_032531) do
 
   create_table "conect_food_to_modes", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 2018_09_07_155124) do
 
   create_table "foods", force: :cascade do |t|
     t.integer "user_id"
-    t.boolean "limittype"
     t.integer "foodtype"
     t.string "name"
     t.datetime "created_at", null: false
@@ -34,6 +33,7 @@ ActiveRecord::Schema.define(version: 2018_09_07_155124) do
     t.integer "limitYear"
     t.integer "limitMonth"
     t.integer "limitDay"
+    t.string "limittype"
   end
 
   create_table "modes", force: :cascade do |t|
