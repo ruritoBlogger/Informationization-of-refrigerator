@@ -123,6 +123,18 @@ class FoodController < ApplicationController
   #登録された食べ物の情報の変更（残り量以外）
   def updateinfo
     food = Food.find_by(create_params)
+
+    #食品の画像について
+    if params[:food][:image_name]
+      food.image_name = "#{food.id}.jpg"
+      image = params[:food][:image_name]
+      File.binwrite("public/food#{session[:user_id]}_images/#{food.image_name}", image.read)
+    else
+      #ネットからのurlで画像を用意する
+      food.image_name = "https://uds.gnst.jp/rest/img/1ew287ve0000/s_006z.jpg?t=1506082927"
+    end
+
+    #保存できるかの処理
     if food.save
       flash[:notice] = "更新しました"
       redirect_to("/food/index")
