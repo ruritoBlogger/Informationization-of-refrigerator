@@ -6,10 +6,8 @@
   <input name="used">％
   <input type="submit" value="更新">
 <% end %>
-<%= form_tag("/food/#{@food.id}/destroy",{method: :post}) do %>
-  <p><%= @food.name %>の情報を削除</p>
-  <input type="submit" value="削除">
-<% end %>
+
 <%= form_for(@food, :url => {:action => :editinfo, :controller => :food}) do |f| %>
+  <p>その他の情報の更新</p>
   <%= f.submit value="更新" %>
 <% end %>

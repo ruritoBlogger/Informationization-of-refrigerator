@@ -73,9 +73,6 @@ class FoodController < ApplicationController
     @food = Food.new(create_params)
     @food.yetamount = 100
     @food.user_id = session[:user_id]
-    logger.debug("ここからデバッグ")
-    logger.debug("@food.name:#{@food.image_name}")
-    logger.debug("@food.limittype:#{@food.save!}")
 
     if !(@food.save)
       flash[:notice_fail] = "登録に失敗しました"
@@ -99,14 +96,6 @@ class FoodController < ApplicationController
         #ネットからのurlで画像を用意する
         food.image_name = "https://uds.gnst.jp/rest/img/1ew287ve0000/s_006z.jpg?t=1506082927"
       end
-
-      #  @limitYear = params[:limitYear]
-      #  @limitMonth = params[:limitMonth]
-      #  @limitDay = params[:limitDay]
-      #  @amount = params[:amount]
-      #  @name = params[:name]
-
-      #賞味期限か消費期限かの判断
 
       food.save
       flash[:notice] = "食べ物の新規登録を行いました"

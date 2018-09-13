@@ -22,4 +22,8 @@
 <p>残り量：<%= @food.yetamount %>％</p>
 <%= form_tag("/food/#{@food.id}/edit", {method: :get}) do %>
   <input type="submit" value="更新">
+<% end %><br>
+<%= form_tag("/food/#{@food.id}/destroy", {method: :post}) do %>
+  <p><%= @food.name %>の情報を削除</p>
+  <input type="submit" value="削除">
 <% end %>
