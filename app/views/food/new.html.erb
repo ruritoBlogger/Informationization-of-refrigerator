@@ -12,10 +12,10 @@
   <%= f.radio_button  :limittype, "賞味期限" %>
   <%= f.label :limittype, "賞味期限" , value: "賞味期限" %>
   <%= f.radio_button :limittype, "消費期限" %>
-  <%= f.label :limittype, "消費期限", value: "消費期限"  %>
+  <%= f.label :limittype, "消費期限", value: "消費期限"  %><br>
 
-  <%= f.label :limitday, "入荷予定日" %>
-  <%= f.date_select :limitday,  :default => @food.limitday  %>
+  <%= f.label :limitday, "期限日" %>
+  <%= f.date_select :limitday,  :default => @food.limitday  %><br>
 
   <!-- 加工食品か生鮮食品かの選択 -->
 

@@ -12,7 +12,7 @@ class FoodController < ApplicationController
 
   #現在登録されている食品一覧ページ
   def index
-    @foods = Food.where(user_id: session[:user_id])
+    @foods = Food.where(user_id: session[:user_id]).order(:limitday)
   end
 
   #メインページ
@@ -79,6 +79,16 @@ class FoodController < ApplicationController
     #date = Time.zone.local(params[:food][:limitday]["date(1i)"], params[:food][:limitday]["date(2i)"],params[:food][:limitday]["date(3i)"])
     #@food.limitday = date.to_date
 
+    #食べ物の画像の保存
+    if params[:food][:image_name]
+      @food.image_name = "#{food.id}.jpg"
+      image = params[:food][:image_name]
+      File.binwrite("public/food#{session[:user_id]}_images/#{@food.image_name}", image.read)
+    else
+      #ネットからのurlで画像を用意する
+      @food.image_name = "https://uds.gnst.jp/rest/img/1ew287ve0000/s_006z.jpg?t=1506082927"
+    end
+
     if !(@food.save)
       flash[:notice_fail] = "登録に失敗しました"
       redirect_to("/food/new")
@@ -91,16 +101,6 @@ class FoodController < ApplicationController
       #
       #  end
       #end
-
-      #食べ物の画像の保存
-      if params[:food][:image_name]
-        food.image_name = "#{food.id}.jpg"
-        image = params[:food][:image_name]
-        File.binwrite("public/food#{session[:user_id]}_images/#{food.image_name}", image.read)
-      else
-        #ネットからのurlで画像を用意する
-        food.image_name = "https://uds.gnst.jp/rest/img/1ew287ve0000/s_006z.jpg?t=1506082927"
-      end
 
       food.save
       flash[:notice] = "食べ物の新規登録を行いました"
