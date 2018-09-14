@@ -1,2 +1,8 @@
-@import 'materialize';
-@import "materialize/components/color";
+@import "materialize";
+header{
+  @extend .black-text, .text-lighten-4;
+}
+
+.main th, .maintd{
+  width:13%;
+}
