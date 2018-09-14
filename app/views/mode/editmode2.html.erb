@@ -1,4 +1,4 @@
-<%= form_for(@conect_mode, :url => {:action =>, :controller => :food}) do |f| %>
+<%= form_for(@conect_mode, :url => {:action => :createmode2, :controller => :mode}) do |f| %>
   <p>その種類に属する食べ物</p>
   <table>
     <tr>
@@ -7,6 +7,8 @@
       <th>選択</th>
     </tr>
     <% @foods.each do |food| %>
+    <% @conect_mode = ConectFoodToMode.new %>>
+      <% @current_food = ["登録する",food.id],["登録しない",nil] %>
       <tr>
         <td><%= food.name %></td>
         <td>
@@ -15,10 +17,9 @@
           <% else %>
             <img src='<%= "/food#{session[:user_id]}_images/#{food.image_name}" %>' style="width:15%;">
           <% end %></td>
-        <td>チェックボックスの追加</td>
-        <%= f.select(:food_id, @current_food) %>
+        <td><%= f.select :food_id, @current_food %></td>
       </tr>
     <% end %>
   </table>
   <input type="submit" value="追加">
-<%= end %>
+<% end %>

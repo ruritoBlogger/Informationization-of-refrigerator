@@ -17,29 +17,30 @@ class ModeController < ApplicationController
 
   #作成したモードと食品をつなぐ
   def createmode2
-    @conect_mode = ConectFoodToMode.new(create_conect_mode_params)
-    @conect_mode.user_id = session[:user_id]
-    @conect_mode.mode_id = params[:mode_id]
-    if @conect_mode.save
-      flash[:notice] = "種類の登録に成功しました"
-      redirect_to("/food/main")
-    else
-      flash[:notice_fail] = "種類の登録に失敗しました"
-      redirect_to("/food/editmode")
+    logger.debug("//////////////////////////////////////////////////")
+    logger.debug("food_id:#{params[:conect_food_to_mode][:food_id]}")
+    params[:food_id].each do |id|
+      @conect_mode = ConectFoodToMode.new
+      @conect_mode.user_id = session[:user_id]
+      @conect_mode.mode_id = params[:mode_id]
+      @conect_mode.food_id = id[:state]
+      @conect_mode.save
     end
+    redirect_to("/food/main")
+  end
+
+  #種類を登録するページ
+  def editmode
+    @mode = Mode.new
   end
 
   #食品と新規作成したモードを接続するページ
   def editmode2
     @conect_mode = ConectFoodToMode.new
     @foods = Food.where(user_id: session[:user_id])
-    @current_food = []
 
-    n = 1
-    @foods.each do |food|
-      @current_food << [n, n]
-      n += 1
-    end
+    #生成したモードを今現在存在する食品に紐付ける
+    # 食品に紐付けるためのセレクトボックスを動的に生成する
   end
 
   def create_conect_mode_params
