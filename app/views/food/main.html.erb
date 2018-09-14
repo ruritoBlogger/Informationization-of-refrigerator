@@ -20,7 +20,7 @@
         <% else %>
           <img src='<%= "/food#{session[:user_id]}_images/#{food.image_name}" %>' style="width:15%;">
         <% end %></td>
-      <td><%= food.limitMonth %>月<%= food.limitDay %>日</td>
+      <td>日付の入力</td>
       <td><%= food.amount %><%= food.amounttype %></td>
       <td><%= food.yetamount %></td>
       <td><%= link_to("/food/#{food.id}/show") do %>
@@ -51,7 +51,7 @@
         <% else %>
           <img src='<%= "/food#{session[:user_id]}_images/#{food.image_name}" %>' style="width:15%;">
         <% end %></td>
-      <td><%= food.limitMonth %>月<%= food.limitDay %>日</td>
+      <td>日付の入力</td>
       <td><%= food.amount %><%= food.amounttype %></td>
       <td><%= food.yetamount %></td>
       <td><%= link_to("詳細", "/food/#{food.id}/show") %></td>

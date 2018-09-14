@@ -5,7 +5,7 @@
 <% else %>
   <img src='<%= "/food#{session[:user_id]}_images/#{@food.image_name}" %>' style="width: 12%">
 <% end %>
-<p>期限:<%= @food.limitYear %>年<%= @food.limitMonth %>月<%= @food.limitDay %>日まで</p>
+<p>期限</p>
 <p>
   <% if @food.limittype %>
     賞味期限

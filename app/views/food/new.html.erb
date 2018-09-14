@@ -14,7 +14,9 @@
   <%= f.radio_button :limittype, "消費期限" %>
   <%= f.label :limittype, "消費期限", value: "消費期限"  %>
 
-  <%= f.text_field :limitYear %>年<%= f.text_field :limitMonth%>月<%= f.text_field :limitDay%>日まで
+  <%= f.label :limitday, "入荷予定日" %>
+  <%= f.date_select :limitday,:date,:default => @food.limitday  %>
+
   <!-- 加工食品か生鮮食品かの選択 -->
 
   <%= f.radio_button :foodtype, "加工食品" %>
