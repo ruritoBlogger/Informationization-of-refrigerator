@@ -80,7 +80,7 @@ class FoodController < ApplicationController
 
     #食べ物の画像の保存
     if params[:food][:image_name]
-      @food.image_name = "#{@food.id}.jpg"
+      @food.image_name = "#{food.id}.jpg"
       image = params[:food][:image_name]
       File.binwrite("public/food#{session[:user_id]}_images/#{@food.image_name}", image.read)
     else

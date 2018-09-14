@@ -1,6 +1,27 @@
 <p>種類の新規登録のページ</p>
-<%= form_for(@mode, :url => {:action => :createmode, :controller => :mode}) do |f| %>
+<%= form_for(@mode, :url => {:action => :create, :controller => :food}) do |f| %>
   <%= f.label :種類の名前 %>
-  <%= f.text_field :detail %>
-  <%= f.submit value="次へ" %>
+  <%= f.text_field :name %>
+  <p>その種類に属する食べ物</p>
+  <table>
+    <tr>
+      <th>名前</th>
+      <th>画像</th>
+      <th>選択</th>
+    </tr>
+    <% @foods.each do |food| %>
+      <tr>
+        <td><%= food.name %></td>
+        <td>
+          <% if food.image_name == "https://uds.gnst.jp/rest/img/1ew287ve0000/s_006z.jpg?t=1506082927" %>
+            <img src="https://uds.gnst.jp/rest/img/1ew287ve0000/s_006z.jpg?t=1506082927" style="width:15%;">
+          <% else %>
+            <img src='<%= "/food#{session[:user_id]}_images/#{food.image_name}" %>' style="width:15%;">
+          <% end %></td>
+        <td>チェックボックスの追加</td>
+        <%= f. %>
+      </tr>
+    <% end %>
+  </table>
+  <input type="submit" value="追加">
 <% end %>
