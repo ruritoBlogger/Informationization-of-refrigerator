@@ -34,9 +34,6 @@ class UserController < ApplicationController
   #ログイン
   def login
     user = User.find_by(user_name: params[:user][:user_name])
-    logger.debug("ここからデバッグ")
-    logger.debug("ユーザーの情報:#{user.user_name}:#{user.password_digest}")
-    logger.debug("params: #{params}")
     if user && user.authenticate(params[:user][:password])
       session[:user_id] = user.id
       flash[:notice] = "ログインに成功しました"
