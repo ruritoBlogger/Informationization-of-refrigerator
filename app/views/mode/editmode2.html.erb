@@ -1,0 +1,24 @@
+<%= form_for(@conect_mode, :url => {:action =>, :controller => :food}) do |f| %>
+  <p>その種類に属する食べ物</p>
+  <table>
+    <tr>
+      <th>名前</th>
+      <th>画像</th>
+      <th>選択</th>
+    </tr>
+    <% @foods.each do |food| %>
+      <tr>
+        <td><%= food.name %></td>
+        <td>
+          <% if food.image_name == "https://uds.gnst.jp/rest/img/1ew287ve0000/s_006z.jpg?t=1506082927" %>
+            <img src="https://uds.gnst.jp/rest/img/1ew287ve0000/s_006z.jpg?t=1506082927" style="width:15%;">
+          <% else %>
+            <img src='<%= "/food#{session[:user_id]}_images/#{food.image_name}" %>' style="width:15%;">
+          <% end %></td>
+        <td>チェックボックスの追加</td>
+        <%= f.select(:food_id, @current_food) %>
+      </tr>
+    <% end %>
+  </table>
+  <input type="submit" value="追加">
+<%= end %>

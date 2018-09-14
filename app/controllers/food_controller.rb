@@ -19,7 +19,7 @@ class FoodController < ApplicationController
   def main
     @oldfoods = Food.where(user_id: session[:user_id],
                            limittype: true,
-                           limitday: @today..@today+30).order(:limitday)
+                           limitday: @today..@today + 30).order(:limitday)
 
     @Fleshfoods = Food.where(user_id: session[:user_id],
                              limittype: false).order(:limitday)
@@ -46,7 +46,7 @@ class FoodController < ApplicationController
   def editmode
     @foods = Food.where(user_id: session[:user_id])
     @mode = Mode.new
-  end
+ end
 
   def create_params
     params.require(:food).permit(
@@ -77,8 +77,6 @@ class FoodController < ApplicationController
     logger.debug("#{params[:food]}")
     logger.debug("#{@food.limitday}")
     @food.limitday = Time.zone.local(params[:food]["limitday(1i)"].to_i, params[:food]["limitday(2i)"].to_i, params[:food]["limitday(3i)"].to_i)
-    #date = Time.zone.local(params[:food][:limitday]["date(1i)"], params[:food][:limitday]["date(2i)"],params[:food][:limitday]["date(3i)"])
-    #@food.limitday = date.to_date
 
     #食べ物の画像の保存
     if params[:food][:image_name]
@@ -158,9 +156,5 @@ class FoodController < ApplicationController
     redirect_to("/food/index")
   end
 
-  #食品の種類を新規登録登録
-  def create_mode
-
-  end
 
 end

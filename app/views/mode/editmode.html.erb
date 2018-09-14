@@ -1,0 +1,6 @@
+<p>種類の新規登録のページ</p>
+<%= form_for(@mode, :url => {:action => :createmode, :controller => :mode}) do |f| %>
+  <%= f.label :種類の名前 %>
+  <%= f.text_field :detail %>
+  <%= f.submit value = "次へ" %>
+<% end %>
