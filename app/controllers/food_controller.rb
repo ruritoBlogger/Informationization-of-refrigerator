@@ -18,10 +18,11 @@ class FoodController < ApplicationController
   #メインページ
   def main
     @oldfoods = Food.where(user_id: session[:user_id],
-                           limittype: true)
+                           limittype: true,
+                           limitday: @today..@today+30).order(:limitday)
 
     @Fleshfoods = Food.where(user_id: session[:user_id],
-                             limittype: false)
+                             limittype: false).order(:limitday)
 
     @modes = Mode.where(user_id: session[:user_id])
   end
