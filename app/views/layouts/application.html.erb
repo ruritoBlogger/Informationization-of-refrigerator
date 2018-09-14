@@ -22,7 +22,7 @@
       <div class="header_link">
         <%= link_to("/home/top") do %>
           <div class="brand-logo">
-            れいぞうこ
+            refrigerator
           </div>
         <% end %>
       </div>
@@ -105,17 +105,21 @@
       </div>
 
       <!-- current_user -->
-      <% user = User.find_by(id: session[:user_id]) %>
-      <p>レベル<%= user.level %>現在の経験値<%= user.exp %></p>
+      <div class="user_data">
+        <% user = User.find_by(id: session[:user_id]) %>
+        <p>レベル<%= user.level %>現在の経験値<%= user.exp %></p>
+      </div>
 
     <% end %>
 
     <!-- ログインに成功したかなどの告知 -->
-    <% if flash[:notice] %>
-      <%= flash[:notice] %>
-    <% elsif flash[:notice_fail] %>
-      <%= flash[:notice_fail] %>
-    <% end %>
+    <div class="flash">
+      <% if flash[:notice] %>
+        <%= flash[:notice] %>
+      <% elsif flash[:notice_fail] %>
+        <%= flash[:notice_fail] %>
+      <% end %>
+    </div>
 
   </div>
 </nav>

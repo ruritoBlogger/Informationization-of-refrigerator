@@ -1,43 +1,69 @@
 @import "materialize/components/color";
 @import "materialize";
 
-*{
+* {
 }
 
+.user_data, .flash {
+  z-index: 10;
+  background-color: #2E2F30;
+}
 
-header{
+body {
+  @extend .light-blue, .lighten-5;
+  background-color: #81d4fa light-blue lighten-5;
+}
+
+.nav-wrapper{
+  margin:0px 20px;
 }
 
 .head {
   width: 100%;
   background-image: url("http://www.pc-daiwabo.co.jp/kanri/image.php?file=category_corp.1.png");
   background-size: cover;
-
   h3 {
     text-align: center;
     font-weight: bold;
+    line-height: 60px;
   }
 }
 
-.main{
-  @extend  .light-blue, .lighten-3;
-  width:100%;
+.main {
+  width: 90%;
+  @extend .light-blue, .lighten-3;
+  margin: 0 auto;
   background-color: #81d4fa light-blue lighten-3;
 
-  .left-block {
-    width: 50%;
-    float:right;
-    background-color: #730E15;
+  .card-content {
+    font-size: 20px;
   }
 
-  .right-block{
-    width:45%;
-    float:left;
-    background-color: aqua;
+  .row {
+    width: 95%;
+    padding: 20px 0px;
+
+    .card {
+      margin: 10px 64px;
+      height: 600px;
+    }
+
+    .image {
+      display: inline-block;
+      height: 500px;
+      img {
+        height: 90%;
+      }
+    }
+
+    .about {
+      padding-left: 50px;
+    }
+
+    .web {
+      padding-left: 70px;
+    }
+
   }
 
-  .left {
-    width: 20%;
-    margin: 0 auto;
-  }
 }
