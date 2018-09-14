@@ -7,114 +7,118 @@
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <!--Compiled and minified CSS -->
-  <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css" >
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
   <!-- Compiled and minified JavaScript -->
-  <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"> </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+  <!-- materialize icon -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
 
-<header class="black_text">
-  <% if !(session[:user_id]) %>
-    <!-- ログインしていない時-->
+<nav>
+  <div class="nav-wrapper">
     <!-- headerの左側 -->
     <div class="header_left">
       <div class="header_link">
         <%= link_to("/home/top") do %>
-          <div class="header_toplink">
-
+          <div class="brand-logo">
+            れいぞうこ
           </div>
         <% end %>
       </div>
     </div>
-
-    <!-- headerの右側-->
-    <div class="header_right">
-      <div class="header_link">
-        <%= link_to("/home/new") do %>
-          <div class="header_new">
-            新規登録
-          </div>
-        <% end %>
-      </div>
-      <div class="header_link">
-        <%= link_to("/home/login") do %>
-          <div class="header_login">
-            ログイン
-          </div>
-        <% end %>
-      </div>
-    </div>
-  <% else %>
-    <!-- ログインしている時 -->
-    <div class="header_left">
-      <div class="header_link">
-        <%= link_to("/food/main") do %>
-          <div class="header_main">
-            メインページ
-          </div>
-        <% end %>
-      </div>
-      <div class="header_link">
-        <%= link_to("/food/new") do %>
-          <div class="header_foodNew">
-            食品登録
-          </div>
-        <% end %>
-      </div>
-      <div class="header_link">
-        <%= link_to("/food/index") do %>
-          <div class="header_index">
-            食品一覧
-          </div>
-        <% end %>
-      </div>
-    </div>
-    <div class="header_right">
-      <div class="header_link">
-        <%= link_to("/user/logout", {method: :post}) do %>
-          <div class="header_logout">
-            ログアウト
-          </div>
-        <% end %>
-      </div>
-      <div class="header_link">
-        <%= link_to("/main/setting") do %>
-          <div class="setting">
-            設定
-          </div>
-        <% end %>
-      </div>
-      <div class="header_link">
-        <%= link_to("/main/profile") do %>
-          <div class="profile">
-            プロフィール
-          </div>
-        <% end %>
-      </div>
-      <div class="header_link">
-        <%= link_to("/main/ranking") do %>
-          <div class="header_ranking">
-            ランキング
-          </div>
-        <% end %>
-      </div>
-    </div>
-
-    <!-- current_user -->
-    <% user = User.find_by(id: session[:user_id]) %>
-    <p>レベル<%= user.level %>現在の経験値<%= user.exp %></p>
-
-  <% end %>
-
-  <!-- ログインに成功したかなどの告知 -->
-  <% if flash[:notice] %>
-    <%= flash[:notice] %>
-  <% elsif flash[:notice_fail] %>
-    <%= flash[:notice_fail] %>
-  <% end %>
+    <% if !(session[:user_id]) %>
+      <!-- ログインしていない時-->
 
 
-</header>
+      <!-- headerの右側-->
+      <ul id="nav-mobile" class="header_right right hide-on-med-and-down">
+        <li class="header_link">
+          <%= link_to("/home/new") do %>
+            <div class="header_new">
+              新規登録
+            </div>
+          <% end %>
+        </li>
+        <li class="header_link">
+          <%= link_to("/home/login") do %>
+            <div class="header_login">
+              ログイン
+            </div>
+          <% end %>
+        </li>
+      </ul>
+    <% else %>
+      <!-- ログインしている時 -->
+      <div class="header_left">
+        <div class="header_link">
+          <%= link_to("/food/main") do %>
+            <div class="header_main">
+              メインページ
+            </div>
+          <% end %>
+        </div>
+        <div class="header_link">
+          <%= link_to("/food/new") do %>
+            <div class="header_foodNew">
+              食品登録
+            </div>
+          <% end %>
+        </div>
+        <div class="header_link">
+          <%= link_to("/food/index") do %>
+            <div class="header_index">
+              食品一覧
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="header_right">
+        <div class="header_link">
+          <%= link_to("/user/logout", {method: :post}) do %>
+            <div class="header_logout">
+              ログアウト
+            </div>
+          <% end %>
+        </div>
+        <div class="header_link">
+          <%= link_to("/main/setting") do %>
+            <div class="setting">
+              設定
+            </div>
+          <% end %>
+        </div>
+        <div class="header_link">
+          <%= link_to("/main/profile") do %>
+            <div class="profile">
+              プロフィール
+            </div>
+          <% end %>
+        </div>
+        <div class="header_link">
+          <%= link_to("/main/ranking") do %>
+            <div class="header_ranking">
+              ランキング
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+      <!-- current_user -->
+      <% user = User.find_by(id: session[:user_id]) %>
+      <p>レベル<%= user.level %>現在の経験値<%= user.exp %></p>
+
+    <% end %>
+
+    <!-- ログインに成功したかなどの告知 -->
+    <% if flash[:notice] %>
+      <%= flash[:notice] %>
+    <% elsif flash[:notice_fail] %>
+      <%= flash[:notice_fail] %>
+    <% end %>
+
+  </div>
+</nav>
 <%= yield %>
 </body>
 </html>

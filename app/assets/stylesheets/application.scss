@@ -1,8 +1,43 @@
+@import "materialize/components/color";
 @import "materialize";
-header{
-  @extend .black-text, .text-lighten-4;
+
+*{
 }
 
-.main th, .maintd{
-  width:13%;
+
+header{
+}
+
+.head {
+  width: 100%;
+  background-image: url("http://www.pc-daiwabo.co.jp/kanri/image.php?file=category_corp.1.png");
+  background-size: cover;
+
+  h3 {
+    text-align: center;
+    font-weight: bold;
+  }
+}
+
+.main{
+  @extend  .light-blue, .lighten-3;
+  width:100%;
+  background-color: #81d4fa light-blue lighten-3;
+
+  .left-block {
+    width: 50%;
+    float:right;
+    background-color: #730E15;
+  }
+
+  .right-block{
+    width:45%;
+    float:left;
+    background-color: aqua;
+  }
+
+  .left {
+    width: 20%;
+    margin: 0 auto;
+  }
 }
