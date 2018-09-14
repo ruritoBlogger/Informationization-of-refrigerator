@@ -1,9 +1,19 @@
-<h3>こちらは新規登録のページです</h3>
-<% @user = User.new %>
-<%= form_for(@user, :url => {:action => :create, :controller => :user}) do |f| %>
-  <%= f.label :ユーザー名 %>
-  <%= f.text_field :user_name %>
-  <%= f.label :パスワード %>
-  <%= f.password_field :password %>
-  <%= f.submit %>
-<% end %>
+<div class="row">
+  <h4 class="teal-text darken-2">create user</h4>
+  <% @user = User.new %>
+  <%= form_for(@user, :url => {:action => :create, :controller => :user}) do |f| %>
+    <div class="col s12">
+      <div class="input-field col s6">
+        <i class="material-icons prefix">account_circle</i>
+        <%= f.label :ユーザー名 %>
+        <%= f.text_field :user_name %>
+      </div>
+      <div class="input-field col s6">
+        <i class="material-icons prefix">enhanced_encryption</i>
+        <%= f.label :パスワード %>
+        <%= f.password_field :password %>
+      </div>
+      <%= f.submit :class => "btn waves-effect waves-light left" %>
+  <% end %>
+  </div>
+</div>

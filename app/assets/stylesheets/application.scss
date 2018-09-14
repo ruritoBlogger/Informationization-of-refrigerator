@@ -7,6 +7,20 @@
 .user_data, .flash {
   z-index: 10;
   background-color: #2E2F30;
+  z-index: 10;
+}
+
+.succsess{
+  @extend .green, .accent-3;
+  background-color: #00e676 green accent-3;
+}
+
+.failed{
+  @extend .red, .lighten-1;
+  background-color: #ef5350 red lighten-1;
+  .code{
+    text-align: center;
+  }
 }
 
 body {
@@ -42,6 +56,11 @@ body {
   .row {
     width: 95%;
     padding: 20px 0px;
+
+    h4{
+      text-align: center;
+      color:salmon;
+    }
 
     .card {
       margin: 10px 64px;

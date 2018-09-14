@@ -113,16 +113,23 @@
     <% end %>
 
     <!-- ログインに成功したかなどの告知 -->
-    <div class="flash">
-      <% if flash[:notice] %>
-        <%= flash[:notice] %>
-      <% elsif flash[:notice_fail] %>
-        <%= flash[:notice_fail] %>
-      <% end %>
-    </div>
+
 
   </div>
 </nav>
+<div class="flash">
+  <% if flash[:notice] %>
+    <div class="succsess">
+      <p><%= flash[:notice] %></p>
+    </div>
+  <% elsif flash[:notice_fail] %>
+    <div class="failed">
+      <div class="code">
+      <%= flash[:notice_fail] %>
+      </div>
+    </div>
+  <% end %>
+</div>
 <%= yield %>
 </body>
 </html>
