@@ -12,16 +12,16 @@ class FoodController < ApplicationController
 
   #現在登録されている食品一覧ページ
   def index
-    @foods = Food.where(user_id: session[:user_id]).order(:limitYear, :limitMonth, :limitDay)
+    @foods = Food.where(user_id: session[:user_id])
   end
 
   #メインページ
   def main
     @oldfoods = Food.where(user_id: session[:user_id],
-                           limittype: true).order(:limitYear, :limitMonth, :limitDay)
+                           limittype: true)
 
     @Fleshfoods = Food.where(user_id: session[:user_id],
-                             limittype: false).order(:limitYear, :limitMonth, :limitDay)
+                             limittype: false)
 
     @modes = Mode.where(user_id: session[:user_id])
   end
@@ -44,6 +44,7 @@ class FoodController < ApplicationController
   #食品の種類を新規に登録するページ
   def editmode
     @foods = Food.where(user_id: session[:user_id])
+    @mode = Mode.new
   end
 
   def create_params
@@ -56,9 +57,6 @@ class FoodController < ApplicationController
         :yetamount,
         :image_name,
         :amounttype,
-        :limitYear,
-        :limitMonth,
-        :limitDay
     )
   end
 
@@ -73,6 +71,13 @@ class FoodController < ApplicationController
     @food = Food.new(create_params)
     @food.yetamount = 100
     @food.user_id = session[:user_id]
+    logger.debug("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^")
+    logger.debug("#{params}")
+    logger.debug("#{params[:food]}")
+    logger.debug("#{@food.limitday}")
+    @food.limitday = Time.zone.local(params[:food]["limitday(1i)"].to_i, params[:food]["limitday(2i)"].to_i, params[:food]["limitday(3i)"].to_i)
+    #date = Time.zone.local(params[:food][:limitday]["date(1i)"], params[:food][:limitday]["date(2i)"],params[:food][:limitday]["date(3i)"])
+    #@food.limitday = date.to_date
 
     if !(@food.save)
       flash[:notice_fail] = "登録に失敗しました"
@@ -150,6 +155,11 @@ class FoodController < ApplicationController
     @food.destroy
     flash[:notice] = "食べ物の情報を削除しました"
     redirect_to("/food/index")
+  end
+
+  #食品の種類を新規登録登録
+  def create_mode
+
   end
 
 end
