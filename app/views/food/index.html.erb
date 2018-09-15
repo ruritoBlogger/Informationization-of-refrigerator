@@ -1,47 +1,49 @@
-<p>登録した食品一覧ページ</p>
-<table>
-  <tr class="index">
-    <th>名前</th>
-    <th>画像</th>
-    <th>加工食品か生鮮食品</th>
-    <th>賞味期限か消費期限</th>
-    <th>期限日</th>
-    <th>総量</th>
-    <th>残り量</th>
-    <th>詳細</th>
-  </tr>
-
-  <% @foods.each do |food| %>
+<div class="main">
+  <p>登録した食品一覧ページ</p>
+  <table id="index" class="centered">
     <tr class="index">
-      <%= form_tag("/food/#{food.id}/show", {method: :get}) do %>
-        <td><%= food.name %></td>
-        <td>
-          <% if food.image_name == "https://uds.gnst.jp/rest/img/1ew287ve0000/s_006z.jpg?t=1506082927" %>
-            <img src="https://uds.gnst.jp/rest/img/1ew287ve0000/s_006z.jpg?t=1506082927" style="width: 12%">
-          <% else %>
-            <img src='<%= "/food#{session[:user_id]}_images/#{food.image_name}" %>' style="width: 12%">
-          <% end %></td>
-
-        <td>
-          <% if food.foodtype %>
-            <p>加工食品</p>
-          <% else %>
-            <p>生鮮食品</p>
-          <% end %></td>
-
-        <td>
-          <% if food.limittype %>
-            <p>賞味期限</p>
-          <% else %>
-            <p>消費期限</p>
-          <% end %></td>
-
-        <td><%= food.limitday %></td>
-        <td><%= food.amount %><%= food.amounttype %></td>
-        <td><%= food.yetamount %>％</td>
-        <td><input type="submit" value="詳細"></td>
-      <% end %>
+      <th>名前</th>
+      <th>画像</th>
+      <th>加工食品か生鮮食品</th>
+      <th>賞味期限か消費期限</th>
+      <th>期限日</th>
+      <th>総量</th>
+      <th>残り量</th>
+      <th>詳細</th>
     </tr>
 
-  <% end %>
-</table>
+    <% @foods.each do |food| %>
+      <tr class="index">
+        <%= form_tag("/food/#{food.id}/show", {method: :get}) do %>
+          <td><%= food.name %></td>
+          <td>
+            <% if food.image_name == "https://uds.gnst.jp/rest/img/1ew287ve0000/s_006z.jpg?t=1506082927" %>
+              <img class="responsive-img" src="https://uds.gnst.jp/rest/img/1ew287ve0000/s_006z.jpg?t=1506082927" style="width: 100%">
+            <% else %>
+              <img src='<%= "/food#{session[:user_id]}_images/#{food.image_name}" %>'>
+            <% end %></td>
+
+          <td>
+            <% if food.foodtype %>
+              <p>加工食品</p>
+            <% else %>
+              <p>生鮮食品</p>
+            <% end %></td>
+
+          <td>
+            <% if food.limittype %>
+              <p>賞味期限</p>
+            <% else %>
+              <p>消費期限</p>
+            <% end %></td>
+
+          <td><%= food.limitday %></td>
+          <td><%= food.amount %><%= food.amounttype %></td>
+          <td><%= food.yetamount %>％</td>
+          <td><input type="submit" value="詳細"></td>
+        <% end %>
+      </tr>
+
+    <% end %>
+  </table>
+</div>

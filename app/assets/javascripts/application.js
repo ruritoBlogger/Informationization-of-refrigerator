@@ -20,8 +20,6 @@
 //= require materialize-sprockets
 
 $(function() {
-
     $('select').material_select();
-
 });
 
