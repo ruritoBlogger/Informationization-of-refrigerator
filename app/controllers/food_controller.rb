@@ -13,6 +13,7 @@ class FoodController < ApplicationController
   #現在登録されている食品一覧ページ
   def index
     @foods = Food.where(user_id: session[:user_id]).order(:limitday)
+    @food = Food.new
   end
 
   #メインページ

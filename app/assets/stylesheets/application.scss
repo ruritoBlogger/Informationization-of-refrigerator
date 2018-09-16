@@ -35,6 +35,10 @@ body {
   background-color: #81d4fa light-blue lighten-5;
 }
 
+.btn{
+  display: inline-block;
+}
+
 .nav-wrapper {
   margin: 0px 20px;
 }
@@ -144,6 +148,14 @@ body {
         font-size:30px;
         margin:0;
       }
+    }
+
+
+
+    .main-title{
+      font-size: 30px;
+      margin:0px;
+      text-align: center;
     }
 
   }
