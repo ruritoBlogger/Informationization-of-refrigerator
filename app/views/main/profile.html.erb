@@ -1,12 +1,20 @@
-<h3>プロフィールページ</h3>
-<p>ユーザー名</p>
-<%= @user.user_name %>
-<p>レベル:<%= @user.level %> 経験値:<%= @user.exp %></p>
-<p>自己紹介文</p>
-<%= @user.introduction %>
-<p>プロフィール画像</p>
-<img src="<%= "/user_images/#{@user.image_name}" %>"  style="width:25%;">
-<%= form_tag("/main/edit",{method: :get}) do %>
-  <p>プロフィールの編集</p>
-  <input type="submit" value="編集">
-<% end %>
+<header>
+  <p>プロフィールページ</p>
+</header>
+<div class="main">
+  <dic class="row">
+    <div class="left profile">
+      <p>ユーザー名</p><span><%= @user.user_name %></span></p>
+      <p>レベル:<span><%= @user.level %></span> 経験値:<span><%= @user.exp %></span></p>
+      <p>自己紹介文</p>
+      <p><%= @user.introduction %></p>
+      <%= form_tag("/main/edit", {method: :get}) do %>
+        <p>プロフィールの編集</p>
+        <input type="submit" value="編集" class="btn waves-effect waves-light left">
+      <% end %>
+    </div>
+    <div class="right">
+      <img src="<%= "/user_images/#{@user.image_name}" %>">
+    </div>
+  </dic>
+</div>

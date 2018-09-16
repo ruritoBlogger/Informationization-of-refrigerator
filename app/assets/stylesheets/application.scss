@@ -20,6 +20,16 @@
   text-align: center;
 }
 
+header {
+  background-image: url("http://img.kb-cdn.com/imgviewer/NVpIM2ptOHhYRzVmUk5rM1NrNlFxYVV6enV4aGk2UFRJMmxPckdDUUVNYjE2cFF2THMwNmJucFNERmxtRk5yZzNYQmt6NHBwVUVzUGk4RzlYbm92Y3RNUytQUkc0QkRpMDRlWEEvSENabjhZR0FsZXRnM0RUK2NjbWRIR0JCTDhsa0lkcktzVjZYaElhSi9EcG9HUHAvMjQyd1hBOHJOdmRMcVZleXFxMjEybkdXdFpZQlhYeXpUK3FDQ2ExeTFEdmtLa3VFNTR3NkU3N2xIWC9qeEc3QT09?square=0");
+  background-size: cover;
+  p {
+    font-size: 40px;
+    text-align: center;
+    margin:0;
+  }
+}
+
 body {
   @extend .light-blue, .lighten-5;
   background-color: #81d4fa light-blue lighten-5;
@@ -51,36 +61,36 @@ body {
     border-collapse: collapse;
     border-color: black;
   }
-  #index{
+  #index {
     th {
-      padding:0.5em;
-      width:13%;
+      padding: 0.5em;
+      width: 13%;
       text-align: center;
-      border:solid 1px;
+      border: solid 1px;
     }
 
-    td{
-      padding:0.5em;
-      width:13%;
+    td {
+      padding: 0.5em;
+      width: 13%;
       border: solid 1px;
-      img{
+      img {
         width: 100%;
       }
     }
   }
-  #oldFood{
+  #oldFood {
     th {
-      padding:0.5em;
-      width:17%;
+      padding: 0.5em;
+      width: 17%;
       text-align: center;
       border: solid 1px;
     }
-    td{
-      padding:0.5em;
-      width:17%;
+    td {
+      padding: 0.5em;
+      width: 17%;
       border: solid 1px;
-      img{
-        width:100%;
+      img {
+        width: 100%;
       }
 
     }
@@ -98,6 +108,10 @@ body {
     h4 {
       text-align: center;
       color: salmon;
+    }
+
+    p{
+      margin:0;
     }
 
     .card {
@@ -119,6 +133,17 @@ body {
 
     .web {
       padding-left: 70px;
+    }
+
+    .profile{
+      p{
+        font-size:20px;
+        margin:0;
+      }
+      span{
+        font-size:30px;
+        margin:0;
+      }
     }
 
   }
