@@ -1,7 +1,7 @@
 class UserController < ApplicationController
 
   #アクセス制限
-  before_action :checkLogin, only: [:logout ,:update, :updatepw, :destroy]
+  before_action :checkLogin, only: [:logout, :update, :updatepw, :destroy]
 
   #新規登録
   def create
@@ -51,16 +51,28 @@ class UserController < ApplicationController
     redirect_to("/home/login")
   end
 
+  private
+
+  def login_params
+    params.require(:user).permit(
+        :user_name,
+        :introduction,
+        :image_name
+    )
+  end
+
+  public
+
   #プロフィールの更新
   def update
     @user = User.find_by(id: session[:user_id])
-    @user.user_name = params[:name]
-    @user.introduction = params[:introduction]
+    @user.user_name = params[:user][:user_name]
+    @user.introduction = params[:user][:introduction]
 
     #プロフィール画像の更新があった場合
-    if params[:image_name]
+    if params[:user][:image_name]
       @user.image_name = "#{@user.id}.jpg"
-      image = params[:image_name]
+      image = params[:user][:image_name]
       File.binwrite("public/user_images/#{@user.image_name}", image.read)
     else
       #プロフィール画像の更新がないときはデフォルトの画像

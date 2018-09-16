@@ -1,19 +1,29 @@
-<h3>プロフィール編集</h3>
-<%= form_tag("/user/update",{multipart: true}) do %>
-  <p>前のユーザー名</p><%= @user.user_name %>
-  <p>新規ユーザー名</p>
-  <input name="name" value='<%= @user_name %>'>
+<div class="main">
+  <div class="row">
+    <p class="main-title">プロフィールの編集</p>
+    <%= form_for(@user, :url => {:action => :update, :controller => :user}) do |f| %>
+      <div class="edit">
+        <div class="left box">
+          <p>新規ユーザー名</p>
+          <div class="input-field inputtag">
+            <%= f.text_field :user_name %>
+          </div>
+        </div>
+        <div class="right box">
+          <p>新規自己紹介文</p>
+          <div class="input-field inputtag">
+            <%= f.text_area :introduction %>
+          </div>
+        </div>
+      </div>
 
-  <p>前の自己紹介文</p>
-  <%= @user.introduction %>
-  <p>新規自己紹介文</p>
-  <textarea name="introduction"></textarea>
+      <p>前のプロフィール画像</p>
+      <img src='<%= "/user_images/#{@user.image_name}" %>' style="width:25%;">
+      <p>新しいプロフィール画像</p>
+      <input type="file" name="image_name" class="btn waves-effect waves-light left">
 
-  <p>前のプロフィール画像</p>
-  <img src='<%= "/user_images/#{@user.image_name}" %>' style="width:25%;">
-  <p>新しいプロフィール画像</p>
-  <input type="file" name="image_name">
-
-  <!--　更新するときのボタン -->
-  <input type="submit" value="更新">
-<% end %>
+      <!--　更新するときのボタン -->
+      <input type="submit" value="更新" class="btn waves-effect waves-light left">
+    <% end %>
+  </div>
+</div>

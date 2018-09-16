@@ -32,6 +32,8 @@ Rails.application.routes.draw do
   get "home/new" => "home#new"
   get "home/login" => "home#login"
 
+  patch "user/update" => "user#update"
+
   post "user/create" => "user#create"
   post "user/login" => "user#login"
   post "user/logout" => "user#logout"
