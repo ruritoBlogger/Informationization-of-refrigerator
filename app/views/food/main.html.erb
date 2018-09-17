@@ -22,10 +22,15 @@
             <% else %>
               <img src='<%= "/food#{session[:user_id]}_images/#{food.image_name}" %>'>
             <% end %></td>
-          <% conect_food_to_mode = ConectFoodToMode.find_by(user_id: session[:user_id],
-                                                            food_id: food.id)
-             @mode = Mode.find_by(id: conect_food_to_mode.mode_id) %>
-          <td><%= @mode.detail %></td>
+          <td>
+            <% conect_food_to_modes = ConectFoodToMode.where(user_id: session[:user_id],
+                                                             food_id: food.id) %>
+            <% conect_food_to_modes.each do |conect_food_to_mode| %>
+              <%= logger.debug("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^#{conect_food_to_mode}") %>
+
+              <% @mode = Mode.find_by(id: conect_food_to_mode.mode_id) %>
+              <%= @mode.detail %>
+            <% end %></td>
           <td><%= food.limitday %></td>
           <td><%= food.amount %><%= food.amounttype %></td>
           <td><%= food.yetamount %></td>
@@ -61,10 +66,15 @@
             <% else %>
               <img src='<%= "/food#{session[:user_id]}_images/#{food.image_name}" %>'>
             <% end %></td>
-          <% conect_food_to_mode = ConectFoodToMode.find_by(user_id: session[:user_id],
-                                                            food_id: food.id)
-             @mode = Mode.find_by(id: conect_food_to_mode.mode_id) %>
-          <th><%= @mode.detail %></th>
+          <td>
+            <% conect_food_to_modes = ConectFoodToMode.where(user_id: session[:user_id],
+                                                             food_id: food.id) %>
+            <% conect_food_to_modes.each do |conect_food_to_mode| %>
+              <% logger.debug("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^#{conect_food_to_mode}") %>
+
+              <% @mode = Mode.find_by(id: conect_food_to_mode.mode_id) %>
+              <%= @mode.detail %>
+            <% end %></td>
           <td><%= food.limitday %></td>
           <td><%= food.amount %><%= food.amounttype %></td>
           <td><%= food.yetamount %></td>

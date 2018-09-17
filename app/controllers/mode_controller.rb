@@ -43,8 +43,10 @@ class ModeController < ApplicationController
   def conect
     @conect_food_to_mode = ConectFoodToMode.new
     @modes = Mode.where(user_id: session[:user_id])
+    @test = [["追加する",1]]
   end
 
+  #新規登録した種類と食品を関連付けるページ
   def editmode2
     @mode = session[:mode_id]
     @foods = Food.where(user_id: session[:user_id])
@@ -52,13 +54,12 @@ class ModeController < ApplicationController
     @test = [["追加する", 1]]
   end
 
+  #新規登録した種類と食品を関連付ける
   def createmode2
     foods = params[:food_id]
     foods.each do |f|
       if f == nil || f == ""
       else
-
-
         food = Food.find_by(id: f.to_i)
         logger.debug("-------------------------------------------")
         logger.debug("data:#{f}")

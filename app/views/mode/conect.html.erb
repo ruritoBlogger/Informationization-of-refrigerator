@@ -10,8 +10,7 @@
         <% @modes.each do |mode| %>
           <tr>
             <td><%= mode.detail %></td>
-            <td><%= f.radio_button :mode_id, "#{mode.id}" %>
-              <%= f.label :mode_id, "選択する", value: "#{mode.id}" %>
+            <td><%= f.select(:food_id, @test, {}, {:multiple => true, :name => 'food_id[]', :prompt => "選択してください"}) %>
             </td>
           </tr>
         <% end %>
