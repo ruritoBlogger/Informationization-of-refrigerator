@@ -1,4 +1,13 @@
 <p>食べ物の新規登録</p>
+<% if @food.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+      <% @food.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 <% @food = Food.new %>
 <%= form_for(@food, :url => {:action => :create, :controller => :food}) do |f| %>
 
@@ -9,13 +18,13 @@
   <% @modes.each do |mode| %>
   <% end %>
   <!-- 賞味期限か消費期限かの選択 -->
-  <%= f.radio_button  :limittype, "賞味期限" %>
-  <%= f.label :limittype, "賞味期限" , value: "賞味期限" %>
+  <%= f.radio_button :limittype, "賞味期限" %>
+  <%= f.label :limittype, "賞味期限", value: "賞味期限" %>
   <%= f.radio_button :limittype, "消費期限" %>
-  <%= f.label :limittype, "消費期限", value: "消費期限"  %><br>
+  <%= f.label :limittype, "消費期限", value: "消費期限" %><br>
 
   <%= f.label :limitday, "期限日" %>
-  <%= f.date_select :limitday,  :default => @food.limitday  %><br>
+  <%= f.date_select :limitday, :default => @food.limitday %><br>
 
   <!-- 加工食品か生鮮食品かの選択 -->
 

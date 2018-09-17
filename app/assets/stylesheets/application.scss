@@ -26,7 +26,7 @@ header {
   p {
     font-size: 40px;
     text-align: center;
-    margin:0;
+    margin: 0;
   }
 }
 
@@ -35,7 +35,7 @@ body {
   background-color: #81d4fa light-blue lighten-5;
 }
 
-.btn{
+.btn {
   display: inline-block;
 }
 
@@ -107,15 +107,14 @@ body {
 
   .row {
     width: 95%;
-    padding: 20px 0px;
 
     h4 {
       text-align: center;
       color: salmon;
     }
 
-    p{
-      margin:0;
+    p {
+      margin: 0;
     }
 
     .card {
@@ -139,38 +138,44 @@ body {
       padding-left: 70px;
     }
 
-    .profile{
-      p{
-        font-size:20px;
-        margin:0;
+    .profile {
+      p {
+        font-size: 20px;
+        margin: 0;
       }
-      span{
-        font-size:30px;
-        margin:0;
+      span {
+        font-size: 30px;
+        margin: 0;
+      }
+      .parcent {
+        width: 20%;
       }
     }
 
-
-
-    .main-title{
+    .main-title {
       font-size: 30px;
-      margin:0px;
+      margin: 0px;
       text-align: center;
+
     }
 
-    .edit{
-      width:100%;
-      height:150px;
-      .box{
+    .edit {
+      width: 100%;
+      height: 150px;
+      .box {
         width: 50%;
         margin: 0 auto;
-        .inputtag{
-          width: 80%;
-          margin: 0 auto;
-        }
+
       }
     }
-
+    .inputtag {
+      width: 80%;
+      margin: 0 auto;
+    }
   }
 
+}
+
+.tag {
+  width: 50%;
 }

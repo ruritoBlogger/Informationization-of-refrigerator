@@ -1,15 +1,16 @@
 Rails.application.routes.draw do
 
   get "mode/editmode" => "mode#editmode"
-  get "mode/:mode_id/editmode2" => "mode#editmode2"
+  get "mode/editmode2" => "mode#editmode2"
 
   post "mode/createmode" => "mode/createmode"
-  post "mode/:mode_id/createmode2" => "mode#createmode2"
+  post "mode/createmode2" => "mode#createmode2"
 
   get "food/new" => "food/new"
   get "food/index" => "food/index"
   get "food/main" => "food/main"
   get "food/makemode" => "food#makemode"
+  get "food/editmode" => "food#editmode"
 
   post "food/create" => "food#create"
 

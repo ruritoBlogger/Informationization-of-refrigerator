@@ -3,9 +3,7 @@
 <% food = Food.find_by(id: params[:id]) %>
 <% @food.name = food.name %>
 <% @food.limittype = food.limittype %>
-<% @food.limitYear = food.limitYear %>
-<% @food.limitMonth = food.limitMonth %>
-<% @food.limitDay = food.limitDay %>
+<% @food.limitday = food.limitday %>
 <% @food.foodtype = food.foodtype %>
 <% @food.amount = food.amount %>
 
@@ -22,7 +20,8 @@
   <%= f.label :消費期限 %>
   <%= f.radio_button :limittype, "false" %>
 
-  <%= f.text_field :limitYear %>年<%= f.text_field :limitMonth%>月<%= f.text_field :limitDay%>日まで
+  <%= f.label :limitday, "期限日" %>
+  <%= f.date_select :limitday, :default => @food.limitday %><br>
   <!-- 加工食品か生鮮食品かの選択 -->
 
   <%= f.label :加工食品 %>

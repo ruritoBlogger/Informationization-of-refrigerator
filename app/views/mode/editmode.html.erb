@@ -1,6 +1,14 @@
-<p>種類の新規登録のページ</p>
-<%= form_for(@mode, :url => {:action => :createmode, :controller => :mode}) do |f| %>
-  <%= f.label :種類の名前 %>
-  <%= f.text_field :detail %>
-  <%= f.submit value = "次へ" %>
-<% end %>
+<div class="main">
+  <div class="row">
+    <p class="main-title">種類の新規登録</p>
+    <%= form_for(@mode, :url => {:action => :createmode, :controller => :mode}) do |f| %>
+      <%= f.label :種類の名前 %>
+      <div class="left"><i class="material-icons">search</i></div>
+      <div class="tag left">
+        <%= f.text_field :detail, :class => "input-field" %>
+      </div>
+      <div class="right">
+        <%= f.submit value = "次へ", :class => "btn waves-effect waves-light left" %></div>
+    <% end %>
+  </div>
+</div>
