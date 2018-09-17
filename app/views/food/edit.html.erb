@@ -10,7 +10,9 @@
           <p>食べ物の総量:</p><%= @food.amount %><%= @food.amounttype %>
           <p>残り量</p><%= @food.yetamount %>％
           <p>どれだけ消費したか</p>
-          <%= f.text_field :yetamount %>
+          <p class = "range-field" >
+          <input type = "range" id = "food_yetamount" name="food[yetamount]" min = "0" max = "100">
+          </p>
           <%= f.submit :value => "更新", :class => "btn waves-effect waves-light left" %>
         <% end %>
       </div>
