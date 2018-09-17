@@ -1,7 +1,10 @@
-<p>前のパスワード</p>
-<%= @user.password %>
-<p>新しいパスワード</p>
-<%= form_tag("/user/updatepw",{method: :post}) do %>
-  <input type="password" name="password">
-  <input type="submit" value="更新">
-<% end %>
+<div class="main">
+  <div class="row input-field">
+    <h4>新しいパスワード</h4>
+    <%= form_tag("/user/updatepw", {method: :post}) do %>
+      <input type="password" name="password" class="password" style="margin-left: 30%;">
+      </div>
+      <div style="text-align: center">
+        <input type="submit" value="更新" class="btn waves-effect waves-light"></div>
+    <% end %>
+</div>
