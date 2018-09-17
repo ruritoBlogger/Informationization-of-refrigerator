@@ -124,6 +124,13 @@ body {
   .row {
     width: 95%;
 
+    th,td{
+      text-align: center;
+    }
+    td{
+      font-size: 30px;
+    }
+
     .password{
       width: 40%;
       margin:0 auto;
