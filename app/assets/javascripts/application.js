@@ -19,7 +19,7 @@
 //= require jquery_ujs
 //= require materialize-sprockets
 
-$(function() {
+$(document).ready(function(){
     $('select').material_select();
 });
 
