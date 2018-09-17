@@ -31,10 +31,10 @@ class ModeController < ApplicationController
         @conect_food_to_mode.food_id = session[:food_id]
         @conect_food_to_mode.user_id = session[:user_id]
         @conect_food_to_mode.mode_id = mode.id
+        @conect_food_to_mode.save
       end
     end
     session[:food_id] = nil
-    @conect_food_to_mode.save
     flash[:notice] = "食品の登録が成功しました"
     redirect_to("/food/main")
   end

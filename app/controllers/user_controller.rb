@@ -15,13 +15,13 @@ class UserController < ApplicationController
       session[:user_id] = @user.id
 
       #ユーザーに合わせたmodeの自動生成
-      mode = Mode.new(user_id: @user_id,
+      mode = Mode.new(user_id: @user.id,
                       detail: "お肉")
       mode.save
-      mode = Mode.new(user_id: @user_id,
+      mode = Mode.new(user_id: @user.id,
                       detail: "お魚")
       mode.save
-      mode = Mode.new(user_id: @user_id,
+      mode = Mode.new(user_id: @user.id,
                       detail: "お野菜")
       mode.save
 
