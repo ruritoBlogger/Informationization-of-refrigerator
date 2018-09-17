@@ -19,9 +19,20 @@ class ModeController < ApplicationController
 
   #新規登録した食品を種類と関連付ける
   def conectmode
-    @conect_food_to_mode = ConectFoodToMode.new(mode_params)
-    @conect_food_to_mode.food_id = session[:food_id]
-    @conect_food_to_mode.user_id = session[:user_id]
+    logger.debug("---------------------------------#{params[:mode_id]}")
+    modes = params[:mode_id]
+    modes.each do |m|
+      if m == nil || m == ""
+      else
+        logger.debug("#{m}")
+        mode = Mode.find_by(id: m.to_i)
+        logger.debug("mode:#{mode.detail}")
+        @conect_food_to_mode = ConectFoodToMode.new
+        @conect_food_to_mode.food_id = session[:food_id]
+        @conect_food_to_mode.user_id = session[:user_id]
+        @conect_food_to_mode.mode_id = mode.id
+      end
+    end
     session[:food_id] = nil
     @conect_food_to_mode.save
     flash[:notice] = "食品の登録が成功しました"
@@ -43,7 +54,6 @@ class ModeController < ApplicationController
   def conect
     @conect_food_to_mode = ConectFoodToMode.new
     @modes = Mode.where(user_id: session[:user_id])
-    @test = [["追加する",1]]
   end
 
   #新規登録した種類と食品を関連付けるページ
@@ -51,7 +61,6 @@ class ModeController < ApplicationController
     @mode = session[:mode_id]
     @foods = Food.where(user_id: session[:user_id])
     @conect_food_to_mode = ConectFoodToMode.new
-    @test = [["追加する", 1]]
   end
 
   #新規登録した種類と食品を関連付ける
