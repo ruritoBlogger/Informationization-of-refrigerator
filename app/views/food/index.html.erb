@@ -1,6 +1,11 @@
 <div class="main">
   <table id="index" class="centered">
     <h3>食品一覧</h3>
+    <%= link_to("/sort/main") do %>
+      <div class="btn waves-effect waves-light" style="margin-left:43%">
+        詳細な検索はこちら
+      </div>
+    <% end %>
     <tr class="index">
       <th>名前</th>
       <th>画像</th>
@@ -23,13 +28,13 @@
             <img src='<%= "/food#{session[:user_id]}_images/#{food.image_name}" %>'>
           <% end %></td>
         <td>
-            <% conect_food_to_modes = ConectFoodToMode.where(user_id: session[:user_id],
-                                                             food_id: food.id) %>
-            <% conect_food_to_modes.each do |conect_food_to_mode| %>
+          <% conect_food_to_modes = ConectFoodToMode.where(user_id: session[:user_id],
+                                                           food_id: food.id) %>
+          <% conect_food_to_modes.each do |conect_food_to_mode| %>
 
             <% @mode = Mode.find_by(id: conect_food_to_mode.mode_id) %>
             <%= @mode.detail %>
-            <% end %></td>
+          <% end %></td>
         <td><%= food.foodtype %></td>
         <td><%= food.limittype %></td>
         <td><%= food.limitday %></td>
