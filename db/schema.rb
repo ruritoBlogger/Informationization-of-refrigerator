@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_13_084809) do
+ActiveRecord::Schema.define(version: 2018_09_17_080254) do
 
   create_table "conect_food_to_modes", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 2018_09_13_084809) do
 
   create_table "foods", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "foodtype"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -30,8 +29,9 @@ ActiveRecord::Schema.define(version: 2018_09_13_084809) do
     t.integer "yetamount"
     t.string "image_name"
     t.string "amounttype"
-    t.string "limittype"
     t.date "limitday"
+    t.string "limittype"
+    t.string "foodtype"
   end
 
   create_table "modes", force: :cascade do |t|
