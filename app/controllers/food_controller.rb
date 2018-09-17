@@ -47,7 +47,7 @@ class FoodController < ApplicationController
   def editmode
     @foods = Food.where(user_id: session[:user_id])
     @mode = Mode.new
- end
+  end
 
   def create_params
     params.require(:food).permit(
@@ -57,7 +57,6 @@ class FoodController < ApplicationController
         :name,
         :amount,
         :yetamount,
-        :image_name,
         :amounttype,
     )
   end
@@ -73,26 +72,37 @@ class FoodController < ApplicationController
     @food = Food.new(create_params)
     @food.yetamount = 100
     @food.user_id = session[:user_id]
+    @food.image_name = "https://uds.gnst.jp/rest/img/1ew287ve0000/s_006z.jpg?t=1506082927"
     logger.debug("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^")
-    logger.debug("#{params}")
-    logger.debug("#{params[:food]}")
-    logger.debug("#{@food.limitday}")
+    logger.debug("#{params[:image_name]}")
+
     @food.limitday = Time.zone.local(params[:food]["limitday(1i)"].to_i, params[:food]["limitday(2i)"].to_i, params[:food]["limitday(3i)"].to_i)
-
-    #食べ物の画像の保存
-    if params[:food][:image_name]
-      @food.image_name = "#{@food.id}.jpg"
-      image = params[:food][:image_name]
-      File.binwrite("public/food#{session[:user_id]}_images/#{@food.image_name}", image.read)
-    else
-      #ネットからのurlで画像を用意する
-      @food.image_name = "https://uds.gnst.jp/rest/img/1ew287ve0000/s_006z.jpg?t=1506082927"
-    end
-
     if !(@food.save)
+      @food.errors.full_messages.each do |f|
+        logger.debug("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
+        logger.debug("errors:#{f}")
+      end
+
       flash[:notice_fail] = "登録に失敗しました"
       redirect_to("/food/new")
     else
+
+      #食べ物の画像の保存
+      if params[:food][:image_name]
+        @food.image_name = "#{@food.id}.jpg"
+        logger.debug("------------------------------------------------------------===#{@food.image_name}")
+        logger.debug("#{"#{@food.id}.jpg"}")
+        logger.debug("#{@food.id}")
+        logger.debug("#{@food.image_name}")
+        image = params[:food][:image_name]
+        File.binwrite("public/food#{session[:user_id]}_images/#{@food.image_name}", image.read)
+      else
+        #ネットからのurlで画像を用意する
+        @food.image_name = "https://uds.gnst.jp/rest/img/1ew287ve0000/s_006z.jpg?t=1506082927"
+      end
+      @food.save
+
+
       food = Food.find_by(id: @food.id)
       #受け取ったモードを保存する
       #@modes = Mode.where(user_id: session[:user_id])
