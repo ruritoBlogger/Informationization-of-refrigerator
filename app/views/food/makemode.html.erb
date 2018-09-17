@@ -1,9 +1,21 @@
-<p>食べ物の種類の編集</p>
-<p>現在の種類一覧</p>
-<% n = 1 %>
-<% @modes.each do |mode| %>
-  <%= n %>:<%= mode.detail %>
-<% end %>
-<%= link_to("/mode/editmode") do %>
-  <input type="submit" value="種類の追加">
-<% end %>
+<h3 style="text-align: center">現在の種類一覧</h3>
+<div class="main">
+  <div class="row">
+    <table>
+      <tr>
+        <th>番号</th>
+        <th>種類名</th>
+      </tr>
+      <% n = 1 %>
+      <% @modes.each do |mode| %>
+        <tr>
+          <td><%= n %></td>
+          <td><%= mode.detail %></td>
+        </tr>
+      <% end %>
+    </table>
+    <%= link_to("/mode/editmode") do %>
+      <input type="submit" value="種類の追加" class="btn waves-effect waves-light left">
+    <% end %>
+  </div>
+</div>
