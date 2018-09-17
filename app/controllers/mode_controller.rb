@@ -49,11 +49,29 @@ class ModeController < ApplicationController
     @mode = session[:mode_id]
     @foods = Food.where(user_id: session[:user_id])
     @conect_food_to_mode = ConectFoodToMode.new
-    @test = [["追加する",1],["追加しない",0]]
+    @test = [["追加する", 1], ["追加しない", 0]]
   end
 
   def createmode2
+    foods = params[:food_id]
+    foods.each do |f|
+      if f == nil || f == ""
+      else
 
+
+        food = Food.find_by(id: f.to_i)
+        logger.debug("-------------------------------------------")
+        logger.debug("data:#{f}")
+        logger.debug("food:#{food}")
+        logger.debug("params:#{params}")
+        @conect_food_to_mode = ConectFoodToMode.new(user_id: session[:user_id],
+                                                    mode_id: session[:mode_id],
+                                                    food_id: food.id)
+        @conect_food_to_mode.save
+      end
+    end
+    flash[:notice] = "登録しました"
+    redirect_to("/food/main")
   end
 
   #種類の削除
