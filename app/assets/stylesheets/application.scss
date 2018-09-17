@@ -4,8 +4,23 @@
 * {
 }
 
+nav{
+  li{
+    .btn{
+      padding:10px 15px;
+      line-height: 18px;
+    }
+  }
+}
+
+h3 {
+  margin: 0px;
+  parring:0px;
+}
+
 .user_data, .flash {
   z-index: 10;
+  margin-left:60px;
 }
 
 .succsess {

@@ -4,16 +4,33 @@
   <title>Informationization</title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <!--Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+  <!--Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+
   <!-- materialize icon -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <script>document.addEventListener('DOMContentLoaded', function () {
+      var elems = document.querySelectorAll('select');
+      var instances = M.FormSelect.init(elems, options);
+  });
+
+  // Or with jQuery
+
+  $(document).ready(function () {
+      $('select').formSelect();
+  });
+  </script>
 </head>
-<body>
+
 
 <nav>
   <div class="nav-wrapper">
@@ -53,49 +70,47 @@
       <ul id="nav-mobile" class="header_right right hide-on-med-and-down">
         <li class="header_link">
           <%= link_to("/food/main") do %>
-            <div class="header_main">
+            <div class="btn">
               メインページ
             </div>
           <% end %>
         </li>
         <li class="header_link">
-          <%= link_to("/food/rent") do %>
-            <div class="header_foodNew">
-              食品登録
-            </div>
+          <%= form_for(@food, :url => {:action => :new, :controller => :food}, :method => "get" ) do |f| %>
+              <%= f.submit :value => "食品登録", :class => "btn" %>
           <% end %>
         </li>
         <li class="header_link">
           <%= link_to("/food/index") do %>
-            <div class="header_index">
+            <div class="btn">
               食品一覧
             </div>
           <% end %>
         </li>
         <li class="header_link">
           <%= link_to("/main/ranking") do %>
-            <div class="header_ranking">
+            <div class="btn">
               ランキング
             </div>
           <% end %>
         </li>
         <li class="header_link">
           <%= link_to("/main/profile") do %>
-            <div class="profile">
+            <div class="btn">
               プロフィール
             </div>
           <% end %>
         </li>
         <li class="header_link">
           <%= link_to("/main/setting") do %>
-            <div class="setting">
+            <div class="btn">
               設定
             </div>
           <% end %>
         </li>
         <li class="header_link">
           <%= link_to("/user/logout", {method: :post}) do %>
-            <div class="header_logout">
+            <div class="btn small">
               ログアウト
             </div>
           <% end %>
@@ -115,6 +130,7 @@
 
   </div>
 </nav>
+<body>
 <div class="flash">
   <% if flash[:notice] %>
     <div class="succsess">
@@ -127,5 +143,14 @@
   <% end %>
 </div>
 <%= yield %>
+
 </body>
+<script>$(document).ready(function () {
+    setTimeout(function () {
+        $('select').material_select();
+    }
+    1000
+)
+    ;
+});</script>
 </html>

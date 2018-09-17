@@ -54,11 +54,11 @@ class FoodController < ApplicationController
     @mode = Mode.new
   end
 
-  def rent
-    @modes = Mode.where(user_id: session[:user_id])
-    @food = Food.new
-    render :action => "new"
-  end
+  #def rent
+  #  @modes = Mode.where(user_id: session[:user_id])
+  #  @food = Food.new
+  #  render :action => "new"
+  #end
 
   def create_params
     params.require(:food).permit(

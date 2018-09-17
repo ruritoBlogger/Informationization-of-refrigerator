@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
 
   before_action :set_current_user
   before_action :set_today
+  before_action :set_food
 
   #ログインユーザー
   def set_current_user
@@ -72,5 +73,10 @@ class ApplicationController < ActionController::Base
     end
     @user.save
   end
+
+  def set_food
+    @food = Food.new
+  end
+
 
 end

@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get "food/new" => "food#new"
   get "food/index" => "food#index"
   get "food/main" => "food#main"
-  get "food/rent" => "food#rent"
+ # get "food/rent" => "food#rent"
   get "food/makemode" => "food#makemode"
   get "food/editmode" => "food#editmode"
 
