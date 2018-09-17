@@ -73,14 +73,10 @@ class FoodController < ApplicationController
     @food.yetamount = 100
     @food.user_id = session[:user_id]
     @food.image_name = "https://uds.gnst.jp/rest/img/1ew287ve0000/s_006z.jpg?t=1506082927"
-    logger.debug("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^")
-    logger.debug("#{params[:image_name]}")
 
     @food.limitday = Time.zone.local(params[:food]["limitday(1i)"].to_i, params[:food]["limitday(2i)"].to_i, params[:food]["limitday(3i)"].to_i)
     if !(@food.save)
       @food.errors.full_messages.each do |f|
-        logger.debug("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
-        logger.debug("errors:#{f}")
       end
 
       flash[:notice_fail] = "登録に失敗しました"
@@ -90,10 +86,6 @@ class FoodController < ApplicationController
       #食べ物の画像の保存
       if params[:food][:image_name]
         @food.image_name = "#{@food.id}.jpg"
-        logger.debug("------------------------------------------------------------===#{@food.image_name}")
-        logger.debug("#{"#{@food.id}.jpg"}")
-        logger.debug("#{@food.id}")
-        logger.debug("#{@food.image_name}")
         image = params[:food][:image_name]
         File.binwrite("public/food#{session[:user_id]}_images/#{@food.image_name}", image.read)
       else
@@ -101,20 +93,10 @@ class FoodController < ApplicationController
         @food.image_name = "https://uds.gnst.jp/rest/img/1ew287ve0000/s_006z.jpg?t=1506082927"
       end
       @food.save
-
-
       food = Food.find_by(id: @food.id)
-      #受け取ったモードを保存する
-      #@modes = Mode.where(user_id: session[:user_id])
-      #@modes.each do |mode|
-      #  if params[:addmode]
-      #
-      #  end
-      #end
-
       food.save
-      flash[:notice] = "食べ物の新規登録を行いました"
-      redirect_to("/food/index")
+      session[:food_id] = food.id
+      redirect_to("/mode/conect")
     end
   end
 
