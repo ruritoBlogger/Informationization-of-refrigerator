@@ -60,6 +60,11 @@ body {
   margin: 0 auto;
   background-color: #81d4fa light-blue lighten-3;
 
+  .color {
+    @extend .light-blue, .lighten-5;
+    background-color: #81d4fa light-blue lighten-5;
+  }
+
   #index, table {
     border-color: black;
     border-collapse: collapse;
@@ -108,16 +113,36 @@ body {
     font-size: 20px;
   }
 
-  h3{
+  h3 {
     width: 100%;
     padding: 10px;
-    margin:0px;
+    margin: 0px;
     text-align: center;
     font-size: 30px;
   }
 
   .row {
     width: 95%;
+
+    .box {
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    .right-block {
+      width: 50%;
+      float: right;
+      height: 150px;
+      img {
+        height:150px;
+      }
+    }
+
+    .left-block {
+      width: 50%;
+      float: left;
+      height: 150px;
+    }
 
     h4 {
       text-align: center;
