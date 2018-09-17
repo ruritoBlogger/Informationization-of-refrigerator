@@ -31,6 +31,9 @@ class FoodController < ApplicationController
   #食べ物の詳細ページ
   def show
     @food = Food.find_by(id: params[:id])
+    conect_food_to_mode = ConectFoodToMode.find_by(user_id: session[:user_id],
+                                                    food_id: @food.id)
+    @mode = Mode.find_by(id: conect_food_to_mode.mode_id)
   end
 
   #食べ物の更新を行うページ

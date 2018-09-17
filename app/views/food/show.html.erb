@@ -1,5 +1,5 @@
 <div class="main">
-  <div class="row color">
+  <div class="row color" style="height:250px;">
     <h3 style="text-align: center"><%= @food.name %></h3>
     <div class="box">
     <div class="right-block">
@@ -25,6 +25,7 @@
         <% end %></p>
       <p>総量：<%= @food.amount %><%= @food.amounttype %></p>
       <p>残り量：<%= @food.yetamount %>％</p>
+      <p>種類：<%= @mode.detail %></p>
       <%= form_tag("/food/#{@food.id}/edit", {method: :get}) do %>
         <input type="submit" value="更新" class="btn waves-effect waves-light">
       <% end %><br>

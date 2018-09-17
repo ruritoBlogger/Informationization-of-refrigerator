@@ -21,13 +21,8 @@
           <% else %>
             <img src='<%= "/food#{session[:user_id]}_images/#{food.image_name}" %>'>
           <% end %></td>
-
-        <td><% food.foodtype %></td>
-        <% logger.debug("food:#{food.foodtype}") %>
-        <% logger.debug("food:#{food.limittype}") %>
-
-        <td><% food.limittype %></td>
-
+        <td><%= food.foodtype %></td>
+        <td><%= food.limittype %></td>
         <td><%= food.limitday %></td>
         <td><%= food.amount %><%= food.amounttype %></td>
         <td><%= food.yetamount %>％</td>
