@@ -1,18 +1,24 @@
-<table>
-  <tr>
-    <th>種類名</th>
-    <th>選択</th>
-  </tr>
+<div class="main">
+  <div class="row color">
+    <%= form_for(@conect_food_to_mode, :url => {:action => :conectmode, :controller => :mode}) do |f| %>
+      <table>
+        <tr>
+          <th>種類名</th>
+          <th>選択</th>
+        </tr>
 
-  <%= form_for(@conect_food_to_mode, :url => {:action => :conectmode, :controller => :mode}) do |f| %>
-    <% @modes.each do |mode| %>
-      <tr>
-        <td><%= mode.detail %></td>
-        <td><%= f.radio_button :mode_id, "#{mode.id}" %>
-          <%= f.label :mode_id, "選択する", value: "#{mode.id}" %>
-        </td>
-      </tr>
+        <% @modes.each do |mode| %>
+          <tr>
+            <td><%= mode.detail %></td>
+            <td><%= f.radio_button :mode_id, "#{mode.id}" %>
+              <%= f.label :mode_id, "選択する", value: "#{mode.id}" %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+      </div>
+      <div style="margin-left: 46%">
+      <%= f.submit :value => "登録" ,:class => "btn waves-effect waves-light"%>
+      </div>
     <% end %>
-    <%= f.submit :value => "登録" %>
-  <% end %>
-</table>
+    </div>
