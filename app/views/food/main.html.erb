@@ -26,8 +26,6 @@
             <% conect_food_to_modes = ConectFoodToMode.where(user_id: session[:user_id],
                                                              food_id: food.id) %>
             <% conect_food_to_modes.each do |conect_food_to_mode| %>
-              <%= logger.debug("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^#{conect_food_to_mode}") %>
-
               <% @mode = Mode.find_by(id: conect_food_to_mode.mode_id) %>
               <%= @mode.detail %>
             <% end %></td>

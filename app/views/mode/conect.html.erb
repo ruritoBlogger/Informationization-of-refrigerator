@@ -10,7 +10,7 @@
         <% @modes.each do |mode| %>
           <tr>
             <td><%= mode.detail %></td>
-            <% @test = [["追加する","#{mode.id}"]] %>
+            <% @test = [["追加しない",0],["追加する","#{mode.id}"]] %>
             <td><%= f.select(:mode_id, @test, {}, {:multiple => true, :name => 'mode_id[]', :prompt => "選択してください"}) %>
             </td>
           </tr>

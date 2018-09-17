@@ -22,7 +22,7 @@ class ModeController < ApplicationController
     logger.debug("---------------------------------#{params[:mode_id]}")
     modes = params[:mode_id]
     modes.each do |m|
-      if m == nil || m == ""
+      if m == nil || m == "" || m == "0" || m == 0
       else
         logger.debug("#{m}")
         mode = Mode.find_by(id: m.to_i)

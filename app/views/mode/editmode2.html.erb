@@ -19,8 +19,9 @@
               <% end %></td>
 
             <td><%= food.limitday %></td>
-            <% @test = [["追加する","#{food.id}"]] %>
-            <td><%= f.select(:food_id, @test, {}, {:multiple => true, :name => 'food_id[]'}) %></td>
+            <% @test = [["追加しない",0],["追加する","#{food.id}"]] %>
+            <td><%= f.label :選択してください %>
+              <%= f.select(:food_id, @test, {}, {:multiple => true, :name => 'food_id[]'}) %></td>
           <% end %>
 
         </tr>
