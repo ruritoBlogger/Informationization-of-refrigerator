@@ -4,6 +4,7 @@
     <tr class="index">
       <th>名前</th>
       <th>画像</th>
+      <th>種類</th>
       <th>加工食品か生鮮食品</th>
       <th>賞味期限か消費期限</th>
       <th>期限日</th>
@@ -21,15 +22,17 @@
           <% else %>
             <img src='<%= "/food#{session[:user_id]}_images/#{food.image_name}" %>'>
           <% end %></td>
+        <% conect_food_to_mode = ConectFoodToMode.find_by(user_id: session[:user_id],
+                                                          food_id: food.id)%>
+          <% @mode = Mode.find_by(id: conect_food_to_mode.mode_id) %>
+        <td><%= @mode.detail %></td>
         <td><%= food.foodtype %></td>
         <td><%= food.limittype %></td>
         <td><%= food.limitday %></td>
         <td><%= food.amount %><%= food.amounttype %></td>
         <td><%= food.yetamount %>％</td>
         <td><%= link_to("/food/#{food.id}/show") do %>
-            <div class="btn waves-effect waves-light left">
-              詳細
-            </div>
+          <i class="material-icons">search</i>
           <% end %>
         </td>
       </tr>
