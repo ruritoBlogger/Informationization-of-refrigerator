@@ -20,24 +20,13 @@
             <img class="responsive-img" src="https://uds.gnst.jp/rest/img/1ew287ve0000/s_006z.jpg?t=1506082927" style="width: 100%">
           <% else %>
             <img src='<%= "/food#{session[:user_id]}_images/#{food.image_name}" %>'>
-            <% logger.debug("----------------------------------------------------------------------") %>
-            <% logger.debug("/food#{session[:user_id]}_images/#{food.image_name}") %>
-            <% logger.debug("image:#{food.image_name}") %>
           <% end %></td>
 
-        <td>
-          <% if food.foodtype %>
-            <p>加工食品</p>
-          <% else %>
-            <p>生鮮食品</p>
-          <% end %></td>
+        <td><% food.foodtype %></td>
+        <% logger.debug("food:#{food.foodtype}") %>
+        <% logger.debug("food:#{food.limittype}") %>
 
-        <td>
-          <% if food.limittype %>
-            <p>賞味期限</p>
-          <% else %>
-            <p>消費期限</p>
-          <% end %></td>
+        <td><% food.limittype %></td>
 
         <td><%= food.limitday %></td>
         <td><%= food.amount %><%= food.amounttype %></td>

@@ -44,4 +44,12 @@ class ModeController < ApplicationController
     @modes = Mode.where(user_id: session[:user_id])
   end
 
+  #種類の削除
+  def destroy
+    @mode = Mode.find_by(id: params[:mode_id])
+    @mode.destroy
+    flash[:notice] = "削除しました"
+    redirect_to("/food/makemode")
+  end
+
 end

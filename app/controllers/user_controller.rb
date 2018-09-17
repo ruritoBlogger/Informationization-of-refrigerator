@@ -13,6 +13,18 @@ class UserController < ApplicationController
     if @user.save
       system("mkdir ./public/food#{@user.id}_images")
       session[:user_id] = @user.id
+
+      #ユーザーに合わせたmodeの自動生成
+      mode = Mode.new(user_id: @user_id,
+                      detail: "お肉")
+      mode.save
+      mode = Mode.new(user_id: @user_id,
+                      detail: "お魚")
+      mode.save
+      mode = Mode.new(user_id: @user_id,
+                      detail: "お野菜")
+      mode.save
+
       flash[:notice] = "新規登録に成功しました"
       redirect_to("/food/main")
     else

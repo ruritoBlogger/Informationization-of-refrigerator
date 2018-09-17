@@ -1,6 +1,6 @@
-<div class="main">
-  <div class="row color">
-    <%= form_for(@conect_food_to_mode, :url => {:action => :conectmode, :controller => :mode}) do |f| %>
+<%= form_for(@conect_food_to_mode, :url => {:action => :conectmode, :controller => :mode}) do |f| %>
+  <div class="main">
+    <div class="row color">
       <table>
         <tr>
           <th>種類名</th>
@@ -16,9 +16,9 @@
           </tr>
         <% end %>
       </table>
-      </div>
-      <div style="margin-left: 46%">
-      <%= f.submit :value => "登録" ,:class => "btn waves-effect waves-light"%>
-      </div>
-    <% end %>
     </div>
+    <div style="margin-left: 46%">
+      <%= f.submit :class => "btn waves-effect waves-light", :value => "登録" %>
+    </div>
+  </div>
+<% end %>

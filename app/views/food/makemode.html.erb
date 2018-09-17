@@ -5,12 +5,16 @@
       <tr>
         <th>番号</th>
         <th>種類名</th>
+        <th>削除</th>
       </tr>
       <% n = 1 %>
       <% @modes.each do |mode| %>
         <tr>
           <td><%= n %></td>
           <td><%= mode.detail %></td>
+          <td><%= link_to("/mode/#{mode.id}/destroy", {method: :post}) do %>
+              <div class="btn waves-effect waves-light">削除</div>
+              <% end %></td>
         </tr>
       <% end %>
     </table>

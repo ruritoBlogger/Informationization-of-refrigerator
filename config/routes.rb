@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   post "mode/createmode" => "mode/createmode"
   post "mode/conectmode" => "mode#conectmode"
 
+  post "mode/:mode_id/destroy" => "mode#destroy"
+
   get "food/new" => "food/new"
   get "food/index" => "food/index"
   get "food/main" => "food/main"
