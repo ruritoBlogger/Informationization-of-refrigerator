@@ -6,15 +6,15 @@
 
     <div class="profile left">
       <div>
-        <%= form_tag("/food/#{@food.id}/update", {method: :post}) do %>
+        <%= form_for(@food, :url => {:action => :update, :controller => :food}) do |f| %>
           <p>食べ物の総量:</p><%= @food.amount %><%= @food.amounttype %>
           <p>残り量</p><%= @food.yetamount %>％
           <p>どれだけ消費したか</p>
-          <input name="used" class="input-field parcent">％
-          </div>
-          <input type="submit" value="更新" class="btn waves-effect waves-light left">
+          <%= f.text_field :yetamount %>
+          <%= f.submit :value => "更新", :class => "btn waves-effect waves-light left" %>
         <% end %>
-        </div>
+      </div>
+    </div>
 
     <div class="profile right">
       <%= form_for(@food, :url => {:action => :editinfo, :controller => :food}) do |f| %>

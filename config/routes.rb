@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   get "food/:id/edit" => "food#edit"
   get "food/:id/editinfo" => "food#editinfo"
   patch "food/:id/editinfo" => "food#editinfo"
+  patch "food/:id/update" => "food#update"
 
   post "food/:id/update" => "food#update"
   post "food/:id/destroy" => "food#destroy"

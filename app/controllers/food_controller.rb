@@ -115,7 +115,7 @@ class FoodController < ApplicationController
   def update
     @user = User.find_by(id: session[:user_id])
     @food = Food.find_by(id: params[:id])
-    @food.yetamount = @food.yetamount - params[:used].to_i
+    @food.yetamount = @food.yetamount - params[:food][:yetamount].to_i
     if @food.yetamount <= 0
       @food.destroy
       flash[:notice] = "食べ物を使いきりました！"
@@ -127,6 +127,7 @@ class FoodController < ApplicationController
       redirect_to("/food/index")
     end
   end
+
 
   #登録された食べ物の情報の変更（残り量以外）
   def updateinfo
