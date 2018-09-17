@@ -9,7 +9,7 @@
       <% @modes.each do |mode| %>
         <tr>
           <td><p><%= mode.detail %></p></td>
-          <td><%= link_to("sort/#{mode.id}/show") do %>
+          <td><%= link_to("/sort/#{mode.id}/show") do %>
               <div class="btn waves-effect waves-light">
                 <%= mode.detail %>で検索
               </div>
