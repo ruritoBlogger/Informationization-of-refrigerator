@@ -1,16 +1,27 @@
-<h3>設定変更</h3>
+<div class="main">
+  <div class="row">
 
-<p>プロフィールの変更</p>
-<%= form_tag("/main/edit",{method: :get}) do %>
-  <input type="submit" value="変更">
-<% end %>
+    <h3 class="main-title">設定変更</h3>
 
-<p>個人情報の更新</p>
-<%= form_tag("/main/editpw",{method: :get}) do %>
-  <input type="submit" value="変更">
-<% end %>
+    <div class="left link">
+      <p>プロフィールの変更</p>
+      <%= form_tag("/main/edit", {method: :get}) do %>
+        <input type="submit" value="変更" class="btn waves-effect waves-light">
+      <% end %>
+    </div>
 
-<p>ログイン中のアカウントの退会</p>
-<%= form_tag("/user/destroy",{method: :post}) do %>
-  <input type="submit" value="退会" >
-<% end %>
+    <div class="left link">
+      <p>個人情報の更新</p>
+      <%= form_tag("/main/editpw", {method: :get}) do %>
+        <input type="submit" value="変更" class="btn waves-effect waves-light">
+      <% end %>
+    </div>
+
+    <div class="left link">
+      <p>ログイン中のアカウントの退会</p>
+      <%= form_tag("/user/destroy", {method: :post}) do %>
+        <input type="submit" value="退会" class="btn waves-effect waves-light">
+      <% end %>
+    </div>
+  </div>
+</div>
