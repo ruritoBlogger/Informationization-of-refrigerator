@@ -124,22 +124,24 @@ body {
   .row {
     width: 95%;
 
-    th,td{
-      text-align: center;
-    }
-    td{
-      font-size: 30px;
+    .ranking {
+      th, td {
+        text-align: center;
+      }
+      td {
+        font-size: 30px;
+      }
     }
 
-    .password{
+    .password {
       width: 40%;
-      margin:0 auto;
+      margin: 0 auto;
       text-align: center;
     }
 
-    .link{
-      margin-right:10%;
-      margin-left:10%;
+    .link {
+      margin-right: 10%;
+      margin-left: 10%;
     }
 
     .box {
@@ -152,7 +154,7 @@ body {
       float: right;
       height: 150px;
       img {
-        height:150px;
+        height: 150px;
       }
     }
 

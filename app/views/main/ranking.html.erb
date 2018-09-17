@@ -1,26 +1,28 @@
 <div class="main">
   <div class="row">
-    <h4 class="main-title">ランキングページ</h4>
-    <table>
-      <tr style="text-align: center">
-        <th>順位</th>
-        <th>ユーザー名</th>
-        <th>画像</th>
-        <th>レベル</th>
-        <th>経験値</th>
-      </tr>
-      <!-- レベルの高い順にソートする-->
-      <% ranking = 1 %>
-      <% @users.each do |user| %>
-        <tr>
-          <td><%= ranking %></td>
-          <td><%= user.user_name %></td>
-          <td><img src='<%= "/user_images/#{user.image_name}" %>'></td>
-          <td><%= user.level %></td>
-          <td><%= user.exp %></td>
+    <div class="ranking">
+      <h4 class="main-title">ランキングページ</h4>
+      <table>
+        <tr style="text-align: center">
+          <th>順位</th>
+          <th>ユーザー名</th>
+          <th>画像</th>
+          <th>レベル</th>
+          <th>経験値</th>
         </tr>
-        <% ranking += 1 %>
-      <% end %>
-    </table>
+        <!-- レベルの高い順にソートする-->
+        <% ranking = 1 %>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= ranking %></td>
+            <td><%= user.user_name %></td>
+            <td><img src='<%= "/user_images/#{user.image_name}" %>'></td>
+            <td><%= user.level %></td>
+            <td><%= user.exp %></td>
+          </tr>
+          <% ranking += 1 %>
+        <% end %>
+      </table>
+    </div>
   </div>
 </div>
