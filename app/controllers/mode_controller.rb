@@ -6,8 +6,9 @@ class ModeController < ApplicationController
     @mode = Mode.new(create_mode_params)
     @mode.user_id = session[:user_id]
     @mode.save
+    session[:mode_id] = @mode.id
     flash[:notice] = "新しい食品の種類を登録しました"
-    redirect_to("/food/main")
+    redirect_to("/mode/editmode2")
   end
 
   def create_mode_params
@@ -42,6 +43,17 @@ class ModeController < ApplicationController
   def conect
     @conect_food_to_mode = ConectFoodToMode.new
     @modes = Mode.where(user_id: session[:user_id])
+  end
+
+  def editmode2
+    @mode = session[:mode_id]
+    @foods = Food.where(user_id: session[:user_id])
+    @conect_food_to_mode = ConectFoodToMode.new
+    @test = ["追加する",1],["追加しない",0]
+  end
+
+  def createmode2
+
   end
 
   #種類の削除

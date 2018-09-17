@@ -1,0 +1,25 @@
+<%= form_for(@conect_food_to_mode, :url => {:action => :createmode2, :controller => :mode}) do |f| %>
+  <table>
+    <tr>
+      <th>食品の名前</th>
+      <th>画像</th>
+      <th>期限</th>
+      <th>選択</th>
+    </tr>
+    <tr>
+      <% @foods.each do |food| %>
+        <td><%= food.name %></td>
+        <td>
+          <% if food.image_name == "https://uds.gnst.jp/rest/img/1ew287ve0000/s_006z.jpg?t=1506082927" %>
+            <img class="responsive-img" src="https://uds.gnst.jp/rest/img/1ew287ve0000/s_006z.jpg?t=1506082927" style="width: 100%">
+          <% else %>
+            <img src='<%= "/food#{session[:user_id]}_images/#{food.image_name}" %>'>
+          <% end %></td>
+
+        <td><%= food.limitday %></td>
+        <td><%= f.select( :mode_id, :food_id, @test,{},  {:multiple => true ,:name => 'mode_id[food_id][]'}) %></td>
+      <% end %>
+
+    </tr>
+  </table>
+<% end %>
