@@ -2,40 +2,40 @@
   <div class="row color" style="height:250px;">
     <h3 style="text-align: center"><%= @food.name %></h3>
     <div class="box">
-    <div class="right-block">
-      <% if @food.image_name == "https://uds.gnst.jp/rest/img/1ew287ve0000/s_006z.jpg?t=1506082927" %>
-        <img src="https://uds.gnst.jp/rest/img/1ew287ve0000/s_006z.jpg?t=1506082927">
-      <% else %>
-        <img src='<%= "/food#{session[:user_id]}_images/#{@food.image_name}" %>'>
-      <% end %>
-    </div>
-    <div class="left-block">
-      <p>期限</p>
-      <p>
-        <% if @food.limittype %>
-          賞味期限
+      <div class="right-block">
+        <% if @food.image_name == "https://uds.gnst.jp/rest/img/1ew287ve0000/s_006z.jpg?t=1506082927" %>
+          <img src="https://uds.gnst.jp/rest/img/1ew287ve0000/s_006z.jpg?t=1506082927">
         <% else %>
-          消費期限
-        <% end %></p>
-      <p>
-        <% if @food.foodtype %>
-          加工食品
-        <% else %>
-          生鮮食品
-        <% end %></p>
-      <p>総量：<%= @food.amount %><%= @food.amounttype %></p>
-      <p>残り量：<%= @food.yetamount %>％</p>
-      <p>種類：<%= @mode.detail %></p>
-      <%= form_tag("/food/#{@food.id}/edit", {method: :get}) do %>
-        <input type="submit" value="更新" class="btn waves-effect waves-light">
-      <% end %><br>
-    </div>
+          <img src='<%= "/food#{session[:user_id]}_images/#{@food.image_name}" %>'>
+        <% end %>
+      </div>
+      <div class="left-block">
+        <p>期限</p>
+        <p>
+          <% if @food.limittype %>
+            賞味期限
+          <% else %>
+            消費期限
+          <% end %></p>
+        <p>
+          <% if @food.foodtype %>
+            加工食品
+          <% else %>
+            生鮮食品
+          <% end %></p>
+        <p>総量：<%= @food.amount %><%= @food.amounttype %></p>
+        <p>残り量：<%= @food.yetamount %>％</p>
+        <p>種類：<%= @mode.detail %></p>
+        <%= form_tag("/food/#{@food.id}/edit", {method: :get}) do %>
+          <input type="submit" value="更新" class="btn waves-effect waves-light">
+        <% end %><br>
+      </div>
     </div>
   </div>
-<div style="text-align: center">
-<%= form_tag("/food/#{@food.id}/destroy", {method: :post}) do %>
-  <p style="padding-left: 45%"><%= @food.name %>の情報を削除</p>
-  <input type="submit" value="削除" class="btn waves-effect waves-light">
-<% end %>
-</div>
+  <div style="text-align: center">
+    <%= form_tag("/food/#{@food.id}/destroy", {method: :post}) do %>
+      <p style="padding-left: 45%"><%= @food.name %>の情報を削除</p>
+      <input type="submit" value="削除" class="btn waves-effect waves-light">
+    <% end %>
+  </div>
 </div>

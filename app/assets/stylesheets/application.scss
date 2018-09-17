@@ -18,18 +18,20 @@ h3 {
   parring:0px;
 }
 
-.user_data, .flash {
+.user_data,{
   z-index: 10;
   margin-left:60px;
 }
 
 .succsess {
+  width: 100%;
   @extend .green, .accent-3;
   background-color: #00e676 green accent-3;
   text-align: center;
 }
 
 .failed {
+  width: 100%;
   @extend .red, .lighten-1;
   background-color: #ef5350 red lighten-1;
   text-align: center;
