@@ -49,7 +49,7 @@ class ModeController < ApplicationController
     @mode = session[:mode_id]
     @foods = Food.where(user_id: session[:user_id])
     @conect_food_to_mode = ConectFoodToMode.new
-    @test = [["追加する", 1], ["追加しない", 0]]
+    @test = [["追加する", 1]]
   end
 
   def createmode2
