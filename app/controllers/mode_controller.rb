@@ -6,8 +6,8 @@ class ModeController < ApplicationController
     @mode = Mode.new(create_mode_params)
     @mode.user_id = session[:user_id]
     @mode.save
-    session[:mode_id] = @mode.id
-    redirect_to("/mode/editmode2")
+    flash[:notice] = "新しい食品の種類を登録しました"
+    redirect_to("/food/main")
   end
 
   def create_mode_params
@@ -16,46 +16,9 @@ class ModeController < ApplicationController
     )
   end
 
-  #作成したモードと食品をつなぐ
-  def createmode2
-    @conect_mode = ConectFoodToMode.new(create_conect_mode_params)
-    logger.debug("11111111111111111111111111111111111111111111111111111111111111111111")
-    logger.debug("params:#{create_conect_mode_params}")
-    @conect_mode.user_id = session[:user_id]
-    @conect_mode.mode_id = session[:mode_id]
-    session[:mode_id] = nil
-    if @conect_mode.save
-      flash[:notice] = "種類の登録に成功しました"
-      redirect_to("/food/main")
-    else
-      flash[:notice_fail] = "種類の登録に失敗しました"
-      redirect_to("/food/editmode")
-    end
-  end
-
   #食品の種類の一覧を表示するモード
   def editmode
     @mode = Mode.new
-  end
-
-  #食品と新規作成したモードを接続するページ
-  def editmode2
-    @conect_mode = ConectFoodToMode.new
-    @foods = Food.where(user_id: session[:user_id])
-    @test = ["追加する",1],["追加しない",0]
-    @current_food = []
-
-    n = 1
-    @foods.each do |food|
-      @current_food << [n, n]
-      n += 1
-    end
-  end
-
-  def create_conect_mode_params
-    params.require(:conect_food_to_mode).permit(
-        :food_id
-    )
   end
 
 end
