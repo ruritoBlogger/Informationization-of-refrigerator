@@ -60,7 +60,7 @@ body {
   margin: 0 auto;
   background-color: #81d4fa light-blue lighten-3;
 
-  #index, #oldFood {
+  #index, table {
     border-color: black;
     border-collapse: collapse;
     border-color: black;
@@ -85,7 +85,7 @@ body {
       }
     }
   }
-  #oldFood {
+  table {
     th {
       padding: 0.5em;
       width: 17%;
