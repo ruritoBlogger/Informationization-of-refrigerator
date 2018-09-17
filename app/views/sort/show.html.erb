@@ -1,22 +1,6 @@
+<p>検索結果</p>
 <div class="main">
   <div class="row color">
-    <h3>食品の詳細検索ページ</h3>
-    <table>
-      <tr>
-        <th><p>種類</p></th>
-        <th><p>検索</p></th>
-      </tr>
-      <% @modes.each do |mode| %>
-        <tr>
-          <td><p><%= mode.detail %></p></td>
-          <td><%= link_to("sort/#{mode.id}/show") do %>
-              <div class="btn waves-effect waves-light">
-                <%= mode.detail %>で検索
-              </div>
-            <% end %></td>
-        </tr>
-      <% end %>
-    </table>
     <h4>検索結果一覧</h4>
     <table>
       <tr class="index">

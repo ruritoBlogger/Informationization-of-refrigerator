@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   get "sort/main" => "sort#main"
 
+  get "sort/:mode_id/show" => "sort#show"
+
   get "mode/editmode" => "mode#editmode"
   get "mode/conect" => "mode#conect"
   get "mode/editmode2" => "mode#editmode2"
