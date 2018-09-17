@@ -6,6 +6,7 @@
       <tr>
         <th>名前</th>
         <th>画像</th>
+        <th>種類</th>
         <th>期限</th>
         <th>総量</th>
         <th>残り量</th>
@@ -17,15 +18,19 @@
           <td><%= food.name %></td>
           <td>
             <% if food.image_name == "https://uds.gnst.jp/rest/img/1ew287ve0000/s_006z.jpg?t=1506082927" %>
-              <img src="https://uds.gnst.jp/rest/img/1ew287ve0000/s_006z.jpg?t=1506082927" style="width:15%;">
+              <img src="https://uds.gnst.jp/rest/img/1ew287ve0000/s_006z.jpg?t=1506082927">
             <% else %>
-              <img src='<%= "/food#{session[:user_id]}_images/#{food.image_name}" %>' style="width:15%;">
+              <img src='<%= "/food#{session[:user_id]}_images/#{food.image_name}" %>'>
             <% end %></td>
+          <% conect_food_to_mode = ConectFoodToMode.find_by(user_id: session[:user_id],
+                                                            food_id: food.id)
+             @mode = Mode.find_by(id: conect_food_to_mode.mode_id) %>
+          <td><%= @mode.detail %></td>
           <td><%= food.limitday %></td>
           <td><%= food.amount %><%= food.amounttype %></td>
           <td><%= food.yetamount %></td>
           <td><%= link_to("/food/#{food.id}/show") do %>
-              詳細
+              <i class="material-icons">search</i>
             <% end %></td>
         </tr>
       <% end %>
@@ -40,6 +45,7 @@
       <tr>
         <th>名前</th>
         <th>画像</th>
+        <th>種類</th>
         <th>期限</th>
         <th>総量</th>
         <th>残り量</th>
@@ -51,14 +57,20 @@
           <td><%= food.name %></td>
           <td>
             <% if food.image_name == "https://uds.gnst.jp/rest/img/1ew287ve0000/s_006z.jpg?t=1506082927" %>
-              <img src="https://uds.gnst.jp/rest/img/1ew287ve0000/s_006z.jpg?t=1506082927" style="width:15%;">
+              <img src="https://uds.gnst.jp/rest/img/1ew287ve0000/s_006z.jpg?t=1506082927">
             <% else %>
-              <img src='<%= "/food#{session[:user_id]}_images/#{food.image_name}" %>' style="width:15%;">
+              <img src='<%= "/food#{session[:user_id]}_images/#{food.image_name}" %>'>
             <% end %></td>
+          <% conect_food_to_mode = ConectFoodToMode.find_by(user_id: session[:user_id],
+                                                            food_id: food.id)
+             @mode = Mode.find_by(id: conect_food_to_mode.mode_id) %>
+          <th><%= @mode.detail %></th>
           <td><%= food.limitday %></td>
           <td><%= food.amount %><%= food.amounttype %></td>
           <td><%= food.yetamount %></td>
-          <td><%= link_to("詳細", "/food/#{food.id}/show") %></td>
+          <td><%= link_to("/food/#{food.id}/show") do %>
+              <i class="material-icons">search</i>
+            <% end %></td>
         </tr>
       <% end %>
     </table>

@@ -14,25 +14,27 @@ class FoodController < ApplicationController
   def index
     @foods = Food.where(user_id: session[:user_id]).order(:limitday)
     @food = Food.new
+
   end
 
   #メインページ
   def main
     @oldfoods = Food.where(user_id: session[:user_id],
-                           limittype: true,
+                           limittype: "賞味期限",
                            limitday: @today..@today + 30).order(:limitday)
 
     @Fleshfoods = Food.where(user_id: session[:user_id],
-                             limittype: false).order(:limitday)
+                             limittype: "消費期限").order(:limitday)
 
     @modes = Mode.where(user_id: session[:user_id])
+
   end
 
   #食べ物の詳細ページ
   def show
     @food = Food.find_by(id: params[:id])
     conect_food_to_mode = ConectFoodToMode.find_by(user_id: session[:user_id],
-                                                    food_id: @food.id)
+                                                   food_id: @food.id)
     @mode = Mode.find_by(id: conect_food_to_mode.mode_id)
   end
 
