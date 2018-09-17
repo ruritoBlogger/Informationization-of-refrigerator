@@ -1,0 +1,2 @@
+class SortController < ApplicationController
+end
