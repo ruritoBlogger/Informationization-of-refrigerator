@@ -1,6 +1,37 @@
 <div class="all">
-  <div class="head">
+  <div class="head teal-text darken-1">
     <h3 class="teal-text darken-2" style="margin:0px">冷蔵情報庫</h3>
+    <div class="main-block">
+      <h6>冷蔵庫とモバイル機器を繋ぐ新しいWebアプリ</h6>
+      <% if session[:user_id] == nil %>
+        <p>登録されていない方はこちら</p>
+        <%= link_to("/home/new") do %>
+          <div class="btn waves-effect waves-light">
+            新規登録
+          </div>
+        <% end %>
+        <p>すでに登録をされているはこちら</p>
+        <%= link_to("/home/login") do %>
+          <div class="btn waves-effect waves-light">
+            ログイン
+          </div>
+        <% end %>
+      <% else %>
+        <p>食材一覧ページはこちら</p>
+        <%= link_to("/food/index") do %>
+          <div class="btn waves-effect waves-light">
+            食材一覧
+          </div>
+        <% end %>
+        <p>詳細な検索を行うならこちら</p>
+        <%= link_to("/sort/main") do %>
+          <div class="btn waves-effect waves-light">
+            詳細な検索
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
   </div>
 
   <div class="main">
@@ -27,7 +58,7 @@
           <a class="image activator"><img class="activator" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7ydaHy1QLw_MtcWBQF2jJcJFcupcUZRrX1OuwAXeqqwz77jQPRA"></a>
         </div>
         <div class="card-content">
-    <span class="card-title activator grey-text text-darken-3">出来ること</span>
+          <span class="card-title activator grey-text text-darken-3">出来ること</span>
         </div>
         <div class="card-reveal">
           <span class="card-title grey-text text-darken-4">出来ること<i class="material-icons right">close</i></span>
