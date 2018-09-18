@@ -21,9 +21,6 @@ class UserController < ApplicationController
       mode = Mode.new(user_id: @user.id,
                       detail: "お魚")
       mode.save
-      mode = Mode.new(user_id: @user.id,
-                      detail: "お野菜")
-      mode.save
 
       flash[:notice] = "新規登録に成功しました"
       redirect_to("/food/main")

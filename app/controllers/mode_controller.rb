@@ -66,18 +66,20 @@ class ModeController < ApplicationController
   #新規登録した種類と食品を関連付ける
   def createmode2
     foods = params[:food_id]
-    foods.each do |f|
-      if f == nil || f == ""
-      else
-        food = Food.find_by(id: f.to_i)
-        logger.debug("-------------------------------------------")
-        logger.debug("data:#{f}")
-        logger.debug("food:#{food}")
-        logger.debug("params:#{params}")
-        @conect_food_to_mode = ConectFoodToMode.new(user_id: session[:user_id],
-                                                    mode_id: session[:mode_id],
-                                                    food_id: food.id)
-        @conect_food_to_mode.save
+    if foods
+      foods.each do |f|
+        if f == nil || f == ""
+        else
+          food = Food.find_by(id: f.to_i)
+          logger.debug("-------------------------------------------")
+          logger.debug("data:#{f}")
+          logger.debug("food:#{food}")
+          logger.debug("params:#{params}")
+          @conect_food_to_mode = ConectFoodToMode.new(user_id: session[:user_id],
+                                                      mode_id: session[:mode_id],
+                                                      food_id: food.id)
+          @conect_food_to_mode.save
+        end
       end
     end
     flash[:notice] = "登録しました"
