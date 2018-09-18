@@ -1,7 +1,6 @@
-
 <div class="row">
-  <h4 class="teal-text darken-2">login</h4>
-<%= form_for(@user, :url => {:action => :login, :controller => :user}) do |f| %>
+  <h4 class="teal-text darken-2" style="margin-left: 2%;">ログイン</h4>
+  <%= form_for(@user, :url => {:action => :login, :controller => :user}) do |f| %>
     <div class="col s12">
       <div class="input-field col s6">
         <i class="material-icons prefix">account_circle</i>
@@ -13,19 +12,9 @@
         <%= f.label :パスワード %>
         <%= f.password_field :password %>
       </div>
-      <%= f.submit :class => "btn waves-effect waves-light left login", :value => "ログイン" %>
-<% end %>
-
-
-
-
-
-<!-- デバック -->
-<% @users.each do |user| %>
-  <p>名前</p>
-  <%= user.user_name %>
-  <p>パスワード</p>
-  <%= user.password %>
-  <p>画像</p>
-  <img src="<%= "/user_images/#{user.image_name}" %>" style="width:10%;">
-<% end %>
+      <div style="margin: 7% 0%  0% 47%;">
+        <%= f.submit :class => "btn waves-effect waves-light left login", :value => "ログイン" %>
+      </div>
+  <% end %>
+  </div>
+</div>
