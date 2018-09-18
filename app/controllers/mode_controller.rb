@@ -68,12 +68,12 @@ class ModeController < ApplicationController
     foods = params[:food_id]
     if foods
       foods.each do |f|
-        if f == nil || f == ""
+        if f == nil || f == "" || f == " "
         else
           food = Food.find_by(id: f.to_i)
           logger.debug("-------------------------------------------")
           logger.debug("data:#{f}")
-          logger.debug("food:#{food}")
+          logger.debug("food:#{foods}")
           logger.debug("params:#{params}")
           @conect_food_to_mode = ConectFoodToMode.new(user_id: session[:user_id],
                                                       mode_id: session[:mode_id],

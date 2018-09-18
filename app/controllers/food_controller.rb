@@ -156,6 +156,12 @@ class FoodController < ApplicationController
   #食べ物の情報を削除
   def destroy
     @food = Food.find_by(id: params[:id])
+    @conects = ConectFoodToMode.where(user_id: session[:user_id],
+                                     food_id: @food.id)
+    @conects.each do |conect|
+      conect.destroy
+    end
+
     @food.destroy
     flash[:notice] = "食べ物の情報を削除しました"
     redirect_to("/food/index")
