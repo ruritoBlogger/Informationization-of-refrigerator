@@ -97,8 +97,8 @@ body {
     border-color: black;
   }
   #index {
-    @extend .light-blue, .lighten-5;
-    background-color: #81d4fa light-blue lighten-5;
+    @extend .light-blue, .lighten-4;
+    background-color: #81d4fa light-blue lighten-4;
 
     th {
       padding: 0.5em;
@@ -111,6 +111,7 @@ body {
       padding: 0.5em;
       width: 13%;
       border: solid 1px;
+      font-size:20px;
       img {
         width: 100%;
       }
