@@ -1,32 +1,29 @@
 <%= form_for(@conect_food_to_mode, :url => {:action => :createmode2, :controller => :mode}) do |f| %>
   <div clsas="main">
-    <div class="row color">
-      <table>
+    <table>
+      <tr>
+        <th>食品の名前</th>
+        <th>画像</th>
+        <th>期限</th>
+        <th>選択</th>
+      </tr>
+      <% @foods.each do |food| %>
         <tr>
-          <th>食品の名前</th>
-          <th>画像</th>
-          <th>期限</th>
-          <th>選択</th>
-        </tr>
-        <tr>
-          <% @foods.each do |food| %>
-            <td><%= food.name %></td>
-            <td>
-              <% if food.image_name == "https://uds.gnst.jp/rest/img/1ew287ve0000/s_006z.jpg?t=1506082927" %>
-                <img class="responsive-img" src="https://uds.gnst.jp/rest/img/1ew287ve0000/s_006z.jpg?t=1506082927">
-              <% else %>
-                <img src='<%= "/food#{session[:user_id]}_images/#{food.image_name}" %>' style="width: 20%">
-              <% end %></td>
+          <td><%= food.name %></td>
+          <td>
+            <% if food.image_name == "https://uds.gnst.jp/rest/img/1ew287ve0000/s_006z.jpg?t=1506082927" %>
+              <img class="responsive-img" src="https://uds.gnst.jp/rest/img/1ew287ve0000/s_006z.jpg?t=1506082927">
+            <% else %>
+              <img src='<%= "/food#{session[:user_id]}_images/#{food.image_name}" %>' style="width: 20%">
+            <% end %></td>
 
-            <td><%= food.limitday %></td>
-            <% @test = [["追加しない",0],["追加する","#{food.id}"]] %>
-            <td><%= f.label :選択してください %>
-              <%= f.select(:food_id, @test, {}, {:multiple => true, :name => 'food_id[]'}) %></td>
-          <% end %>
-
+          <td><%= food.limitday %></td>
+          <% @test = [["追加しない", 0], ["追加する", "#{food.id}"]] %>
+          <td><%= f.label :選択してください %>
+            <%= f.select(:food_id, @test, {}, {:multiple => true, :name => 'food_id[]'}) %></td>
         </tr>
-      </table>
-      <%= f.submit :value => "追加", :class => "btn waves-effect waves-light" %>
-    </div>
+      <% end %>
+    </table>
+    <%= f.submit :value => "追加", :class => "btn waves-effect waves-light", :style => "margin-left:45%;" %>
   </div>
 <% end %>
