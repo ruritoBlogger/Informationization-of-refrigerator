@@ -77,8 +77,6 @@ body {
     p ,div{
       margin-bottom: 10px;
     }
-    p, h6{
-    }
   }
 }
 
@@ -151,6 +149,12 @@ body {
 
   .row {
     width: 95%;
+
+    .top-box{
+      width: 80%;
+      height:500px;
+      margin:0 auto;
+    }
 
     .ranking {
       th, td {
