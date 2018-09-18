@@ -36,11 +36,9 @@
   <div class="nav-wrapper">
     <!-- headerの左側 -->
     <div class="header_left">
-      <div class="header_link">
-        <%= link_to("/home/top") do %>
-          <div class="brand-logo">
-            冷蔵情報庫
-          </div>
+      <div class="header_link brand-logo">
+        <%= form_for(@food, :url => {:action => :top, :controller => :home}, :method => "get") do |f| %>
+          <%= f.submit :value => "冷蔵情報庫", :class => "btn" %>
         <% end %>
       </div>
     </div>
@@ -52,14 +50,14 @@
       <ul id="nav-mobile" class="header_right right hide-on-med-and-down">
         <li class="header_link">
           <%= link_to("/home/new") do %>
-            <div class="header_new">
+            <div class="header_new btn">
               新規登録
             </div>
           <% end %>
         </li>
         <li class="header_link">
           <%= link_to("/home/login") do %>
-            <div class="header_login">
+            <div class="header_login btn">
               ログイン
             </div>
           <% end %>
@@ -76,8 +74,8 @@
           <% end %>
         </li>
         <li class="header_link">
-          <%= form_for(@food, :url => {:action => :new, :controller => :food}, :method => "get" ) do |f| %>
-              <%= f.submit :value => "食品登録", :class => "btn" %>
+          <%= form_for(@food, :url => {:action => :new, :controller => :food}, :method => "get") do |f| %>
+            <%= f.submit :value => "食品登録", :class => "btn" %>
           <% end %>
         </li>
         <li class="header_link">
