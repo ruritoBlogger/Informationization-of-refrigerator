@@ -41,9 +41,9 @@ Rails.application.routes.draw do
   get "main/editpw" => "main#editpw"
   get "main/ranking" => "main#ranking"
 
-  root get "home/top" => "home#top"
-  get "home/new" => "home#new"
-  get "home/login" => "home#login"
+  get "/" => "home#top"
+  get "new" => "home#new"
+  get "login" => "home#login"
 
   patch "user/update" => "user#update"
 
