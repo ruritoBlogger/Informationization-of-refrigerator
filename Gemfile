@@ -71,6 +71,7 @@ gem 'dotenv-rails'
 #add bcrypt to lock password
 gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt'
 #add materialize
-gem 'materialize-sass'
+gem 'materialize-sass', '~> 1.0.0'
 gem 'simple_form'
 gem 'materialize-form'
+
