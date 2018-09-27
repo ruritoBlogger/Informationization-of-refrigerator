@@ -42,8 +42,8 @@ Rails.application.routes.draw do
   get "main/ranking" => "main#ranking"
 
   get "/" => "home#top"
-  get "new" => "home#new"
-  get "login" => "home#login"
+  get "home/new" => "home#new"
+  get "home/login" => "home#login"
 
   patch "user/update" => "user#update"
 
