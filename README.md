@@ -17,3 +17,5 @@ to be more useful refrigerator
 3:$ rails db:migrate
 4:public/にuser_imagesというディレクトリを生成する
 5:user_imagesにdefault.jpgという名前の画像を用意する
+
+sassはGemで管理しているため環境構築などは不要です.
