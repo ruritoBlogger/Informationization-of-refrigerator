@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+
+	root 'home#top'
+
   get "sort/main" => "sort#main"
 
   get "sort/:mode_id/show" => "sort#show"
