@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
 
 
-	root 'home#top'
-
   get "sort/main" => "sort#main"
 
   get "sort/:mode_id/show" => "sort#show"
@@ -43,7 +41,7 @@ Rails.application.routes.draw do
   get "main/editpw" => "main#editpw"
   get "main/ranking" => "main#ranking"
 
-  get "home/top" => "home#top"
+  root get "home/top" => "home#top"
   get "home/new" => "home#new"
   get "home/login" => "home#login"
 
