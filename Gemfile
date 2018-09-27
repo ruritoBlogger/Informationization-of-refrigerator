@@ -74,5 +74,5 @@ gem 'materialize-sass', '~> 1.0.0'
 gem 'simple_form'
 gem 'materialize-form'
 group :production do
-    gem 'pg'
+  gem 'pg', '0.20.0'
 end
