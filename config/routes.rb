@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
 
+  get 'test/new'
+  post 'test/create'
+
   get "sort/main" => "sort#main"
 
   get "sort/:mode_id/show" => "sort#show"

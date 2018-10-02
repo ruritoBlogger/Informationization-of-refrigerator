@@ -6,4 +6,7 @@ class User < ApplicationRecord
   validates :user_name, {presence: true}
   validates :password_digest, {presence: true}
 
+  #test about form_for method
+  has_one :author
+
 end

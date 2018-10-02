@@ -1,0 +1,22 @@
+<%= form_for(@user, url: {action: :create, controller: :test}) do |f| %>
+  <div class="field">
+    <!-- ユーザーネームの入力 -->
+    <%= f.label :user_name, 'ユーザーネーム：' %>
+    <%= f.text_field :user_name %>
+    <!-- パスワードの入力-->
+    <%= f.label :password_digest, 'パスワード:' %>
+    <%= f.password_field :password_digest %>
+  </div>
+
+  <!-- ここから別モデルの編集-->
+  <%= field_set_tag '著者の情報' do %>
+    <%= fields_for @user.author do |author_f| %>
+      <duv class="field">
+        <!-- 著者名の入力 -->
+        <%= author_f.label :name, '著者名:' %>
+        <%= author_f.text_field :name %>
+      </duv>
+    <% end %>
+  <% end %>
+  <%= f.submit '新規登録' %>
+<% end %>
