@@ -81,9 +81,9 @@ body {
 
 .main {
   width: 90%;
-  @extend .light-blue, .lighten-2;
+  @extend .light-blue, .lighten-4;
   margin: 0 auto;
-  background-color: #81d4fa light-blue lighten-2;
+  background-color: #81d4fa light-blue lighten-4;
 
   .color {
     @extend .light-blue, .lighten-5;
